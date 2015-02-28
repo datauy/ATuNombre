@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="http://openlayers.org/en/v3.2.1/css/ol.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.12/themes/css/cartodb.css" />
+    <script src="http://openlayers.org/en/v3.2.1/build/ol.js" type="text/javascript"></script>
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.12/cartodb.js"></script>
+    <title>A tu nombre</title>
+  </head>
+  <body>
+    <div id="map" class="map"></div>
+    <script type="text/javascript">
+      window.onload = function() {
+        cartodb.createVis('map', 'http://daniloespino.cartodb.com/api/v2/viz/51182c72-bf7a-11e4-8f55-0e853d047bba/viz.json');
+      }
+    </script>
+  </body>
+</html>
+
+
