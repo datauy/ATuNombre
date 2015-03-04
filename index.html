@@ -1,21 +1,75 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <link rel="stylesheet" href="http://openlayers.org/en/v3.2.1/css/ol.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css"/>
-    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.12/themes/css/cartodb.css" />
-    <script src="http://openlayers.org/en/v3.2.1/build/ol.js" type="text/javascript"></script>
-    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.12/cartodb.js"></script>
-    <title>A tu nombre</title>
-  </head>
-  <body>
-    <div id="map" class="map"></div>
-    <script type="text/javascript">
-      window.onload = function() {
-        cartodb.createVis('map', 'http://daniloespino.cartodb.com/api/v2/viz/51182c72-bf7a-11e4-8f55-0e853d047bba/viz.json');
-      }
-    </script>
-  </body>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>A tu nombre</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="favicon.ico">
+<link href="css/AtuNombre.css" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.12/themes/css/cartodb.css" />
+<script src="http://openlayers.org/en/v3.2.1/build/ol.js" type="text/javascript"></script>
+<script src="http://libs.cartocdn.com/cartodb.js/v3/3.12/cartodb.js"></script>
+
+
+</head>
+
+<body>
+<header><a href="index.html"><img src="img/logo_a_tu_nombre.png" alt="A tu nombre"></a>
+  <nav>
+  <ul>
+    <li><a href="#">El proyecto</a></li>
+    <li><a href="#">Colaboradores</a></li>
+  </ul>
+</nav></header>
+<div id="Mapa"></div>
+<div id="FraseCantidad">
+  <h1>Montevideo tiene <span class="amarilloChico">más de</span> <span class="amarilloGrande">5000</span> calles, pero <span class="amarilloChico">solo</span> <span class="amarilloGrande">100</span> llevan nombres de mujeres.</h1>
+</div>
+<div id="Texto">
+  <p>Jujubes macaroon bonbon cheesecake gummies croissant cookie. Chocolate cake lollipop candy liquorice pie candy canes tiramisu brownie oat cake. Halvah halvah gingerbread. Sugar plum candy caramels cookie.</p>
+  <p>Croissant apple pie chupa chups carrot cake candy canes muffin halvah cookie sugar plum. Chocolate bar bear claw danish cheesecake. Dragée muffin gummi bears oat cake.</p>
+  <p>Jelly beans jelly beans dessert jelly beans croissant wafer tart carrot cake. Sugar plum brownie chocolate soufflé dessert gingerbread sesame snaps croissant. Pastry cupcake cotton candy cake wafer soufflé jelly gingerbread soufflé.</p>
+</div>
+<div class="Graficas">
+  <h1>Algunos datos interesantes</h1>
+  <div class="Grafica">
+    <h2>¿Cuándo fueron nombradas?</h2>
+  </div>
+  <div class="Grafica">
+    <h2>Rubros con más calles en su honor que mujeres</h2>
+  </div>
+</div>
+<div class="Graficas">
+  <h1>Sobre las verdaderas mujeres de Montevideo</h1>
+  <div class="Grafica">
+    <h2>Porcentaje de la población</h2>
+  </div>
+  <div class="Grafica">
+    <h2>Educación</h2>
+  </div>
+  <div class="Grafica">
+    <h2>Actividad</h2>
+  </div>
+  <div class="Grafica">
+    <h2>Quehaceres del hogar</h2>
+  </div>
+</div>
+<footer>
+  <div class="izq">
+    <img src="img/logo_data.png" alt="DATA">
+ 
+    <p>Pastry liquorice bonbon candy. Jelly candy halvah jelly-o sugar plum sweet roll topping pie. Gingerbread pastry sesame snaps powder marshmallow chocolate bar brownie liquorice soufflé.<br>
+      <a href="http://datauy.org">http://datauy.org</a></p><a href="#"><img src="img/logo_fb.png" width="30" height="30" alt="Facebook DATA"></a><a href="#"><img src="img/logo_tw.png" width="30" height="30" alt="Twitter DATA"></a>
+  </div>
+  <div class="der">
+    <p>Lollipop carrot cake cake danish lemon drops sugar plum cotton candy lemon drops marshmallow. Chocolate cake dessert halvah marzipan. Cake gummies bear claw muffin cotton candy marshmallow. Macaroon chocolate cake marzipan cake marzipan pie icing icing cookie.
+    </p>
+  </div>
+</footer>
+  <script type="text/javascript">
+    window.onload = function() {
+      cartodb.createVis('Mapa', 'http://daniloespino.cartodb.com/api/v2/viz/51182c72-bf7a-11e4-8f55-0e853d047bba/viz.json');
+    }
+  </script>
+</body>
 </html>
-
-
