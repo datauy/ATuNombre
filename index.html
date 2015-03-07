@@ -24,6 +24,10 @@
   </ul>
 </nav></header>
 <div id="Mapa"></div>
+<div id="share-buttons" style="margin: 30px auto; max-width: 940px">
+  <div class="fb-share-button" data-href="http://atunombre.uy" data-layout="button_count"></div>
+  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://atunombre.uy" data-text="Solo 100 de más de 5.000 calles de Montevideo llevan nombres de mujeres." data-via="DATAuy" data-related="DATAuy" data-hashtags="DIM2015">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</div>
 <div id="FraseCantidad">
   <h1>Montevideo tiene <span class="amarilloChico">más de</span> <span class="amarilloGrande">5000</span> calles, pero <span class="amarilloChico">solo</span> <span class="amarilloGrande">100</span> llevan nombres de mujeres.</h1>
 </div>
@@ -78,7 +82,11 @@
 </footer>
   <script type="text/javascript">
     window.onload = function() {
-      cartodb.createVis('Mapa', 'http://daniloespino.cartodb.com/api/v2/viz/51182c72-bf7a-11e4-8f55-0e853d047bba/viz.json');
+      cartodb.createVis('Mapa', 'http://daniloespino.cartodb.com/api/v2/viz/51182c72-bf7a-11e4-8f55-0e853d047bba/viz.json', 
+        {
+          search: false,
+          shareable: false
+        })
     }
   </script>
 
