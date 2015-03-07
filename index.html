@@ -7,7 +7,6 @@
 <link href="css/AtuNombre.css" rel="stylesheet" type="text/css">
 
 <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.12/themes/css/cartodb.css" />
-<script src="http://openlayers.org/en/v3.2.1/build/ol.js" type="text/javascript"></script>
 <script src="http://libs.cartocdn.com/cartodb.js/v3/3.12/cartodb.js"></script>
 
 <script src="js/Chart.js"></script>
@@ -33,6 +32,7 @@
   <p>Croissant apple pie chupa chups carrot cake candy canes muffin halvah cookie sugar plum. Chocolate bar bear claw danish cheesecake. Dragée muffin gummi bears oat cake.</p>
   <p>Jelly beans jelly beans dessert jelly beans croissant wafer tart carrot cake. Sugar plum brownie chocolate soufflé dessert gingerbread sesame snaps croissant. Pastry cupcake cotton candy cake wafer soufflé jelly gingerbread soufflé.</p>
 </div>
+<!--
 <div class="Graficas">
   <h1>Algunos datos interesantes</h1>
   <div class="Grafica">
@@ -42,6 +42,7 @@
     <h2>Rubros con más calles en su honor que mujeres</h2>
   </div>
 </div>
+-->
 <div class="Graficas">
   <h1>Sobre las verdaderas mujeres de Montevideo</h1>
   <div class="Grafica">
@@ -65,12 +66,15 @@
   <div class="izq">
     <img src="img/logo_data.png" alt="DATA">
  
-    <p>Pastry liquorice bonbon candy. Jelly candy halvah jelly-o sugar plum sweet roll topping pie. Gingerbread pastry sesame snaps powder marshmallow chocolate bar brownie liquorice soufflé.<br>
-      <a href="http://datauy.org">http://datauy.org</a></p><a href="#"><img src="img/logo_fb.png" width="30" height="30" alt="Facebook DATA"></a><a href="#"><img src="img/logo_tw.png" width="30" height="30" alt="Twitter DATA"></a>
+    <h3>Acerca de DATA</h3>
+    <p>Somos una organización de la sociedad civil que trabaja creando herramientas sociales para promover la participación y el debate público a través de la transparencia, datos abiertos y acceso a la información.</p>
+    <a href="https://datauy.org">https://datauy.org</a></p><a href="https://www.facebook.com/DATAUruguay"><img src="img/logo_fb.png" width="30" height="30" alt="Facebook DATA"></a><a href="https://www.twitter.com/DATAUY"><img src="img/logo_tw.png" width="30" height="30" alt="Twitter DATA"></a>
   </div>
   <div class="der">
-    <p>Lollipop carrot cake cake danish lemon drops sugar plum cotton candy lemon drops marshmallow. Chocolate cake dessert halvah marzipan. Cake gummies bear claw muffin cotton candy marshmallow. Macaroon chocolate cake marzipan cake marzipan pie icing icing cookie.
-    </p>
+    <img src="img/logo_datos_abiertos.png" alt="Datos Abiertos">
+    <h3>Datos abiertos</h3>
+    <p>El estado recoge y produce datos para cumplir con su función. Su publicación en formatos abiertos permite que sean reutilizados por el gobierno, sociedad civil, organizaciones, empresas o ciudadanos en general.</p>
+    <a href="https://www.catalogodatos.gub.uy">https://www.catalogodatos.gub.uy</a>
   </div>
 </footer>
   <script type="text/javascript">
@@ -105,17 +109,84 @@
     // Get the context of the canvas element we want to select
     var dataPop = [
     {
-        value: 53.5,
+        value: 4.5,
         color:"#0000FF",
         highlight: "#ADD8E6",
-        label: "Hombre"
+        label: "Menor de 4 años"
     },
     {
-        value: 46.5,
+        value: 2.6,
+        color:"#0000FF",
+        highlight: "#ADD8E6",
+        label: "Preescolar"
+    },
+    {
+        value: 25.4,
+        color:"#0000FF",
+        highlight: "#ADD8E6",
+        label: "Primaria común"
+    },
+    {
+        value: 0.5,
+        color:"#0000FF",
+        highlight: "#ADD8E6",
+        label: "Primaria especial"
+    },
+    {
+        value: 17.3,
+        color:"#0000FF",
+        highlight: "#ADD8E6",
+        label: "Ciclo básico"
+    },
+    {
+        value: 17.4,
+        color:"#0000FF",
+        highlight: "#ADD8E6",
+        label: "Bachillerato"
+    },
+    {
+        value: 4.8,
+        color:"#0000FF",
+        highlight: "#ADD8E6",
+        label: "Enseñanza técnica/Formación profesional UTU"
+    },
+    {
+        value: 3.5,
         color: "#FF0000",
         highlight: "#A52A2A",
-        label: "Mujer"
-    }
+        label: "Magisterio o profesorado"
+    },
+    {
+        value: 2.3,
+        color: "#FF0000",
+        highlight: "#A52A2A",
+        label: "Terciario no universitario"
+    },
+    {
+        value: 16.8,
+        color: "#FF0000",
+        highlight: "#A52A2A",
+        label: "Universidad o similar"
+    },
+    {
+        value: 1.2,
+        color: "#FF0000",
+        highlight: "#A52A2A",
+        label: "Posgrado (Diploma/Maestría/Doctorado)"
+    },
+    {
+        value: 0.7,
+        color: "#FF0000",
+        highlight: "#A52A2A",
+        label: "Nunca asistió"
+    },
+    {
+        value: 2.6,
+        color: "#FF0000",
+        highlight: "#A52A2A",
+        label: "No relevado"
+    },
+
     ];
     var ctx = document.getElementById("graEd").getContext("2d");
     var myNewChart = new Chart(ctx).Pie(dataPop,{
@@ -127,16 +198,46 @@
     // Get the context of the canvas element we want to select
     var dataPop = [
     {
-        value: 53.5,
+        value: 13.7,
         color:"#0000FF",
         highlight: "#ADD8E6",
-        label: "Hombre"
+        label: "Menor de 12 años"
     },
     {
-        value: 46.5,
+        value: 41.1,
         color: "#FF0000",
         highlight: "#A52A2A",
-        label: "Mujer"
+        label: "Ocupadas"
+    },
+    {
+        value: 0.7,
+        color: "#FF0000",
+        highlight: "#A52A2A",
+        label: "Desocupadas que buscan trabajos por primera vez"
+    },
+    {
+        value: 2.9,
+        color: "#FF0000",
+        highlight: "#A52A2A",
+        label: "Desocupadas propiamente dichas"
+    },
+    {
+        value: 17.2,
+        color: "#FF0000",
+        highlight: "#A52A2A",
+        label: "Inactivas, jubiladas o pensionistas"
+    },
+    {
+        value: 18.7,
+        color: "#FF0000",
+        highlight: "#A52A2A",
+        label: "Inactivas, otras causas"
+    },
+    {
+        value: 5.7,
+        color: "#FF0000",
+        highlight: "#A52A2A",
+        label: "No relevado"
     }
     ];
     var ctx = document.getElementById("graAct").getContext("2d");
@@ -149,16 +250,28 @@
     // Get the context of the canvas element we want to select
     var dataPop = [
     {
-        value: 53.5,
+        value: 13.7,
         color:"#0000FF",
         highlight: "#ADD8E6",
-        label: "Hombre"
+        label: "No definido"
     },
     {
-        value: 46.5,
-        color: "#FF0000",
-        highlight: "#A52A2A",
-        label: "Mujer"
+        value: 68.1,
+        color:"#0000FF",
+        highlight: "#ADD8E6",
+        label: "Si"
+    },
+    {
+        value: 12.6,
+        color:"#0000FF",
+        highlight: "#ADD8E6",
+        label: "No"
+    },
+    {
+        value: 5.7,
+        color:"#0000FF",
+        highlight: "#ADD8E6",
+        label: "No relevado"
     }
     ];
     var ctx = document.getElementById("graHog").getContext("2d");
