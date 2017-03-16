@@ -1,0 +1,33 @@
+{
+  "name": "a-tu-nombre",
+  "version": "2.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "git subtree push --prefix dist origin gh-pages",
+    "dev": "npm-run-all --parallel server:dev watch:sass",
+    "server:dev": "http-server dist",
+    "watch:sass": "node-sass src/sass/main.scss dist/css/main.css -w",
+    "build:sass": "node-sass src/sass/main.scss dist/css/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/datauy/a-tu-nombre.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/datauy/a-tu-nombre/issues"
+  },
+  "homepage": "https://github.com/n370/a-tu-nombre#readme",
+  "dependencies": {
+    "bulma": "^0.4.0"
+  },
+  "devDependencies": {
+    "http-server": "^0.9.0",
+    "node-sass": "^4.5.0",
+    "npm-run-all": "^4.0.2"
+  }
+}
