@@ -9,7 +9,9 @@
     "dev": "npm-run-all --parallel server:dev watch:sass",
     "server:dev": "http-server dist",
     "watch:sass": "node-sass src/sass/main.scss dist/css/main.css -w",
-    "build:sass": "node-sass src/sass/main.scss dist/css/main.css"
+    "build:sass": "node-sass src/sass/main.scss dist/css/main.css",
+    "build:html": "cpr src dist -o -f=sass",
+    "build": "npm-run-all build:*"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,7 @@
     "bulma": "^0.4.0"
   },
   "devDependencies": {
+    "cpr": "^2.0.2",
     "http-server": "^0.9.0",
     "node-sass": "^4.5.0",
     "npm-run-all": "^4.0.2"
