@@ -13,6 +13,8 @@
     "build:sass": "node-sass src/sass/ -o dist/css/",
     "watch:html": "onchange \"src/*.html\" -w -- npm run build:html",
     "build:html": "cpr src dist -o -f=sass",
+    "watch:imgs": "onchange \"src/img\" -w -- npm run build:imgs",
+    "build:imgs": "cpr src/img dist/img -d",
     "build": "npm-run-all build:*"
   },
   "repository": {
