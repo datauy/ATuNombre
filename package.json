@@ -7,10 +7,11 @@
     "postinstall": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "git subtree push --prefix dist origin gh-pages",
-    "dev": "npm-run-all --parallel server:dev watch:sass",
+    "dev": "npm-run-all --parallel server:dev watch:*",
     "server:dev": "http-server dist",
     "watch:sass": "node-sass src/sass/main.scss dist/css/main.css -w",
     "build:sass": "node-sass src/sass/main.scss dist/css/main.css",
+    "watch:html": "onchange \"src/*.html\" -w -- npm run build:html",
     "build:html": "cpr src dist -o -f=sass",
     "build": "npm-run-all build:*"
   },
@@ -32,6 +33,7 @@
     "cpr": "^2.0.2",
     "http-server": "^0.9.0",
     "node-sass": "^4.5.0",
-    "npm-run-all": "^4.0.2"
+    "npm-run-all": "^4.0.2",
+    "onchange": "^3.2.1"
   }
 }
