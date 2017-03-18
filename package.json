@@ -9,8 +9,8 @@
     "deploy": "git subtree push --prefix dist origin gh-pages",
     "dev": "npm-run-all --parallel server:dev watch:*",
     "server:dev": "http-server dist",
-    "watch:sass": "node-sass src/sass/main.scss dist/css/main.css -w",
-    "build:sass": "node-sass src/sass/main.scss dist/css/main.css",
+    "watch:sass": "npm run build:sass -- -w",
+    "build:sass": "node-sass src/sass/ -o dist/css/",
     "watch:html": "onchange \"src/*.html\" -w -- npm run build:html",
     "build:html": "cpr src dist -o -f=sass",
     "build": "npm-run-all build:*"
