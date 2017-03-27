@@ -5,17 +5,22 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "git subtree push --prefix dist origin gh-pages",
-    "dev": "npm-run-all --parallel server:dev watch:*",
-    "server:dev": "http-server dist",
-    "watch:sass": "npm run build:sass -- -w",
+    "pretest": "npm run build:test",
+    "test": "tap test/**/*.spec.js",
+    "deploy": "npm-run-all build:* publish",
+    "publish": "git subtree push --prefix dist origin gh-pages",
+    "dev": "npm-run-all --serial test --parallel serve:dev watch:*",
+    "serve:dev": "http-server dist",
+    "build:test": "babel src/js/**/*.js --out-dir test",
+    "watch:test": "onchange \"src/**/*.js\" -w -- npm test",
+    "build:js": "rollup -c",
+    "watch:js": "npm run build:js -- -w",
     "build:sass": "node-sass src/sass/ -o dist/css/",
+    "watch:sass": "npm run build:sass -- -w",
+    "build:html": "cpr src dist -o -f \"sass|js|img\"",
     "watch:html": "onchange \"src/*.html\" -w -- npm run build:html",
-    "build:html": "cpr src dist -o -f=sass",
-    "watch:imgs": "onchange \"src/img\" -w -- npm run build:imgs",
     "build:imgs": "cpr src/img dist/img -d",
-    "build": "npm-run-all build:*"
+    "watch:imgs": "onchange \"src/img\" -w -- npm run build:imgs"
   },
   "repository": {
     "type": "git",
@@ -32,10 +37,16 @@
     "bulma": "^0.4.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-preset-env": "^1.2.2",
     "cpr": "^2.0.2",
     "http-server": "^0.9.0",
+    "jsdom": "^9.12.0",
     "node-sass": "^4.5.0",
     "npm-run-all": "^4.0.2",
-    "onchange": "^3.2.1"
+    "onchange": "^3.2.1",
+    "rollup": "^0.41.6",
+    "rollup-watch": "^3.2.2",
+    "tap": "^10.3.0"
   }
 }
