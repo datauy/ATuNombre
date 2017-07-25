@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm run build",
+    "postinstall": "npm-run-all build:*",
     "pretest": "npm run build:test",
     "test": "tap test/**/*.spec.js",
     "deploy": "npm-run-all build:* publish",
