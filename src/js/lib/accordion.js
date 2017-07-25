@@ -16,7 +16,7 @@ export default class Accordion {
   }
 
   closeItem(item) {
-    let itemBody = item.querySelector('*[data-accordion-item-body]');
+    const itemBody = item.querySelector('*[data-accordion-item-body]');
     if (!item.hasAttribute('closed')) {
       item.setAttribute('closed', true);
       if (item.hasAttribute('open')) {
@@ -29,7 +29,7 @@ export default class Accordion {
   }
 
   openItem(item) {
-    let itemBody = item.querySelector('*[data-accordion-item-body]');
+    const itemBody = item.querySelector('*[data-accordion-item-body]');
     if (!item.hasAttribute('open')) {
       item.setAttribute('open', true);
       if (item.hasAttribute('closed')) {
