@@ -34,7 +34,8 @@
   },
   "homepage": "https://github.com/n370/a-tu-nombre#readme",
   "dependencies": {
-    "bulma": "^0.4.0"
+    "bulma": "^0.4.0",
+    "rollerskate": "^1.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
