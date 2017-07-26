@@ -9,7 +9,7 @@
     "test": "tap test/**/*.spec.js",
     "deploy": "npm-run-all build:* publish",
     "publish": "git subtree push --prefix dist origin gh-pages",
-    "dev": "npm-run-all --serial test --parallel serve:dev watch:*",
+    "dev": "npm-run-all --parallel test serve:dev watch:*",
     "serve:dev": "http-server dist",
     "build:test": "babel src/js/**/*.js --out-dir test",
     "watch:test": "onchange \"src/**/*.js\" -w -- npm test",
