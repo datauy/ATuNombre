@@ -47,6 +47,8 @@
     "npm-run-all": "^4.0.2",
     "onchange": "^3.2.1",
     "rollup": "^0.41.6",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-watch": "^3.2.2",
     "tap": "^10.3.0"
   }
