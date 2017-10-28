@@ -13,13 +13,13 @@
   crossorigin=""></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
-<script>
-var mujeres;
-  $.getJSON("/mujeres.json", function (geojson){
-     var mujeres = geojson;
-  });
-</script>
 <body>
+  <script>
+  var mujeres;
+  $.getJSON("/mujeres.json", function (geojson){
+    mujeres = geojson;
+  });
+  </script>
   <div class="section">
     <div class="container">
       <header class="columns is-mobile">
