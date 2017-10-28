@@ -1,0 +1,79 @@
+<div class="section">
+  <div class="columns">
+    <div class="column content">
+      <h1>Apenas 142 de las 5.678 calles de Montevideo, llevan nombres de mujer</h1>
+      <p>Parece poco, ¿verdad? Este proyecto quiere dar visibilidad a una de las tantas formas que tiene la brecha de género en nuestro país y al mismo ayudar a conocer más sobre las mujeres detrás de esas calles.</p>
+      <p>Empezá por conocer quiénes son y dónde están y en los próximos pasos vamos a poner esos datos en contexto para saber si son muchas, pocas y de dónde vienen.</p>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <div id="map" style="height: 300px;">Map</div>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <div class="accordion" data-accordion>
+        <div class="card" data-accordion-item>
+          <header class="card-header">
+            <p class="card-header-title">
+              Nombre
+            </p>
+            <a class="card-header-icon">
+              <span class="icon">
+                <i class="fa fa-angle-down"></i>
+              </span>
+            </a>
+          </header>
+          <div class="card-content" data-accordion-item-body>
+            <p class="title is-1">Nombre</p>
+            <p class="subtitle is-3">Subtipo</p>
+            <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column content">
+      <h1>¿A qué se dedicaban esas mujeres?</h1>
+      <p>Además de saber quiénes son, importa entender a qué mujeres reconocemos. ¿Qué roles ocuparon en la vida del país? ¿Se reproducen los mismos estereotipo de género que en otros ámbitos?</p>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <div class="graph">Graph</div>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <div class="next">
+        <div class="columns">
+          <div class="column">
+            <span class="question">¿Y cómo se compara la cantidad de calles de mujeres y hombres? ¿Y con otras cosas? Averigualo.</span>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <div class="button is-large is-fullwidth">Continuar ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="columns is-mobile share">
+    <span class="column facebook">Me gusta</span>
+    <span class="column twitter">Twittear</span>
+  </div>
+</div>
+<script>
+jQuery(document).ready(function(){
+  var mymap = L.map('mapid').setView([-34.906557,-56.199769], 13);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "Map data &copy; <a href=\'http://openstreetmap.org\'>OpenStreetMap</a>",
+      maxZoom: 18,
+      id: "map",
+  }).addTo(mymap);
+  //setTimeout(function(){mymap.invalidateSize(); mymap.setView([lat, lon], 13);},1000);
+});
+</script>
