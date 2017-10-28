@@ -11,7 +11,14 @@
   <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
   integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
   crossorigin=""></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
+<script>
+var mujeres;
+  $.getJSON("/mujeres.json", function (geojson){
+     var mujeres = geojson;
+  });
+</script>
 <body>
   <div class="section">
     <div class="container">
@@ -70,6 +77,5 @@
       </div>
     </div>
   </footer>
-  <script src="js/main.js"></script>
 </body>
 </html>
