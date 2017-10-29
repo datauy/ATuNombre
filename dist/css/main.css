@@ -1,3 +1,4 @@
+@import url("../node_modules/font-awesome/css/font-awesome.min.css");
 @keyframes spinAround {
   from {
     transform: rotate(0deg); }
@@ -6133,3 +6134,25 @@ label.panel-block {
 .footer {
   background-color: whitesmoke;
   padding: 3rem 1.5rem 6rem; }
+
+.profiles {
+  max-height: 400px; }
+
+.img-circle {
+  border-radius: 50%; }
+
+.card-header .image img {
+  height: inherit; }
+
+.card-content img {
+  max-height: 64px; }
+
+.map {
+  height: 400px; }
+
+.search {
+  padding: 20px;
+  background-color: #209cee; }
+
+.scrollable {
+  overflow: auto; }

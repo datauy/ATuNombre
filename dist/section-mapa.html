@@ -1,84 +1,101 @@
 <div class="section">
-  <div class="columns">
-    <div class="column content">
-      <h1>Apenas 142 de las 5.678 calles de Montevideo, llevan nombres de mujer</h1>
-      <p>Parece poco, ¿verdad? Este proyecto quiere dar visibilidad a una de las tantas formas que tiene la brecha de género en nuestro país y al mismo ayudar a conocer más sobre las mujeres detrás de esas calles.</p>
-      <p>Empezá por conocer quiénes son y dónde están y en los próximos pasos vamos a poner esos datos en contexto para saber si son muchas, pocas y de dónde vienen.</p>
-    </div>
-  </div>
-  <div class="columns">
-    <div class="column">
-      <div id="map-container" style="height: 300px;">Map</div>
-    </div>
-  </div>
-  <div class="columns">
-    <div class="column">
-      <div class="accordion" data-accordion>
-
-      </div>
-    </div>
-  </div>
-  <div class="columns">
-    <div class="column content">
-      <h1>¿A qué se dedicaban esas mujeres?</h1>
-      <p>Además de saber quiénes son, importa entender a qué mujeres reconocemos. ¿Qué roles ocuparon en la vida del país? ¿Se reproducen los mismos estereotipo de género que en otros ámbitos?</p>
-    </div>
-  </div>
-  <div class="columns">
-    <div class="column">
-      <div class="graph">Graph</div>
-    </div>
-  </div>
-  <div class="columns">
-    <div class="column">
-      <div class="next">
-        <div class="columns">
-          <div class="column">
-            <span class="question">¿Y cómo se compara la cantidad de calles de mujeres y hombres? ¿Y con otras cosas? Averigualo.</span>
-          </div>
+    <div id="map-intro" class="columns">
+        <div class="column content">
+            <h1>Apenas 142 de las 5.678 calles de Montevideo, llevan nombres de mujer</h1>
+            <p>Parece poco, ¿verdad? Este proyecto quiere dar visibilidad a una de las tantas formas que tiene la brecha de género en nuestro país y al mismo ayudar a conocer más sobre las mujeres detrás de esas calles.</p>
+            <p>Empezá por conocer quiénes son y dónde están y en los próximos pasos vamos a poner esos datos en contexto para saber si son muchas, pocas y de dónde vienen.</p>
         </div>
-        <div class="columns">
-          <div class="column">
-            <div class="button is-large is-fullwidth">Continuar ></div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-  <div class="columns is-mobile share">
-    <span class="column facebook">Me gusta</span>
-    <span class="column twitter">Twittear</span>
-  </div>
+    <div id="map" class="columns">
+        <div class="column">
+            <div id="map-container" class="map">Map</div>
+        </div>
+    </div>
+    <div id="map" class="columns">
+        <div class="column">
+            <div id="search-field" class="container-fluid">
+                <div class="field has-addons search">
+                    <div class="control has-icons-left is-expanded">
+                        <input class="input is-large" type="text" placeholder="Buscar por nombre">
+                        <span class="icon is-small is-left">
+                            <i class="fa fa-search"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="profile-cards" class="columns">
+        <div class="column is-clipped">
+            <div id="profiles" class="box accordion profiles scrollable" data-accordion>
+            </div>
+        </div>
+    </div>
+    <div id="women-roles-intro" class="columns">
+        <div class="column content">
+            <h1>¿A qué se dedicaban esas mujeres?</h1>
+            <p>Además de saber quiénes son, importa entender a qué mujeres reconocemos. ¿Qué roles ocuparon en la vida del país? ¿Se reproducen los mismos estereotipo de género que en otros ámbitos?</p>
+        </div>
+    </div>
+    <div id="women-roles-graphs" class="columns">
+        <div class="column">
+            <div class="graph">Graph</div>
+        </div>
+    </div>
+    <div id="street-distribution-intro" class="columns">
+        <div class="column">
+            <div class="next">
+                <div class="columns">
+                    <div class="column">
+                        <span class="question">¿Y cómo se compara la cantidad de calles de mujeres y hombres? ¿Y con otras cosas? Averigualo.</span>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column">
+                        <div class="button is-large is-fullwidth">Continuar ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="columns is-mobile share">
+        <span class="column facebook"><i class="fa fa-thumbs-up"></i>Me gusta</span>
+        <span class="column twitter"><i class="fa fa-retweet"></i>Twittear</span>
+    </div>
 </div>
-<script>
-$(document).ready(function(){
-  var mymap = L.map('map-container').setView([-34.906557,-56.199769], 13);
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: "Map data &copy; <a href=\'http://openstreetmap.org\'>OpenStreetMap</a>",
-    maxZoom: 18,
-    id: "map-container",
-  }).addTo(mymap);
-  $.getJSON("/mujeres.json", function (geojson){
-    L.geoJSON(geojson.features).addTo(mymap);
-  });
-  //setTimeout(function(){mymap.invalidateSize(); mymap.setView([lat, lon], 13);},1000);
-});
-</script>
 
-<div id="profile-card-item" class="card" data-accordion-item style="display: none;">
-  <header class="card-header">
-    <p class="card-header-title">
-      Nombre
-    </p>
-    <a class="card-header-icon">
-      <span class="icon">
-        <i class="fa fa-angle-down"></i>
-      </span>
-    </a>
-  </header>
-  <div class="card-content" data-accordion-item-body>
-    <p class="title is-1">Nombre</p>
-    <p class="subtitle is-3">Subtipo</p>
-    <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</div>
-  </div>
+<div id="profile-card-item-template" class="card" data-accordion-item style="display: none;">
+    <header class="card-header">
+        <p class="image is-32x32">
+            <img class="img-circle" src="" onerror="this.src='/img/avatar.png'" alt="Placeholder avatar">
+        </p>
+        <p class="card-header-title">
+            Component
+        </p>
+        <a href="#" class="card-header-icon" aria-label="expandir">
+            <span class="icon arrow arrow-closed">
+                <i class="fa fa-angle-right"></i>
+            </span>
+
+        </a>
+    </header>
+    <div class="card-content" data-accordion-item-body>
+        <div class="media">
+            <div class="media-left">
+                <p class="image">
+                    <img src="" onerror="this.src='/img/avatar.png'" alt="avatar">
+                </p>
+            </div>
+            <div class="media-content">
+                <p class="title is-3 nombre"></p>
+                <p class="subtitle is-5 subtipo"></p>
+                <div class="content"></div>
+            </div>
+            <div class="media-right">
+                <span class="icon arrow arrow-open" style="display:none;">
+                    <i class="fa fa-angle-down"></i>
+                </span>
+            </div>
+        </div>
+    </div>
 </div>
