@@ -1,8 +1,15 @@
+// Import libs
 import Accordion from 'rollerskate';
 import jquery from 'jquery';
 import L from 'leaflet';
+import lodash from 'lodash';
+
+// Initialize
 window.$ = window.jQuery = jquery;
 window.L = L;
+window._ = lodash;
+
+// Global vars
 var mujeres = [];
 var mymap;
 var accordion;
@@ -17,15 +24,19 @@ $(document).ready(function(){
     }).addTo(mymap);
 
     var fillTemplate = function(template, mujer) {
+        // Remove id from template
         template.attr('id', '');
-        template.data('id-nomenclator', mujer.COD_NOMBRE);
+        // Add some useful data
         template.data('index', mujeres.indexOf(mujer));
+        template.data('id-nomenclator', mujer.COD_NOMBRE);
+        template.data('name', mujer.extra_nombre);
+        // Fill up attrs
         if (mujer.extra_imagen) {
             template.find('.image img').attr('src', mujer.extra_imagen);
-            template.find('.card-header-title').text(mujer.extra_nombre_de_clasificacion);
+            template.find('.card-header-title').text(mujer.extra_nombre);
         }
-        template.find('.card-header-title').text(mujer.extra_nombre_de_clasificacion);
-        template.find('.title').text(mujer.extra_nombre_de_clasificacion);
+        template.find('.card-header-title').text(mujer.extra_nombre);
+        template.find('.title').text(mujer.extra_nombre);
         template.find('.subtitle').text(mujer.extra_nombre_subtipo);
         template.find('.content').text(mujer.extra_significado_via);
         template.show();
@@ -59,15 +70,45 @@ $(document).ready(function(){
                 ids.push(id);
             }
         }
+        mujeres = _.sortBy(mujeres, 'extra_nombre', 'asc')
+
         for (let mujer of mujeres) {
             var template = $("#profile-card-item-template").clone();
             fillTemplate(template, mujer);
             $('#profiles').append(template);
         }
         $("#profile-card-item-template").remove();
+
         accordion = new Accordion(window);
         accordion.collapseAll();
     });
 
+    // Search
+    var resetList = function() {
+        $('#profiles div').each(function() {
+            $(this).removeClass('is-gone');
+        });
+    };
+
+    var search = function(query) {
+        $('#profiles .card').each(function() {
+            if ($(this).data('name').toLowerCase().indexOf(query.toLowerCase()) === -1) {
+                $(this).addClass('is-gone');
+            }
+        });
+    };
+
+    var timer;
+    var $searchInput = $('#search-field input');
+    $searchInput.on("keyup", function(e) {
+        timer && clearTimeout(timer);
+        var query = $(this).val();
+        timer = setTimeout(function() {
+            resetList();
+            if (query.length > 1) {
+                search(query);
+            }
+        }, 300);
+    });
 
 });

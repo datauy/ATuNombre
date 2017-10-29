@@ -21,8 +21,12 @@ $section_max_height: 400px;
     border-radius: 50%;
 }
 
+.is-gone {
+    display: none !important;
+}
+
 .card-header .image {
-    margin: auto;
+    margin: auto 7px;
     img {
         height: inherit;
     }
