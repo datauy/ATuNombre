@@ -5,21 +5,13 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>A Tu Nombre</title>
   <link rel="stylesheet" href="css/main.css">
+  <!-- <link rel="stylesheet" href="css/AtuNombre.css"> -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
    integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
    crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
-  integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
-  crossorigin=""></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-  <script>
-  var mujeres;
-  $.getJSON("/mujeres.json", function (geojson){
-    mujeres = geojson;
-  });
-  </script>
   <div class="section">
     <div class="container">
       <header class="columns is-mobile">
@@ -77,5 +69,6 @@
       </div>
     </div>
   </footer>
+  <script src="/js/main.js"></script>
 </body>
 </html>
