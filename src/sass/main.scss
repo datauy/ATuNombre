@@ -6,3 +6,31 @@
 @import "../../node_modules/bulma/sass/layout/_all";
 @import url('../node_modules/font-awesome/css/font-awesome.min.css');
 
+.profiles {
+    max-height: 400px;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
+.card-header .image img {
+    height: inherit;
+}
+
+.card-content img {
+    max-height: 64px;
+}
+
+.map {
+    height: 400px;
+}
+
+.search {
+    padding: 20px;
+    background-color: $info;
+}
+
+.scrollable {
+    overflow: auto;
+}
