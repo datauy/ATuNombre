@@ -8291,7 +8291,8 @@ label.panel-block {
   content: ""; }
 
 .profiles {
-  max-height: 400px; }
+  max-height: 400px;
+  padding-top: 1px; }
 
 .img-circle {
   border-radius: 50%; }
