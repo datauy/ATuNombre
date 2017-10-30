@@ -25,7 +25,7 @@ $(document).ready(function(){
 
     var fillTemplate = function(template, mujer) {
         // Remove id from template
-        template.attr('id', '');
+        template.attr('id', mujer.COD_NOMBRE);
         // Add some useful data
         template.data('index', mujeres.indexOf(mujer));
         template.data('id-nomenclator', mujer.COD_NOMBRE);
@@ -57,9 +57,22 @@ $(document).ready(function(){
         }
     };
 
+    var onEachFeature = function onEachFeature(feature, layer) {
+        // does this feature have a property named popupContent?
+        if (feature.properties && feature.properties.extra_nombre) {
+            layer.bindPopup(feature.properties.extra_nombre);
+            layer.on('click', function(e) {
+                $searchInput.val(feature.properties.extra_nombre);
+                resetList();
+                search(feature.properties.extra_nombre);
+                $('#'+feature.properties.COD_NOMBRE).click();
+            });
+        }
+    };
+
     // Load geojson
     $.getJSON("/mujeres.json", function (geojson) {
-        L.geoJSON(geojson.features).addTo(mymap);
+        L.geoJSON(geojson.features, {onEachFeature: onEachFeature}).addTo(mymap);
 
         let ids = [];
         // Add profiles
@@ -88,6 +101,7 @@ $(document).ready(function(){
         $('#profiles div').each(function() {
             $(this).removeClass('is-gone');
         });
+        accordion.collapseAll();
     };
 
     var search = function(query) {
