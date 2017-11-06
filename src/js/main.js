@@ -78,7 +78,7 @@ $(document).ready(function(){
      /***************************/
 
     // Load geojson
-    $.getJSON("/mujeres.json", function (geojson) {
+    $.getJSON("/data/mujeres.json", function (geojson) {
 
         L.geoJSON(geojson.features, {onEachFeature: onEachFeature}).addTo(mymap);
         mymap.fitBounds(all_bounds);
