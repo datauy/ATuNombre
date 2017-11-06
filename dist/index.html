@@ -1,0 +1,269 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>A Tu Nombre</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div class="section">
+    <div class="container">
+      <header class="columns is-mobile">
+        <div class="column">
+          <img class="logo" src="img/logo_a_tu_nombre.png" alt="A Tu Nombre">
+        </div>
+        <div class="column">
+          <div class="info">?</div>
+        </div>
+      </header>
+    </div>
+  </div>
+  <div class="section">
+    <div class="columns">
+      <div class="column">
+        <nav class="tabs is-toggle is-fullwidth">
+          <ul>
+            <li class="is-active"><a>1. Mapa</a></li>
+            <li><a>2 .Calles</a></li>
+            <li><a>3. Población</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="tab section-mapa">
+    <div class="section">
+        <div id="map-intro" class="columns">
+            <div class="column content">
+                <h1 class="is-size-2 has-text-centered">Apenas 142 de las 5.678 calles de Montevideo, llevan nombres de mujer</h1>
+                <p class="is-size-4">Parece poco, ¿verdad? Este proyecto quiere dar visibilidad a una de las tantas formas que tiene la brecha de género en nuestro país y al mismo ayudar a conocer más sobre las mujeres detrás de esas calles.</p>
+                <p class="is-size-4">Empezá por conocer quiénes son y dónde están y en los próximos pasos vamos a poner esos datos en contexto para saber si son muchas, pocas y de dónde vienen.</p>
+            </div>
+        </div>
+        <div id="map" class="columns">
+            <div class="column">
+                <div id="map-container" class="map box">Map</div>
+            </div>
+        </div>
+        <div id="map" class="columns">
+            <div class="column">
+                <div id="search-field" class="container-fluid">
+                    <div class="field has-addons search box">
+                        <div class="control has-icons-left is-expanded">
+                            <input class="input is-large" type="text" placeholder="Buscar por nombre">
+                            <span class="icon is-small is-left">
+                                <i class="fa fa-search"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="profile-cards" class="columns">
+            <div class="column is-clipped box">
+                <p class="title is-size-2 has-text-centered">Calles con nombre de mujer</p>
+                <div id="profiles" class="accordion profiles scrollable" data-accordion>
+                </div>
+            </div>
+        </div>
+        <div id="women-roles-intro" class="columns">
+            <div class="column content">
+                <h1 class="title is-size-2 has-text-centered">¿A qué se dedicaban esas mujeres?</h1>
+                <p class="is-size-4">Además de saber quiénes son, importa entender a qué mujeres reconocemos. ¿Qué roles ocuparon en la vida del país? ¿Se reproducen los mismos estereotipo de género que en otros ámbitos?</p>
+            </div>
+        </div>
+        <div id="women-roles-graphs" class="columns">
+            <div class="column">
+                <div class="graph">Graph</div>
+            </div>
+        </div>
+        <div id="street-distribution-intro" class="columns">
+            <div class="column">
+                <div class="next">
+                    <div class="columns">
+                        <div class="column">
+                            <span class="question is-size-4">¿Y cómo se compara la cantidad de calles de mujeres y hombres? ¿Y con otras cosas? Averigualo.</span>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="button is-large is-fullwidth is-uppercase">
+                                Continuar&nbsp;&nbsp;<span class="icon">
+                                <i class="fa fa-arrow-right"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="columns is-mobile share">
+            <span class="column facebook"><i class="fa fa-thumbs-up"></i>Me gusta</span>
+            <span class="column twitter"><i class="fa fa-retweet"></i>Twittear</span>
+        </div>
+    </div>
+    
+    <div id="profile-card-item-template" class="card" data-accordion-item style="display: none;">
+        <header class="card-header">
+            <p class="image is-32x32">
+                <img class="img-circle" src="" onerror="this.src='/img/avatar.png'" alt="Placeholder avatar">
+            </p>
+            <p class="card-header-title">
+                Component
+            </p>
+            <a href="#" class="card-header-icon" aria-label="expandir">
+                <span class="icon arrow arrow-closed">
+                    <i class="fa fa-angle-right"></i>
+                </span>
+    
+            </a>
+        </header>
+        <div class="card-content" data-accordion-item-body>
+            <div class="media">
+                <div class="media-left">
+                    <p class="image">
+                        <img src="" onerror="this.src='/img/avatar.png'" alt="avatar">
+                    </p>
+                </div>
+                <div class="media-content">
+                    <p class="title is-3 nombre"></p>
+                    <p class="subtitle is-5 subtipo"></p>
+                    <div class="content"></div>
+                </div>
+                <div class="media-right">
+                    <span class="icon arrow arrow-open" style="display:none;">
+                        <i class="fa fa-angle-down"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  </div>
+  <div class="tab section-calles" style="display: none;">
+      <div class="section">
+        <div class="columns">
+          <div class="column content">
+            <h1>Flora, accidentes geográficos y lugares de todo tipo tienen más calles a su nombre que las mujeres</h1>
+            <p>Aunque en dos años la cantidad de calles con nombre de mujer subió un 42% (¡bien ahí!), el número todavía está por debajo de otras categorías y muy por debajo de los hombres, que tienen 2.091 de las 5.678 calles a su nombre.</p>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <div class="graph"></div>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column content">
+            <h1>En otras partes del mundo</h1>
+            <p>La subrepresentación de las mujeres en los nombres de las calles no es algo para nada exclusivo de Uruguay. Tampoco proyectos como éste que buscan visibilizarlo, por lo que podemos obtener cifras para comparar la situación en los distintos lugares.</p>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <div class="graph"></div>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <div class="next">
+              <div class="columns">
+                <div class="column">
+                  <span class="question">¿Y cómo se compara la cantidad de calles de mujeres y hombres? ¿Y con otras cosas? Averigualo.</span>
+                </div>
+              </div>
+              <div class="columns">
+                <div class="column">
+                  <div class="button is-large is-fullwidth">Continuar ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="columns is-mobile share">
+          <span class="column facebook">Me gusta</span>
+          <span class="column twitter">Twittear</span>
+        </div>
+      </div>
+      
+  </div>
+  <div class="tab section-poblacion" style="display: none;">
+      <div class="section">
+        <div class="columns">
+          <div class="column content">
+            <h1>Las mujeres mayoría en la población, la subrepresentación responde a factores más bien culturales</h1>
+            <p>Según el <a href="">censo 2011 del INE</a> las mujeres representan el 52% de la población, muy por encima de las cifras vistas anteriormente. Existen factores históricos, culturales y de otros tipos que pueden explicar -pero no justificar- esa enorme diferencia.</p>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <div class="graph">Graph</div>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <div class="graph">Graph</div>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column content">
+            <h1>Las buenas noticias</h1>
+            <p>Poner algo de lo que se está haciendo a nivel de IM para tratar de compensar ésto y contar del proyecto de mujeres varelianas.</p>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column content">
+            <h1>¿Yo puedo hacer algo?</h1>
+            <p>Explicar que se reciben propuestas de nombres en la IM para considerar en futuras calles.</p>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <div class="next">
+              <div class="columns">
+                <div class="column">
+                  <span class="question">¿Y cómo se compara la cantidad de calles de mujeres y hombres? ¿Y con otras cosas? Averigualo.</span>
+                </div>
+              </div>
+              <div class="columns">
+                <div class="column">
+                  <div class="button is-large is-fullwidth">Continuar ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="columns is-mobile share">
+          <span class="column facebook">Me gusta</span>
+          <span class="column twitter">Twittear</span>
+        </div>
+      </div>
+      
+  </div>
+  <footer class="footer">
+    <div class="columns">
+      <div class="column datos-abiertos">
+        <div class="logo"></div>
+        <h1>Acerca de Datos Abiertos</h1>
+        <p>El estado recoge y produce datos paracumplir con su función. Su publicación en formatos abiertos permite que sean reutilizados por el gobierno, sociedad civil, organizaciones, empresas o ciudadanos en general.</p>
+        <a href="https://www.catalogodatos.gub.uy/">https://www.catalogodatos.gub.uy/</a>
+      </div>
+      <div class="column datauy">
+        <div class="logo"></div>
+        <h1>Acerca de DATA</h1>
+        <p>Somos una organización de la sociedad civil que trabaja creando herramientas sociales para promover la participación y el debate público a través de la transparencia, datos abiertos y acceso a la información.</p>
+        <a href="http://www.datauy.org/">http://www.datauy.org/</a>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column social">
+        <div class="twitter">TW</div>
+        <div class="facebook">FB</div>
+        <div class="github">Fork Me on Github</div>
+      </div>
+    </div>
+  </footer>
+  <script src="/js/main.js"></script>
+</body>
+</html>
