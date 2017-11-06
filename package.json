@@ -7,7 +7,7 @@
     "postinstall": "npm-run-all build:*",
     "pretest": "npm run build:test",
     "test": "tap test/**/*.spec.js",
-    "dev": "npm-run-all --parallel serve:dev watch:*",
+    "dev": "npm-run-all --parallel build serve:dev watch:*",
     "build": "npm-run-all build:*",
     "serve:dev": "http-server dist",
     "build:html": "src/scripts/buildHtml.js",
