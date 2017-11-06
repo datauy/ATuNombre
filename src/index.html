@@ -5,10 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>A Tu Nombre</title>
   <link rel="stylesheet" href="css/main.css">
-  <!-- <link rel="stylesheet" href="css/AtuNombre.css"> -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
-   integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
-   crossorigin=""/>
 </head>
 <body>
   <div class="section">
@@ -37,13 +33,13 @@
     </div>
   </div>
   <div class="tab section-mapa">
-    <?php include 'section-mapa.html'; ?>
+    <!-- @include includes/section-mapa.html -->
   </div>
-  <div class="tab section-calles">
-    <?php include 'section-calles.html'; ?>
+  <div class="tab section-calles" style="display: none;">
+      <!-- @include includes/section-calles.html -->
   </div>
-  <div class="tab section-poblacion">
-    <?php include 'section-poblacion.html'; ?>
+  <div class="tab section-poblacion" style="display: none;">
+      <!-- @include includes/section-poblacion.html -->
   </div>
   <footer class="footer">
     <div class="columns">
