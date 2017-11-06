@@ -11,6 +11,9 @@
 @import "../../node_modules/font-awesome/scss/core.scss";
 @import "../../node_modules/font-awesome/scss/icons.scss";
 
+@import "../../node_modules/leaflet/dist/leaflet";
+
+
 $section_max_height: 400px;
 
 .profiles {
