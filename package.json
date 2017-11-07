@@ -11,7 +11,7 @@
     "build": "npm-run-all build:*",
     "serve:dev": "http-server dist",
     "build:html": "src/scripts/buildHtml.js",
-    "watch:html": "onchange \"src/*.html\" npm run build:html -- -w",
+    "watch:html": "onchange '**/*.html' -e 'dist/**' -- npm run build:html",
     "build:js": "rollup -c",
     "watch:js": "npm run build:js -- -w",
     "build:sass": "node-sass src/sass/ -o dist/css/",
@@ -35,6 +35,7 @@
   "homepage": "https://github.com/n370/a-tu-nombre#readme",
   "dependencies": {
     "bulma": "^0.6.0",
+    "d3": "^4.11.0",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.4",
     "rollerskate": "^1.1.0"
