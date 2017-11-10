@@ -60,8 +60,7 @@ export default function(data) {
         return "url(#clip-" + d.data.id + ")";
       })
       .style("font-size", function(d) {
-        //   console.log(d.data);
-        //   console.log(getFontSize((d.x1 - d.x0))+'em');
+          // TODO: use a class instead so we can reduce it with smaller screens
         return getFontSize((d.x1 - d.x0) )+'em';
       })
       .selectAll("tspan")

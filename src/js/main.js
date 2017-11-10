@@ -25,7 +25,7 @@ $(document).ready(function() {
   mymap = L.map("map-container").setView([-34.906557, -56.199769], 13);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution:
-      "Map data &copy; <a href='http://openstreetmap.org'>OpenStreetMap</a>",
+      "Map &copy; <a href='http://openstreetmap.org'>OpenStreetMap</a> | Data &copyleft <a href='http://www.datauy.org/'>DataUY</a>",
     maxZoom: 18,
     id: "map-container"
   }).addTo(mymap);
