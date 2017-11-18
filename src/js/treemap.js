@@ -63,9 +63,11 @@ export default function(data) {
             // TODO: use a class instead so we can reduce it with smaller screens
             return getFontSize(d.x1 - d.x0) + 'em';
         })
+        .attr('class', 'graph-text')
         .selectAll('tspan')
         .data(function(d) {
             return d.data.name.split(/(?=[A-Z][^A-Z])/g);
+            // return d.data.name.split('');
         })
         .enter()
         .append('tspan')
@@ -80,7 +82,7 @@ export default function(data) {
             let text_width = $(this)
                 .get()[0]
                 .getBoundingClientRect().width;
-            return rectangle_width / 2 - text_width / 2;
+            return Math.max(1, rectangle_width / 2 - text_width / 2);
         })
         .attr('y', function(d) {
             let rectangle_height = d.y1 - d.y0;
@@ -94,7 +96,7 @@ export default function(data) {
 
 var getFontSize = function(area) {
     // compute font size based on sqrt(area)
-    return Math.round(Math.max(9, Math.sqrt(area))) / 10;
+    return Math.round(Math.max(5, Math.sqrt(area) * 0.8)) / 10;
 };
 
 var svg = d3.select('#women-roles-treemap');

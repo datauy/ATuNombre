@@ -287,7 +287,7 @@ $(document).ready(function() {
             }
         }
         for (let tipo in stats) {
-            dataStats.children.push({ name: tipo, size: stats[tipo] });
+            dataStats.children.push({ name: tipo.toUpperCase(), size: stats[tipo] });
         }
 
         renderChart(dataStats);
