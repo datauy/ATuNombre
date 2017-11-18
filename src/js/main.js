@@ -294,4 +294,32 @@ $(document).ready(function() {
     };
 
     /****************************/
+    /**      NAVIGATION       **/
+    $('.button.continuar').click(function(e) {
+        // Navigation tabs
+        $('nav.tabs > ul > li.is-active').removeClass('is-active');
+        $(
+            '#' +
+                $(this)
+                    .data('next')
+                    .replace(/section-/, '')
+        ).addClass('is-active');
+        // Info tabs
+        $('.tab').hide();
+        $('#' + $(this).data('next')).show();
+
+        $('body').scrollTop(0);
+    });
+
+    $('nav.tabs > ul > li').removeClass('active');
+    $('nav.tabs > ul > li').click(function(e) {
+        if ($(this).hasClass('is-active')) {
+            return;
+        }
+        $('nav.tabs > ul > li.is-active').removeClass('is-active');
+        $(this).addClass('is-active');
+
+        $('.tab').hide();
+        $('#section-' + $(this).attr('id')).show();
+    });
 });
