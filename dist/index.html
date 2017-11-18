@@ -24,15 +24,16 @@
       <div class="column">
         <nav class="tabs is-toggle is-fullwidth">
           <ul>
-            <li class="is-active"><a>1. Mapa</a></li>
-            <li><a>2 .Calles</a></li>
-            <li><a>3. Población</a></li>
+            <li id="mapa" class="is-active"><a>1. Mapa</a></li>
+            <li id="calles" ><a>2 .Calles</a></li>
+            <li id="poblacion" ><a>3. Población</a></li>
           </ul>
         </nav>
+        
       </div>
     </div>
   </div>
-  <div class="tab section-mapa">
+  <div id="section-mapa" class="tab">
     <div class="section">
         <div id="map-intro" class="columns">
             <div class="column content">
@@ -90,7 +91,7 @@
                     </div>
                     <div class="columns">
                         <div class="column">
-                            <div class="button is-large is-fullwidth is-uppercase">
+                            <div class="button is-large is-fullwidth is-uppercase continuar" data-next="section-calles">
                                 Continuar&nbsp;&nbsp;<span class="icon">
                                 <i class="fa fa-arrow-right"></i>
                                 </span>
@@ -101,9 +102,10 @@
             </div>
         </div>
         <div class="columns is-mobile share">
-            <span class="column facebook"><i class="fa fa-thumbs-up"></i>Me gusta</span>
-            <span class="column twitter"><i class="fa fa-retweet"></i>Twittear</span>
+          <span class="column facebook">Me gusta</span>
+          <span class="column twitter">Twittear</span>
         </div>
+        
     </div>
     
     <div id="profile-card-item-template" class="card" data-accordion-item style="display: none;">
@@ -143,7 +145,7 @@
     </div>
     
   </div>
-  <div class="tab section-calles" style="display: none;">
+  <div id="section-calles" class="tab" style="display: none;">
       <div class="section">
         <div class="columns">
           <div class="column content">
@@ -177,7 +179,11 @@
               </div>
               <div class="columns">
                 <div class="column">
-                  <div class="button is-large is-fullwidth">Continuar ></div>
+                    <div class="button is-large is-fullwidth is-uppercase continuar" data-next="section-poblacion">
+                        Continuar&nbsp;&nbsp;<span class="icon">
+                        <i class="fa fa-arrow-right"></i>
+                        </span>
+                    </div>
                 </div>
               </div>
             </div>
@@ -187,10 +193,11 @@
           <span class="column facebook">Me gusta</span>
           <span class="column twitter">Twittear</span>
         </div>
+        
       </div>
       
   </div>
-  <div class="tab section-poblacion" style="display: none;">
+  <div id="section-poblacion" class="tab" style="display: none;">
       <div class="section">
         <div class="columns">
           <div class="column content">
@@ -220,26 +227,11 @@
             <p>Explicar que se reciben propuestas de nombres en la IM para considerar en futuras calles.</p>
           </div>
         </div>
-        <div class="columns">
-          <div class="column">
-            <div class="next">
-              <div class="columns">
-                <div class="column">
-                  <span class="question">¿Y cómo se compara la cantidad de calles de mujeres y hombres? ¿Y con otras cosas? Averigualo.</span>
-                </div>
-              </div>
-              <div class="columns">
-                <div class="column">
-                  <div class="button is-large is-fullwidth">Continuar ></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="columns is-mobile share">
           <span class="column facebook">Me gusta</span>
           <span class="column twitter">Twittear</span>
         </div>
+        
       </div>
       
   </div>
