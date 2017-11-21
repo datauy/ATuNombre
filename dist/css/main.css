@@ -8919,3 +8919,12 @@ label.panel-block {
 
 .graph-text {
   text-shadow: -1px -1px 2px rgba(255, 255, 255, 0.25), -1px -1px 2px rgba(255, 255, 255, 0.25), -1px 1px 2px rgba(255, 255, 255, 0.25), 1px -1px 2px rgba(255, 255, 255, 0.25), -1px 0px 2px rgba(255, 255, 255, 0.25), 1px 0px 2px rgba(255, 255, 255, 0.25); }
+
+.arc text {
+  font-size: 0.8rem;
+  text-anchor: middle; }
+
+.arc path {
+  stroke: #fff; }
+  .arc path:hover {
+    fill: #add8e6; }
