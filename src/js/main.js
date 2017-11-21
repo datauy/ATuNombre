@@ -3,7 +3,8 @@ import Accordion from 'rollerskate';
 import jquery from 'jquery';
 import L from 'leaflet';
 import lodash from 'lodash';
-import renderChart from './treemap.js';
+import renderTreeMap from './treemap.js';
+import renderPieChart from './piechart.js';
 
 // Initialize
 window.$ = window.jQuery = jquery;
@@ -290,7 +291,7 @@ $(document).ready(function() {
             dataStats.children.push({ name: tipo.toUpperCase(), size: stats[tipo] });
         }
 
-        renderChart(dataStats);
+        renderTreeMap(dataStats);
     };
 
     /****************************/
@@ -322,4 +323,9 @@ $(document).ready(function() {
         $('.tab').hide();
         $('#section-' + $(this).attr('id')).show();
     });
+
+    renderPieChart("#women-population-graph", "data/population.json");
+    renderPieChart("#women-occupation-graph", "data/occupation.json");
+    renderPieChart("#women-education-graph", "data/education.json");
+    renderPieChart("#women-homemakers-graph", "data/homemakers.json");
 });
