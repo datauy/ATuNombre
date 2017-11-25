@@ -1,15 +1,27 @@
-export default function(selector, data_source) {
+export default function(mainDiv, data_source) {
 
-var svg = d3.select(selector),
-    width = +svg.attr("width"),
-    height = +svg.attr("height"),
-    radius = Math.min(width, height) / 2,
-    g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+$(mainDiv).empty();
 
-    var fader = function(color) {
-            return d3.interpolateRgb(color, '#fff')(0.2);
-        },
-        color = d3.scaleOrdinal(d3.schemeCategory10.map(fader));
+d3
+    .select(mainDiv)
+    .append('svg')
+    .attr('width', $(mainDiv).width() * 0.5)
+    .attr('height', $(mainDiv).width() * 0.6);
+
+var svg = d3.select(mainDiv + ' svg'),
+    width, height;
+
+var width = +svg.attr('width'),
+    height = +svg.attr('height');
+
+var radius = Math.min(width, height) / 2,
+g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+var fader = function(color) {
+        return d3.interpolateRgb(color, '#fff')(0.2);
+    },
+    color = d3.scaleOrdinal(d3.schemeCategory10.map(fader));
+
 
 var pie = d3.pie()
     .sort(null)
