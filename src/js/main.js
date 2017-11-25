@@ -299,12 +299,7 @@ $(document).ready(function() {
     $('.button.continuar').click(function(e) {
         // Navigation tabs
         $('nav.tabs > ul > li.is-active').removeClass('is-active');
-        $(
-            '#' +
-                $(this)
-                    .data('next')
-                    .replace(/section-/, '')
-        ).addClass('is-active');
+        $('#' + $(this).data('next').replace(/section-/, '')).addClass('is-active');
         // Info tabs
         $('.tab').hide();
         $('#' + $(this).data('next')).show();
@@ -324,8 +319,12 @@ $(document).ready(function() {
         $('#section-' + $(this).attr('id')).show();
     });
 
+    // It's necessary to show the tabs in order to dynamically calculate the width
+    $('.tab').show();
     renderPieChart("#women-population-graph", "data/population.json");
-    renderPieChart("#women-occupation-graph", "data/occupation.json");
-    renderPieChart("#women-education-graph", "data/education.json");
+    renderHorizontalBar('#women-occupation-graph');
+    renderHorizontalBar("#women-education-graph");
     renderPieChart("#women-homemakers-graph", "data/homemakers.json");
+    $('.tab').hide();
+    $('.tab').first().show();
 });
