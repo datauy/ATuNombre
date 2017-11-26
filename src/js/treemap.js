@@ -93,7 +93,6 @@ export default function(data) {
             .selectAll('tspan')
             .data(function(d) {
                 return d.data.name.split(/(?=[A-Z][^A-Z])/g);
-                // return d.data.name.split('');
             })
             .enter()
             .append('tspan')

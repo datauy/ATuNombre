@@ -3,13 +3,17 @@ import Accordion from 'rollerskate';
 import jquery from 'jquery';
 import L from 'leaflet';
 import lodash from 'lodash';
+import * as d3 from 'd3';
+import * as d3_scale from 'd3-scale';
 import renderTreeMap from './treemap.js';
 import renderPieChart from './piechart.js';
+import renderHorizontalBar from './horizontalBar.js';
 
 // Initialize
 window.$ = window.jQuery = jquery;
 window.L = L;
 window._ = lodash;
+window.d3 = d3;
 
 // Global vars
 var mujeres = [],
@@ -322,8 +326,8 @@ $(document).ready(function() {
     // It's necessary to show the tabs in order to dynamically calculate the width
     $('.tab').show();
     renderPieChart("#women-population-graph", "data/population.json");
-    renderHorizontalBar('#women-occupation-graph');
-    renderHorizontalBar("#women-education-graph");
+    renderHorizontalBar('#women-occupation-graph', 'data/occupation.json');
+    renderHorizontalBar("#women-education-graph", 'data/education.json');
     renderPieChart("#women-homemakers-graph", "data/homemakers.json");
     $('.tab').hide();
     $('.tab').first().show();
