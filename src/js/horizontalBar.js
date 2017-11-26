@@ -22,25 +22,23 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-export default function(selector, data) {
-    var groupChartData = [{ "2614": 8, "over": 1 }, { "2614": 7, "over": 2 }, { "2614": 4, "over": 3 }, { "2614": 19, "over": 4 }, { "2614": 3, "over": 5 }, { "2614": 6, "over": 6 }, { "2614": 7, "over": 7 }, { "2614": 13, "over": 8 }, { "2614": 1, "over": 9 }, { "2614": 8, "over": 10 }];
-    var columnsInfo = { "2614": "Team A" };
+export default function(selector, data_source) {
+    d3.json(data_source, function(error, data) {
+        if (error) throw error;
 
-    $(selector).empty();
-    var barChartConfig = {
-        mainDiv: selector,
-        colorRange: ["#2a98cd", "#df7247"],
-        data: groupChartData,
-        columnsInfo: columnsInfo,
-        xAxis: "runs",
-        yAxis: "over",
-        label: {
-            xAxis: "Runs",
-            yAxis: "Over"
-        },
-        requireLegend: true
-    };
-    var groupChart = new horizontalGroupBarChart(barChartConfig);
+        $(selector).empty();
+        var barChartConfig = {
+            mainDiv: selector,
+            colorRange: ["#2a98cd", "#df7247"],
+            data: data,
+            xAxis: "name",
+            label: {
+                xAxis: "Value",
+            },
+            requireLegend: true
+        };
+        var groupChart = new horizontalGroupBarChart(barChartConfig);
+    });
 }
 
 function horizontalGroupBarChart(config) {
@@ -66,9 +64,7 @@ function horizontalGroupBarChart(config) {
 
 function drawHorizontalGroupBarChartChart(config) {
     var data = config.data;
-    var columnsInfo = config.columnsInfo;
     var xAxis = config.xAxis;
-    var yAxis = config.yAxis;
     var colorRange = config.colorRange;
     var mainDiv = config.mainDiv;
     var mainDivName = mainDiv.substr(1, mainDiv.length);
@@ -79,10 +75,16 @@ function drawHorizontalGroupBarChartChart(config) {
         .append('svg')
         .attr('width', $(mainDiv).width())
         .attr('height', $(mainDiv).width() * 0.6);
+
     var svg = d3.select(mainDiv + ' svg'),
-        margin = { top: 20, right: 20, bottom: 40, left: 40 },
+        margin = { top: 20, right: 60, bottom: 40, left: 140 },
         width = +svg.attr('width') - margin.left - margin.right,
         height = +svg.attr('height') - margin.top - margin.bottom;
+
+    var fader = function(color) {
+        return d3.interpolateRgb(color, '#fff')(0.2);
+    },
+    color = d3.scaleOrdinal(d3.schemeCategory10.map(fader));
 
     var g = svg.append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
@@ -97,27 +99,18 @@ function drawHorizontalGroupBarChartChart(config) {
 
     var z = d3.scaleOrdinal().range(colorRange);
 
-    var keys = Object.keys(columnsInfo);
     y0.domain(
         data.map(function(d) {
-            return d[yAxis];
+            return d.name;
         })
     );
-    y1.domain(keys).rangeRound([0, y0.bandwidth()]);
-    x
-        .domain([
-            0,
-            d3.max(data, function(d) {
-                return d3.max(keys, function(key) {
-                    return d[key];
-                });
-            }),
-        ])
-        .nice();
+    y1.domain(['name']).rangeRound([0, y0.bandwidth()]);
+    x.domain([0,d3.max(data, function(d) {
+            return d.value;
+        }),
+    ]).nice();
     var maxTicks = d3.max(data, function(d) {
-        return d3.max(keys, function(key) {
-            return d[key];
-        });
+        return d.value;
     });
     var element = g
         .append('g')
@@ -126,14 +119,12 @@ function drawHorizontalGroupBarChartChart(config) {
         .enter()
         .append('g')
         .attr('transform', function(d) {
-            return 'translate(0,' + y0(d[yAxis]) + ')';
+            return 'translate(0,' + y0(d.name) + ')';
         });
     var rect = element
         .selectAll('rect')
         .data(function(d, i) {
-            return keys.map(function(key) {
-                return { key: key, value: d[key], index: key + '_' + i + '_' + d[yAxis] };
-            });
+            return [{ key: d.name, value: d.value, index: d.name + '_' + i + '_' + d.value }];
         })
         .enter()
         .append('rect')
@@ -147,19 +138,17 @@ function drawHorizontalGroupBarChartChart(config) {
             return d.index;
         })
         .attr('height', y1.bandwidth())
-        .attr('fill', function(d) {
-            return z(d.key);
-        });
+        .attr('fill', function(d) { return color(d.name); });
     //CBT:add
     var self = {};
     self.svg = svg;
     self.cssPrefix = 'horgroupBar0_';
     self.data = data;
-    self.keys = keys;
+    // self.keys = keys;
     self.height = height;
     self.width = width;
     self.label = label;
-    self.yAxis = yAxis;
+    // self.yAxis = yAxis;
     self.xAxis = xAxis;
     horBarTooltip.add(self);
 
@@ -179,6 +168,7 @@ function drawHorizontalGroupBarChartChart(config) {
         horBarTooltip.moveTooltip(self);
     });
 
+// X Axis Global Legend
     g
         .append('g')
         .attr('class', 'axis')
@@ -193,6 +183,7 @@ function drawHorizontalGroupBarChartChart(config) {
         .attr('text-anchor', 'start')
         .text(label.xAxis);
 
+// Y Axis Global Legend
     g
         .append('g')
         .attr('class', 'axis')
@@ -203,9 +194,10 @@ function drawHorizontalGroupBarChartChart(config) {
         .attr('dy', '0.71em')
         .attr('fill', '#000')
         .attr('transform', 'rotate(-90)')
-        .attr('font-weight', 'bold')
-        // .attr("text-anchor", "start")
-        .text(label.yAxis);
+        .attr('font-weight', 'bold');
+
+        d3.selectAll(".tick text")
+            .call(helpers.wrap, margin.left*0.7);
 }
 
 var helpers = {
@@ -222,10 +214,36 @@ var helpers = {
         }
         return { w: w, h: h };
     },
+    wrap: function (text, width) {
+        text.each(function() {
+            var text = d3.select(this);
+                var words = text.text().split(/[\s\/-]+/).reverse(),
+                word,
+                line = [],
+                lineNumber = 0,
+                paddingRight = -10,
+                lineHeight = 1.1, // ems
+                y = text.attr("y"),
+                dy = parseFloat(text.attr("dy"));
+                var tspan = text.text(null).append("tspan").attr("x", paddingRight).attr("y", y).attr("dy", dy + "em").attr("text-anchor", "end");
+            while (word = words.pop()) {
+                line.push(word);
+                tspan.text(line.join(" "));
+                if (tspan.node().getComputedTextLength() > width) {
+                    if (parseFloat(tspan.attr('dy')) < 1) {
+                        tspan.attr("dy", 0 + 'em');
+                    }
+                    line.pop();
+                    tspan.text(line.join(" "));
+                    line = [word];
+                    tspan = text.append("tspan").attr("x", paddingRight).attr("y", y).attr("dy", lineHeight + "em").text(word).attr("text-anchor", "end");
+                }
+            }
+        });
+    },
 };
 var horBarTooltip = {
     add: function(pie) {
-        var keys = pie.keys;
         // group the label groups (label, percentage, value) into a single element for simpler positioning
         var element = pie.svg
             .append('g')
@@ -240,9 +258,7 @@ var horBarTooltip = {
         var tooltips = element
             .selectAll('g')
             .data(function(d, i) {
-                return keys.map(function(key) {
-                    return { key: key, value: d[key], index: key + '_' + i + '_' + d[pie.yAxis] };
-                });
+                return [{ key: d.name, value: d.value, index: d.name + '_' + i + '_' + d.value }];
             })
             .enter()
             .append('g')
@@ -261,9 +277,7 @@ var horBarTooltip = {
         element
             .selectAll('g')
             .data(function(d, i) {
-                return keys.map(function(key) {
-                    return { key: key, value: d[key], index: key + '_' + i + '_' + d[pie.yAxis] };
-                });
+                return [{ key: d.name, value: d.value, index: d.name + '_' + i + '_' + d.value }];
             })
             .append('text')
             .attr('fill', function(d) {
@@ -276,11 +290,7 @@ var horBarTooltip = {
                 return 'arial';
             })
             .text(function(d, i) {
-                var caption = '' + pie.label.xAxis + ':{value}';
-
-                return horBarTooltip.replacePlaceholders(pie, caption, i, {
-                    value: d.value,
-                });
+                return '' + pie.label.xAxis + ':' + d.value;
             });
 
         element
@@ -343,19 +353,5 @@ var horBarTooltip = {
                 var y = pie.height + 1000;
                 return 'translate(' + x + ',' + y + ')';
             });
-    },
-
-    replacePlaceholders: function(pie, str, index, replacements) {
-        var replacer = function() {
-            return function(match) {
-                var placeholder = arguments[1];
-                if (replacements.hasOwnProperty(placeholder)) {
-                    return replacements[arguments[1]];
-                } else {
-                    return arguments[0];
-                }
-            };
-        };
-        return str.replace(/\{(\w+)\}/g, replacer(replacements));
     },
 };
