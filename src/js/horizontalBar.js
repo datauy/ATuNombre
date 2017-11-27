@@ -29,11 +29,10 @@ export default function(selector, data_source) {
         $(selector).empty();
         var barChartConfig = {
             mainDiv: selector,
-            colorRange: ["#2a98cd", "#df7247"],
-            data: data,
+            data: _.orderBy(data, ['value'], ['asc']),
             xAxis: "name",
             label: {
-                xAxis: "Value",
+                xAxis: "%",
             },
             requireLegend: true
         };
@@ -65,7 +64,6 @@ function horizontalGroupBarChart(config) {
 function drawHorizontalGroupBarChartChart(config) {
     var data = config.data;
     var xAxis = config.xAxis;
-    var colorRange = config.colorRange;
     var mainDiv = config.mainDiv;
     var mainDivName = mainDiv.substr(1, mainDiv.length);
     var label = config.label;
@@ -97,8 +95,6 @@ function drawHorizontalGroupBarChartChart(config) {
 
     var x = d3.scaleLinear().rangeRound([0, width]);
 
-    var z = d3.scaleOrdinal().range(colorRange);
-
     y0.domain(
         data.map(function(d) {
             return d.name;
@@ -124,7 +120,7 @@ function drawHorizontalGroupBarChartChart(config) {
     var rect = element
         .selectAll('rect')
         .data(function(d, i) {
-            return [{ key: d.name, value: d.value, index: d.name + '_' + i + '_' + d.value }];
+            return [{ key: d.name, value: d.value, index: d.name.replace(/[^\w]/g, '-') + '_' + i }];
         })
         .enter()
         .append('rect')
@@ -138,7 +134,7 @@ function drawHorizontalGroupBarChartChart(config) {
             return d.index;
         })
         .attr('height', y1.bandwidth())
-        .attr('fill', function(d) { return color(d.name); });
+        .attr('fill', function(d) { return color(d.value); });
     //CBT:add
     var self = {};
     self.svg = svg;
@@ -217,6 +213,7 @@ var helpers = {
     wrap: function (text, width) {
         text.each(function() {
             var text = d3.select(this);
+            // console.log(text.text());
                 var words = text.text().split(/[\s\/-]+/).reverse(),
                 word,
                 line = [],
@@ -258,7 +255,7 @@ var horBarTooltip = {
         var tooltips = element
             .selectAll('g')
             .data(function(d, i) {
-                return [{ key: d.name, value: d.value, index: d.name + '_' + i + '_' + d.value }];
+                return [{ key: d.name, value: d.value, index: d.name.replace(/[^\w]/g, '-') + '_' + i }];
             })
             .enter()
             .append('g')
@@ -277,7 +274,7 @@ var horBarTooltip = {
         element
             .selectAll('g')
             .data(function(d, i) {
-                return [{ key: d.name, value: d.value, index: d.name + '_' + i + '_' + d.value }];
+                return [{ key: d.name, value: d.value, index: d.name.replace(/[^\w]/g, '-') + '_' + i }];
             })
             .append('text')
             .attr('fill', function(d) {
@@ -290,7 +287,7 @@ var horBarTooltip = {
                 return 'arial';
             })
             .text(function(d, i) {
-                return '' + pie.label.xAxis + ':' + d.value;
+                return '' + d.value + pie.label.xAxis;
             });
 
         element
