@@ -1,5 +1,4 @@
 export default function(data) {
-
     var getFontSize = function(area) {
         // compute font size based on sqrt(area)
         return Math.round(Math.max(5, Math.sqrt(area) * 0.8)) / 10;
@@ -117,7 +116,7 @@ export default function(data) {
         cell.append('title').text(function(d) {
             return format(d.value) + ' mujeres en la categoría ' + d.data.name;
         });
-    }
+    };
 
     render(data);
 }

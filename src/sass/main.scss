@@ -1,18 +1,17 @@
-@import "../../node_modules/bulma/sass/utilities/_all";
-@import "../../node_modules/bulma/sass/base/_all";
-@import "../../node_modules/bulma/sass/elements/_all";
-@import "../../node_modules/bulma/sass/components/_all";
-@import "../../node_modules/bulma/sass/grid/_all";
-@import "../../node_modules/bulma/sass/layout/_all";
+@import '../../node_modules/bulma/sass/utilities/_all';
+@import '../../node_modules/bulma/sass/base/_all';
+@import '../../node_modules/bulma/sass/elements/_all';
+@import '../../node_modules/bulma/sass/components/_all';
+@import '../../node_modules/bulma/sass/grid/_all';
+@import '../../node_modules/bulma/sass/layout/_all';
 
-@import "../../node_modules/font-awesome/scss/variables.scss";
-@import "../../node_modules/font-awesome/scss/mixins.scss";
-@import "../../node_modules/font-awesome/scss/path.scss";
-@import "../../node_modules/font-awesome/scss/core.scss";
-@import "../../node_modules/font-awesome/scss/icons.scss";
+@import '../../node_modules/font-awesome/scss/variables.scss';
+@import '../../node_modules/font-awesome/scss/mixins.scss';
+@import '../../node_modules/font-awesome/scss/path.scss';
+@import '../../node_modules/font-awesome/scss/core.scss';
+@import '../../node_modules/font-awesome/scss/icons.scss';
 
-@import "../../node_modules/leaflet/dist/leaflet";
-
+@import '../../node_modules/leaflet/dist/leaflet';
 
 $section_max_height: 400px;
 
@@ -54,25 +53,21 @@ $section_max_height: 400px;
 }
 
 .graph-text {
-    text-shadow:    -1px -1px 2px hsla(0,0%,100%,0.25),
-                    -1px -1px 2px hsla(0,0%,100%,0.25),
-                    -1px 1px 2px hsla(0,0%,100%,0.25),
-                    1px -1px 2px hsla(0,0%,100%,0.25),
-                    -1px 0px 2px hsla(0,0%,100%,0.25),
-                    1px 0px 2px hsla(0,0%,100%,0.25);
+    text-shadow: -1px -1px 2px hsla(0, 0%, 100%, 0.25), -1px -1px 2px hsla(0, 0%, 100%, 0.25),
+        -1px 1px 2px hsla(0, 0%, 100%, 0.25), 1px -1px 2px hsla(0, 0%, 100%, 0.25),
+        -1px 0px 2px hsla(0, 0%, 100%, 0.25), 1px 0px 2px hsla(0, 0%, 100%, 0.25);
 }
 
 .arc {
     text {
-      font-size: 0.8rem;
-      text-anchor: middle;
+        font-size: 0.8rem;
+        text-anchor: middle;
     }
 
     path {
-      stroke: #fff;
-      &:hover {
-          fill: #add8e6;
-      }
+        stroke: #fff;
+        &:hover {
+            fill: #add8e6;
+        }
     }
-
 }

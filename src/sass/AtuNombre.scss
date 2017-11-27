@@ -3,78 +3,84 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,900,800);
 
 body {
-	background-image: url(../img/bg_street.jpg);
-	border:none;
-	font-family:"Raleway", Arial, sans-serif;
-	margin: 0px;
+    background-image: url(../img/bg_street.jpg);
+    border: none;
+    font-family: 'Raleway', Arial, sans-serif;
+    margin: 0px;
 }
-header, div#Mapa, div#FraseCantidad, div#Texto, div.Graficas, footer {
+header,
+div#Mapa,
+div#FraseCantidad,
+div#Texto,
+div.Graficas,
+footer {
     margin: 30px auto;
     max-width: 940px;
 }
-header, footer {
-	background-color: #f7d800;
+header,
+footer {
+    background-color: #f7d800;
     min-height: 110px;
 }
 header a img {
-	 margin: 23px;
-	 max-width:206px;
-	 position:absolute;
+    margin: 23px;
+    max-width: 206px;
+    position: absolute;
 }
 nav {
-	float: right;
+    float: right;
     margin: 28px 30px;
 }
 nav ul {
-	list-style:none;
+    list-style: none;
 }
 nav ul li {
-	display: inline;
+    display: inline;
     margin-left: 25px;
 }
 nav ul li a {
-	color: #000;
+    color: #000;
     font-size: 13px;
     text-decoration: underline;
     text-transform: uppercase;
 }
 div#FraseCantidad {
-	background-color: #000;
+    background-color: #000;
     min-height: 70px;
-	text-align:center;
+    text-align: center;
 }
 div#FraseCantidad h1 {
-	color: #fff;
+    color: #fff;
     font-size: 18px;
     font-weight: 700;
     padding: 6px 0;
     text-transform: uppercase;
 }
 div#FraseCantidad h1 .amarilloChico {
-	color:#f7d800;
-	font-size: 18px;
+    color: #f7d800;
+    font-size: 18px;
 }
 div#FraseCantidad h1 .amarilloGrande {
-	color:#f7d800;
-	font-size: 40px;
+    color: #f7d800;
+    font-size: 40px;
 }
 div#Texto {
-	background-color: #C84F1B;
+    background-color: #c84f1b;
     height: auto;
     max-width: 900px !important;
     padding: 10px 20px;
 }
 div#Texto p {
-	color: #fff;
+    color: #fff;
     margin: 20px 0;
 }
 div.Graficas {
-	background-color: #fff;
+    background-color: #fff;
     height: auto;
     overflow: hidden;
 }
 div.Graficas h1 {
-	background-color: #000;
+    background-color: #000;
     color: #fff;
     font-weight: 800;
     margin: 0;
@@ -86,64 +92,67 @@ div.Graficas div.Grafica {
     padding: 35px 30px;
 }
 div.Grafica h2 {
-    color: #C84F1B;
+    color: #c84f1b;
     font-size: 20px;
     font-weight: 600;
     margin: 0;
 }
 footer {
-	overflow:hidden;
+    overflow: hidden;
 }
-footer .izq, footer .der {
-	max-width:40%;
-	padding: 15px 30px;
+footer .izq,
+footer .der {
+    max-width: 40%;
+    padding: 15px 30px;
 }
-footer .izq p, footer .der p {
-	font-size:13px;
-	font-weight:500;
-	line-height:20px;
+footer .izq p,
+footer .der p {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 20px;
 }
-footer .izq a, footer .der a {
-	color:#000;
-	font-weight:600;
+footer .izq a,
+footer .der a {
+    color: #000;
+    font-weight: 600;
 }
 footer .izq {
-	float: left;
+    float: left;
 }
 footer .izq img {
-	margin-right:10px;
+    margin-right: 10px;
 }
 footer .der {
-	float:right;
+    float: right;
 }
 
-@media (max-width:620px) {
-footer .izq, footer .der {
-	max-width:100%;
+@media (max-width: 620px) {
+    footer .izq,
+    footer .der {
+        max-width: 100%;
+    }
 }
 
+@media (max-width: 500px) {
+    nav {
+        margin: 18px 15px;
+    }
+    nav ul li {
+        display: list-item;
+    }
 }
-
-@media (max-width:500px) {
-	nav {
-    margin: 18px 15px;
-}
-nav ul li {
-    display: list-item;
-}
-}
-@media (max-width:400px) {
-	header  {
-    min-height: 66px;
-}
-	header a img {
-	 margin: 12px 10px;
-    max-width: 150px;
-}
-nav {
-    margin: -3px 10px;
-}
-nav ul li a {
-    font-size: 11px;
-}
+@media (max-width: 400px) {
+    header {
+        min-height: 66px;
+    }
+    header a img {
+        margin: 12px 10px;
+        max-width: 150px;
+    }
+    nav {
+        margin: -3px 10px;
+    }
+    nav ul li a {
+        font-size: 11px;
+    }
 }

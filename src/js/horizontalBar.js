@@ -30,11 +30,11 @@ export default function(selector, data_source) {
         var barChartConfig = {
             mainDiv: selector,
             data: _.orderBy(data, ['value'], ['asc']),
-            xAxis: "name",
+            xAxis: 'name',
             label: {
-                xAxis: "%",
+                xAxis: '%',
             },
-            requireLegend: true
+            requireLegend: true,
         };
         var groupChart = new horizontalGroupBarChart(barChartConfig);
     });
@@ -80,9 +80,9 @@ function drawHorizontalGroupBarChartChart(config) {
         height = +svg.attr('height') - margin.top - margin.bottom;
 
     var fader = function(color) {
-        return d3.interpolateRgb(color, '#fff')(0.2);
-    },
-    color = d3.scaleOrdinal(d3.schemeCategory10.map(fader));
+            return d3.interpolateRgb(color, '#fff')(0.2);
+        },
+        color = d3.scaleOrdinal(d3.schemeCategory10.map(fader));
 
     var g = svg.append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
@@ -101,10 +101,14 @@ function drawHorizontalGroupBarChartChart(config) {
         })
     );
     y1.domain(['name']).rangeRound([0, y0.bandwidth()]);
-    x.domain([0,d3.max(data, function(d) {
-            return d.value;
-        }),
-    ]).nice();
+    x
+        .domain([
+            0,
+            d3.max(data, function(d) {
+                return d.value;
+            }),
+        ])
+        .nice();
     var maxTicks = d3.max(data, function(d) {
         return d.value;
     });
@@ -120,7 +124,9 @@ function drawHorizontalGroupBarChartChart(config) {
     var rect = element
         .selectAll('rect')
         .data(function(d, i) {
-            return [{ key: d.name, value: d.value, index: d.name.replace(/[^\w]/g, '-') + '_' + i }];
+            return [
+                { key: d.name, value: d.value, index: d.name.replace(/[^\w]/g, '-') + '_' + i },
+            ];
         })
         .enter()
         .append('rect')
@@ -134,7 +140,9 @@ function drawHorizontalGroupBarChartChart(config) {
             return d.index;
         })
         .attr('height', y1.bandwidth())
-        .attr('fill', function(d) { return color(d.value); });
+        .attr('fill', function(d) {
+            return color(d.value);
+        });
     //CBT:add
     var self = {};
     self.svg = svg;
@@ -164,7 +172,7 @@ function drawHorizontalGroupBarChartChart(config) {
         horBarTooltip.moveTooltip(self);
     });
 
-// X Axis Global Legend
+    // X Axis Global Legend
     g
         .append('g')
         .attr('class', 'axis')
@@ -179,7 +187,7 @@ function drawHorizontalGroupBarChartChart(config) {
         .attr('text-anchor', 'start')
         .text(label.xAxis);
 
-// Y Axis Global Legend
+    // Y Axis Global Legend
     g
         .append('g')
         .attr('class', 'axis')
@@ -192,8 +200,7 @@ function drawHorizontalGroupBarChartChart(config) {
         .attr('transform', 'rotate(-90)')
         .attr('font-weight', 'bold');
 
-        d3.selectAll(".tick text")
-            .call(helpers.wrap, margin.left*0.7);
+    d3.selectAll('.tick text').call(helpers.wrap, margin.left * 0.7);
 }
 
 var helpers = {
@@ -210,30 +217,45 @@ var helpers = {
         }
         return { w: w, h: h };
     },
-    wrap: function (text, width) {
+    wrap: function(text, width) {
         text.each(function() {
             var text = d3.select(this);
             // console.log(text.text());
-                var words = text.text().split(/[\s\/-]+/).reverse(),
+            var words = text
+                    .text()
+                    .split(/[\s\/-]+/)
+                    .reverse(),
                 word,
                 line = [],
                 lineNumber = 0,
                 paddingRight = -10,
                 lineHeight = 1.1, // ems
-                y = text.attr("y"),
-                dy = parseFloat(text.attr("dy"));
-                var tspan = text.text(null).append("tspan").attr("x", paddingRight).attr("y", y).attr("dy", dy + "em").attr("text-anchor", "end");
-            while (word = words.pop()) {
+                y = text.attr('y'),
+                dy = parseFloat(text.attr('dy'));
+            var tspan = text
+                .text(null)
+                .append('tspan')
+                .attr('x', paddingRight)
+                .attr('y', y)
+                .attr('dy', dy + 'em')
+                .attr('text-anchor', 'end');
+            while ((word = words.pop())) {
                 line.push(word);
-                tspan.text(line.join(" "));
+                tspan.text(line.join(' '));
                 if (tspan.node().getComputedTextLength() > width) {
                     if (parseFloat(tspan.attr('dy')) < 1) {
-                        tspan.attr("dy", 0 + 'em');
+                        tspan.attr('dy', 0 + 'em');
                     }
                     line.pop();
-                    tspan.text(line.join(" "));
+                    tspan.text(line.join(' '));
                     line = [word];
-                    tspan = text.append("tspan").attr("x", paddingRight).attr("y", y).attr("dy", lineHeight + "em").text(word).attr("text-anchor", "end");
+                    tspan = text
+                        .append('tspan')
+                        .attr('x', paddingRight)
+                        .attr('y', y)
+                        .attr('dy', lineHeight + 'em')
+                        .text(word)
+                        .attr('text-anchor', 'end');
                 }
             }
         });
@@ -255,7 +277,9 @@ var horBarTooltip = {
         var tooltips = element
             .selectAll('g')
             .data(function(d, i) {
-                return [{ key: d.name, value: d.value, index: d.name.replace(/[^\w]/g, '-') + '_' + i }];
+                return [
+                    { key: d.name, value: d.value, index: d.name.replace(/[^\w]/g, '-') + '_' + i },
+                ];
             })
             .enter()
             .append('g')
@@ -274,7 +298,9 @@ var horBarTooltip = {
         element
             .selectAll('g')
             .data(function(d, i) {
-                return [{ key: d.name, value: d.value, index: d.name.replace(/[^\w]/g, '-') + '_' + i }];
+                return [
+                    { key: d.name, value: d.value, index: d.name.replace(/[^\w]/g, '-') + '_' + i },
+                ];
             })
             .append('text')
             .attr('fill', function(d) {
