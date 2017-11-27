@@ -313,7 +313,14 @@ $(document).ready(function() {
         $('.tab').hide();
         $('#' + $(this).data('next')).show();
 
-        $('body').scrollTop(0);
+        if ($(this).data('next') == 'section-poblacion') {
+            renderPieChart('#women-population-graph', 'data/population.json');
+            renderHorizontalBar('#women-occupation-graph', 'data/occupation.json');
+            renderHorizontalBar('#women-education-graph', 'data/education.json');
+            renderPieChart('#women-homemakers-graph', 'data/homemakers.json');
+        }
+
+        $(window).scrollTop(0);
     });
 
     $('nav.tabs > ul > li').removeClass('active');
@@ -326,14 +333,16 @@ $(document).ready(function() {
 
         $('.tab').hide();
         $('#section-' + $(this).attr('id')).show();
+        if ($(this).attr('id') == 'poblacion') {
+            renderPieChart('#women-population-graph', 'data/population.json');
+            renderHorizontalBar('#women-occupation-graph', 'data/occupation.json');
+            renderHorizontalBar('#women-education-graph', 'data/education.json');
+            renderPieChart('#women-homemakers-graph', 'data/homemakers.json');
+        }
+        $(window).scrollTop(0);
     });
 
     // It's necessary to show the tabs in order to dynamically calculate the width
-    $('.tab').show();
-    renderPieChart('#women-population-graph', 'data/population.json');
-    renderHorizontalBar('#women-occupation-graph', 'data/occupation.json');
-    renderHorizontalBar('#women-education-graph', 'data/education.json');
-    renderPieChart('#women-homemakers-graph', 'data/homemakers.json');
     $('.tab').hide();
     $('.tab')
         .first()

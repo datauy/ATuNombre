@@ -20,6 +20,10 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Original library: http://bl.ocks.org/ChandrakantThakkarDigiCorp/9587e667a3fab912537de03717af84a2
+
+Modifications made by Julio Foulquie
  */
 
 export default function(selector, data_source) {
