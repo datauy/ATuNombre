@@ -2,14 +2,20 @@
 body {
   background-image: url(../img/bg_street.jpg);
   border: none;
-  font-family: "Raleway", Arial, sans-serif;
+  font-family: 'Raleway', Arial, sans-serif;
   margin: 0px; }
 
-header, div#Mapa, div#FraseCantidad, div#Texto, div.Graficas, footer {
+header,
+div#Mapa,
+div#FraseCantidad,
+div#Texto,
+div.Graficas,
+footer {
   margin: 30px auto;
   max-width: 940px; }
 
-header, footer {
+header,
+footer {
   background-color: #f7d800;
   min-height: 110px; }
 
@@ -56,7 +62,7 @@ div#FraseCantidad h1 .amarilloGrande {
   font-size: 40px; }
 
 div#Texto {
-  background-color: #C84F1B;
+  background-color: #c84f1b;
   height: auto;
   max-width: 900px !important;
   padding: 10px 20px; }
@@ -83,7 +89,7 @@ div.Graficas div.Grafica {
   padding: 35px 30px; }
 
 div.Grafica h2 {
-  color: #C84F1B;
+  color: #c84f1b;
   font-size: 20px;
   font-weight: 600;
   margin: 0; }
@@ -91,16 +97,19 @@ div.Grafica h2 {
 footer {
   overflow: hidden; }
 
-footer .izq, footer .der {
+footer .izq,
+footer .der {
   max-width: 40%;
   padding: 15px 30px; }
 
-footer .izq p, footer .der p {
+footer .izq p,
+footer .der p {
   font-size: 13px;
   font-weight: 500;
   line-height: 20px; }
 
-footer .izq a, footer .der a {
+footer .izq a,
+footer .der a {
   color: #000;
   font-weight: 600; }
 
@@ -114,7 +123,8 @@ footer .der {
   float: right; }
 
 @media (max-width: 620px) {
-  footer .izq, footer .der {
+  footer .izq,
+  footer .der {
     max-width: 100%; } }
 
 @media (max-width: 500px) {
