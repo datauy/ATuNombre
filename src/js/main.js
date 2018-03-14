@@ -148,6 +148,7 @@ $(document).ready(function() {
             );
             layer.on('click', function(e) {
                 $searchInput.val(feature.properties.extra_nombre);
+                $searchInput.addClass('x');
                 resetList();
                 $('#' + feature.properties.COD_NOMBRE).click();
                 scrollToCard(feature.properties.COD_NOMBRE);
