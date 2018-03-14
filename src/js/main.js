@@ -139,8 +139,9 @@ $(document).ready(function() {
     var onEachFeature = function onEachFeature(feature, layer) {
         // Add click event and popup
         if (feature.properties && feature.properties.extra_nombre) {
-            // TODO: Add more info to the popup
-            layer.bindPopup(feature.properties.extra_nombre);
+            layer.bindPopup(
+                getPopupForWoman(feature.properties), {'maxWidth': 500}
+            );
             layer.on('click', function(e) {
                 $searchInput.val(feature.properties.extra_nombre);
                 resetList();
@@ -196,6 +197,23 @@ $(document).ready(function() {
         } else {
             mymap.fitBounds(all_bounds);
         }
+    };
+
+    var getPopupForWoman = function(woman) {
+        var template = $('#popup-card-item-template').clone();
+
+        // Remove id from template
+        template.attr('id', woman.COD_NOMBRE);
+        // Add some useful data
+        template.data('name', woman.extra_nombre);
+        // Fill up attrs
+        if (woman.extra_imagen) {
+            template.find('.image img').attr('src', woman.extra_imagen);
+        }
+        template.find('.nombre').text(woman.extra_nombre);
+        template.find('.subtipo').text(woman.extra_nombre_subtipo);
+        template.find('.descripcion').text(woman.extra_significado_via);
+        return template.html();
     };
 
     var removeAllStreets = function() {
@@ -277,7 +295,7 @@ $(document).ready(function() {
         highlightFeatures(results_found);
     };
 
-    // Get back the profile list ot it's original state (all profiles shown and all cards collapsed)
+    // Get back the profile list to its original state (all profiles shown and all cards collapsed)
     var resetList = function() {
         $('#profiles .card').each(function() {
             $(this).removeClass('is-gone');
