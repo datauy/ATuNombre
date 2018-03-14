@@ -149,8 +149,8 @@ $(document).ready(function() {
             layer.on('click', function(e) {
                 $searchInput.val(feature.properties.extra_nombre);
                 resetList();
-                search(feature.properties.extra_nombre);
                 $('#' + feature.properties.COD_NOMBRE).click();
+                scrollToCard(feature.properties.COD_NOMBRE);
             });
         }
 
@@ -306,6 +306,12 @@ $(document).ready(function() {
         });
 
         collapseAll();
+    };
+
+    var scrollToCard = function(elId) {
+        var card = document.getElementById(elId);
+        var topPos = card.offsetTop;
+        card.parentElement.scrollTop = topPos - card.parentElement.offsetTop;
     };
 
     /**
