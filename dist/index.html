@@ -53,7 +53,7 @@
                 <div id="search-field" class="container-fluid">
                     <div class="field has-addons search box">
                         <div class="control has-icons-left is-expanded">
-                            <input class="input is-large" type="text" placeholder="Buscar por nombre">
+                            <input class="input is-large clearable" type="text" placeholder="Buscar por nombre">
                             <span class="icon is-small is-left">
                                 <i class="fa fa-search"></i>
                             </span>
@@ -141,6 +141,24 @@
                         <i class="fa fa-angle-down"></i>
                     </span>
                 </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="popup-card-item-template" class="card popup" style="display: none;">
+        <div class="card-content">
+            <div class="media">
+                <div class="media-left">
+                    <figure class="image">
+                        <img src="" onerror="this.src='/img/avatar.png'" alt="avatar">
+                    </figure>
+                </div>
+                <div class="media-content">
+                    <p class="title is-4 nombre"></p>
+                    <p class="subtitle is-6 subtipo"></p>
+                    <div class="content descripcion"></div>
+                </div>
+                <div class="content"></div>
             </div>
         </div>
     </div>

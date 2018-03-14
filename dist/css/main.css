@@ -8899,6 +8899,9 @@ label.panel-block {
 .is-gone {
   display: none !important; }
 
+.descripcion {
+  font-size: 0.8rem; }
+
 .card-header .image {
   margin: auto 7px; }
   .card-header .image img {
@@ -8928,3 +8931,24 @@ label.panel-block {
   stroke: #fff; }
   .arc path:hover {
     fill: #add8e6; }
+
+/* Clearable text inputs */
+.clearable {
+  background: #fff url("../img/x.svg") no-repeat right -50px center;
+  background-size: auto 75%;
+  border: 1px solid #999;
+  padding: 3px 18px 3px 4px;
+  /* Use the same right padding (18) in jQ! */
+  border-radius: 3px;
+  transition: background 0.4s;
+  /* (jQ) Show icon */
+  /* (jQ) hover cursor style */
+  /* Remove IE default X */ }
+  .clearable.x {
+    background-position: right 10px center; }
+  .clearable.onX {
+    cursor: pointer; }
+  .clearable::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0; }
