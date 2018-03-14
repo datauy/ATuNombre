@@ -71,3 +71,27 @@ $section_max_height: 400px;
         }
     }
 }
+
+/* Clearable text inputs */
+.clearable {
+    background: #fff url('../img/x.svg') no-repeat right -50px center;
+    background-size: auto 75%;
+    border: 1px solid #999;
+    padding: 3px 18px 3px 4px; /* Use the same right padding (18) in jQ! */
+    border-radius: 3px;
+    transition: background 0.4s;
+
+    &.x {
+        background-position: right 10px center;
+    } /* (jQ) Show icon */
+
+    &.onX {
+        cursor: pointer;
+    } /* (jQ) hover cursor style */
+
+    &::-ms-clear {
+        display: none;
+        width: 0;
+        height: 0;
+    } /* Remove IE default X */
+}

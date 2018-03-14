@@ -8,6 +8,7 @@ import * as d3_scale from 'd3-scale';
 import renderTreeMap from './treemap.js';
 import renderPieChart from './piechart.js';
 import renderHorizontalBar from './horizontalBar.js';
+import addClearables from './clearables.js';
 
 // Initialize
 window.$ = window.jQuery = jquery;
@@ -247,7 +248,15 @@ $(document).ready(function() {
                 mymap.fitBounds(all_bounds);
             }
         }, 400);
+    })
+    .on('change', function(e) {
+        if ($(this).val().length == 0) {
+            resetList();
+            resetLayerStyles();
+            mymap.fitBounds(all_bounds);
+        }
     });
+    addClearables('.clearable');
 
     var search = function(query) {
         var results_found = [];
