@@ -55,7 +55,11 @@ $(document).ready(function() {
         template.find('.card-header-title').text(mujer.extra_nombre);
         template.find('.title').text(mujer.extra_nombre);
         template.find('.subtitle').text(mujer.extra_nombre_subtipo);
-        template.find('.content').text(mujer.extra_significado_via);
+        if (mujer.extra_bio_externa) {
+            template.find('.content').text(mujer.extra_bio_externa)
+        } else {
+            template.find('.content').text(mujer.extra_significado_via);
+        }
         template.show();
         template.click(toggleAccordion);
     };
