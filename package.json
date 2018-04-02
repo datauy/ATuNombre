@@ -5,22 +5,24 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "npm-run-all build:*",
-    "pretest": "npm run build:test",
-    "test": "tap test/**/*.spec.js",
-    "dev": "npm-run-all --parallel build serve:dev watch:*",
-    "build": "npm-run-all build:*",
+    "dev": "npm-run-all build minify serve:dev watch:*",
     "serve:dev": "http-server dist",
-    "build:html": "src/scripts/buildHtml.js",
-    "watch:html": "onchange '**/*.html' -e 'dist/**' -- npm run build:html",
-    "build:js": "rollup -c",
-    "watch:js": "npm run build:js -- -w",
-    "build:sass": "node-sass src/sass/ -o dist/css/",
-    "watch:sass": "npm run build:sass -- -w",
-    "build:fonts": "cpr node_modules/font-awesome/fonts/ dist/fonts/ -d",
-    "build:imgs": "cpr src/img dist/img -d",
+    "build": "npm-run-all --parallel build:*",
     "build:data": "cpr src/data dist/data -d",
+    "build:fonts": "cpr node_modules/font-awesome/fonts/ dist/fonts/ -d",
+    "build:html": "src/scripts/buildHtml.js",
+    "build:imgs": "cpr src/img dist/img -d",
+    "build:js": "rollup -c",
+    "build:sass": "node-sass src/sass/ -o dist/css/",
+    "minify": "npm-run-all --parallel minify:*",
+    "minify:json": "node node_modules/babel-minify/bin/minify.js dist/data/ --outDir dist/data",
+    "minify:js": "node node_modules/babel-minify/bin/minify.js dist/js/main.js --mangle.keepClassName --deadcode.keepFnArgs --outFile dist/js/main.js",
+    "minify:css": "src/scripts/minifyCSS.js",
+    "watch": "npm-run-all --parallel watch:*",
+    "watch:html": "onchange '**/*.html' -e 'dist/**' -- npm run build:html",
     "watch:imgs": "onchange \"src/img\" -w -- npm run build:imgs",
-    "watch": "npm-run-all --parallel watch:*"
+    "watch:js": "npm run build:js -- -w",
+    "watch:sass": "npm run build:sass -- -w "
   },
   "repository": {
     "type": "git",
@@ -43,6 +45,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
+    "babel-minify": "^0.3.0",
     "babel-preset-env": "^1.2.2",
     "cpr": "^2.0.2",
     "http-server": "^0.9.0",
@@ -61,10 +64,10 @@
     "tap": "^10.3.0"
   },
   "prettier": {
-      "useTabs": false,
-      "printWidth": 100,
-      "tabWidth": 4,
-      "singleQuote": true,
-      "trailingComma": "es5"
+    "useTabs": false,
+    "printWidth": 100,
+    "tabWidth": 4,
+    "singleQuote": true,
+    "trailingComma": "es5"
   }
 }
