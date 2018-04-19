@@ -21,6 +21,35 @@
 
 $section_max_height: 400px;
 
+.hero {
+    background: linear-gradient(to bottom, rgba($dark-brown,0.3) 0%,rgba($dark-brown,0.3) 100%),
+        url('../img/Maria_Sanchez_de_Thompson-bg-2.jpg') no-repeat center;
+        background-size: cover;
+}
+
+.tabs {
+    a {
+        color: $white;
+    }
+    ul {
+        @media screen and (max-device-width: $tablet) {
+            flex-direction: column;
+            align-items: center;
+            li {
+                flex-grow: 1;
+                flex-shrink: 0;
+                flex-basis: 1;
+                min-width: 200px;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+        }
+        li {
+            background-color: $dark-brown;
+        }
+    }
+}
+
 .profiles {
     max-height: $section_max_height;
     padding-top: 1px;
@@ -80,6 +109,13 @@ $section_max_height: 400px;
             fill: #add8e6;
         }
     }
+}
+
+.continuar {
+    background-color: $body-background-color;
+    border-width: 2px;
+    border-color: $black-ter;
+    border-radius: 0px;
 }
 
 /* Clearable text inputs */

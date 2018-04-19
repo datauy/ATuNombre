@@ -187,8 +187,8 @@ $(document).ready(function() {
             // Highlight the street
             feature_layers[feature_id].forEach(layer => {
                 layer.setStyle({
-                    color: '#FF00B2',
-                    stroke: '#FF00B2',
+                    color: '#714691',
+                    stroke: '#714691',
                     weight: 5,
                     dashArray: '',
                 });

@@ -1,17 +1,17 @@
 <div class="section">
     <div id="map-intro" class="columns">
         <div class="column content">
-            <h1 class="is-size-2 has-text-centered">Apenas 142 de las 5.678 calles de Montevideo, llevan nombres de mujer</h1>
-            <p class="is-size-4">Parece poco, ¿verdad? Este proyecto quiere dar visibilidad a una de las tantas formas que tiene la brecha de género en nuestro país y al mismo ayudar a conocer más sobre las mujeres detrás de esas calles.</p>
+            <p class="is-size-3 has-text-weight-bold">Parece poco, ¿verdad? </p>
+            <p class="is-size-4">Este proyecto quiere dar visibilidad a una de las tantas formas que tiene la brecha de género en nuestro país y al mismo ayudar a conocer más sobre las mujeres detrás de esas calles.</p>
             <p class="is-size-4">Empezá por conocer quiénes son y dónde están y en los próximos pasos vamos a poner esos datos en contexto para saber si son muchas, pocas y de dónde vienen.</p>
         </div>
     </div>
     <div id="map" class="columns">
-        <div class="column">
+        <div class="column is-marginless">
             <div id="map-container" class="map box">Map</div>
         </div>
     </div>
-    <div id="map" class="columns">
+    <div id="search" class="columns">
         <div class="column">
             <div id="search-field" class="container-fluid">
                 <div class="field has-addons search box">
@@ -34,7 +34,7 @@
     </div>
     <div id="women-roles-intro" class="columns">
         <div class="column content">
-            <h1 class="title is-size-2 has-text-centered">¿A qué se dedicaban esas mujeres?</h1>
+            <h1 class="title is-size-3 has-text-weight-bold">¿A qué se dedicaban esas mujeres?</h1>
             <p class="is-size-4">Además de saber quiénes son, importa entender a qué mujeres reconocemos. ¿Qué roles ocuparon en la vida del país? ¿Se reproducen los mismos estereotipo de género que en otros ámbitos?</p>
         </div>
     </div>
@@ -50,15 +50,17 @@
             <div class="next">
                 <div class="columns">
                     <div class="column">
-                        <span class="question is-size-4">¿Y cómo se compara la cantidad de calles de mujeres y hombres? ¿Y con otras cosas? Averigualo.</span>
+                        <p class="question is-size-4">¿Y cómo se compara la cantidad de calles de mujeres y hombres?</p>
+                        <br>
+                        <p class="question is-size-4">¿Y con otras cosas?</p>
+                        <br>
+                        <p class="question is-size-4">Averigualo.</p>
                     </div>
                 </div>
                 <div class="columns">
                     <div class="column">
                         <div class="button is-large is-fullwidth is-uppercase continuar" data-next="section-calles">
-                            Continuar&nbsp;&nbsp;<span class="icon">
-                            <i class="fa fa-arrow-right"></i>
-                            </span>
+                            Continuar
                         </div>
                     </div>
                 </div>
@@ -68,8 +70,8 @@
     <!-- @include share-bar.html -->
 </div>
 
-<div id="profile-card-item-template" class="card" data-accordion-item style="display: none;">
-    <header class="card-header">
+<div id="profile-card-item-template" class="card profile" data-accordion-item style="display: none;">
+    <header class="card-header profile-header">
         <p class="image is-32x32">
             <img class="img-circle" src="" onerror="this.src='/img/avatar.png'" alt="Placeholder avatar">
         </p>
@@ -83,7 +85,7 @@
 
         </a>
     </header>
-    <div class="card-content" data-accordion-item-body>
+    <div class="card-content profile-content" data-accordion-item-body>
         <div class="media">
             <div class="media-left">
                 <p class="image">
