@@ -1,0 +1,55 @@
+$dark-brown: #472a00;
+$dark-gold: #c78702;
+
+$primary: $dark-brown;
+// $link: $blue;
+$info: $dark-gold;
+// $success: $green;
+$warning: #c78702;
+// $danger: $red;
+// $dark: $grey-darker;
+// $text: $grey-dark;
+
+// GENERAL
+$body-background-color: $white-ter;
+$body-size: 16px;
+$body-rendering: optimizeLegibility;
+// $body-family: $family-primary;
+// $body-color: $text;
+$body-weight: $weight-normal;
+$body-line-height: 1.5;
+// $code-family 	$family-code;
+$code-padding: 0.25em 0.5em 0.25em;
+$code-weight: normal;
+$code-size: 0.875em;
+// $hr-background-color 	$border;
+$hr-height: 1px;
+$hr-margin: 1.5rem 0;
+// $strong-color 	$text-strong;
+$strong-weight:	$weight-bold;
+
+//TABS
+// $tabs-border-bottom-color: $border;
+$tabs-border-bottom-style: solid;
+$tabs-border-bottom-width: 1px;
+// $tabs-link-color: $text;
+// $tabs-link-hover-border-bottom-color: $text-strong;
+// $tabs-link-hover-color: $text-strong;
+// $tabs-link-active-border-bottom-color: $link;
+// $tabs-link-active-color: $link;
+$tabs-link-padding: 0.5em 1em;
+// $tabs-boxed-link-radius: $radius;
+// $tabs-boxed-link-hover-background-color: $background;
+// $tabs-boxed-link-hover-border-bottom-color: $border;
+// $tabs-boxed-link-active-background-color: $white;
+// $tabs-boxed-link-active-border-color: $border;
+$tabs-boxed-link-active-border-bottom-color: transparent;
+// $tabs-toggle-link-border-color: $border;
+$tabs-toggle-link-border-style: solid;
+$tabs-toggle-link-border-width: 1px;
+$tabs-toggle-link-hover-background-color: rgba($dark-gold, .9);
+// $tabs-toggle-link-hover-border-color: $border-hover;
+// $tabs-toggle-link-radius: $radius;
+$tabs-toggle-link-active-background-color: $dark-gold;
+// $tabs-toggle-link-active-border-color: $link;
+// $tabs-toggle-link-active-color: $link-invert;
