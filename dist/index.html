@@ -8,47 +8,38 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <div class="section">
-    <div class="container">
-      <header class="columns is-mobile">
-        <div class="column">
-          <img class="logo" src="img/logo_a_tu_nombre.png" alt="A Tu Nombre">
+  <section class="hero is-large">
+      <div class="hero-body">
+        <div class="container">
+            <h1 class="title is-size-1 has-text-light">a<span class="has-text-warning">tu</span>nombre</h1>
+            <br>
+            <h2 class="subtitle is-size-4 has-text-light">Apenas <span class="has-text-weight-bold">142</span> de las <span class="has-text-weight-bold">5.678</span> calles de Montevideo, llevan nombres de mujer</h2>
         </div>
-        <div class="column">
-          <div class="info">?</div>
-        </div>
-      </header>
-    </div>
-  </div>
-  <div class="section">
-    <div class="columns">
-      <div class="column">
-        <nav class="tabs is-toggle is-fullwidth">
-          <ul>
-            <li id="mapa" class="is-active"><a>1. Mapa</a></li>
-            <li id="calles" ><a>2 .Calles</a></li>
-            <li id="poblacion" ><a>3. Población</a></li>
-          </ul>
-        </nav>
-        
       </div>
-    </div>
-  </div>
-  <div id="section-mapa" class="tab">
+      <nav class="tabs is-toggle is-fullwidth">
+        <ul>
+          <li id="mapa" class="is-active is-uppercase is-size-4"><a>Mapa</a></li>
+          <li id="calles" class="is-uppercase is-size-4"><a>Calles</a></li>
+          <li id="poblacion" class="is-uppercase is-size-4"><a>Población</a></li>
+        </ul>
+      </nav>
+      
+  </section>
+  <section id="section-mapa" class="tab">
     <div class="section">
         <div id="map-intro" class="columns">
             <div class="column content">
-                <h1 class="is-size-2 has-text-centered">Apenas 142 de las 5.678 calles de Montevideo, llevan nombres de mujer</h1>
-                <p class="is-size-4">Parece poco, ¿verdad? Este proyecto quiere dar visibilidad a una de las tantas formas que tiene la brecha de género en nuestro país y al mismo ayudar a conocer más sobre las mujeres detrás de esas calles.</p>
+                <p class="is-size-3 has-text-weight-bold">Parece poco, ¿verdad? </p>
+                <p class="is-size-4">Este proyecto quiere dar visibilidad a una de las tantas formas que tiene la brecha de género en nuestro país y al mismo ayudar a conocer más sobre las mujeres detrás de esas calles.</p>
                 <p class="is-size-4">Empezá por conocer quiénes son y dónde están y en los próximos pasos vamos a poner esos datos en contexto para saber si son muchas, pocas y de dónde vienen.</p>
             </div>
         </div>
         <div id="map" class="columns">
-            <div class="column">
+            <div class="column is-marginless">
                 <div id="map-container" class="map box">Map</div>
             </div>
         </div>
-        <div id="map" class="columns">
+        <div id="search" class="columns">
             <div class="column">
                 <div id="search-field" class="container-fluid">
                     <div class="field has-addons search box">
@@ -71,7 +62,7 @@
         </div>
         <div id="women-roles-intro" class="columns">
             <div class="column content">
-                <h1 class="title is-size-2 has-text-centered">¿A qué se dedicaban esas mujeres?</h1>
+                <h1 class="title is-size-3 has-text-weight-bold">¿A qué se dedicaban esas mujeres?</h1>
                 <p class="is-size-4">Además de saber quiénes son, importa entender a qué mujeres reconocemos. ¿Qué roles ocuparon en la vida del país? ¿Se reproducen los mismos estereotipo de género que en otros ámbitos?</p>
             </div>
         </div>
@@ -87,15 +78,17 @@
                 <div class="next">
                     <div class="columns">
                         <div class="column">
-                            <span class="question is-size-4">¿Y cómo se compara la cantidad de calles de mujeres y hombres? ¿Y con otras cosas? Averigualo.</span>
+                            <p class="question is-size-4">¿Y cómo se compara la cantidad de calles de mujeres y hombres?</p>
+                            <br>
+                            <p class="question is-size-4">¿Y con otras cosas?</p>
+                            <br>
+                            <p class="question is-size-4">Averigualo.</p>
                         </div>
                     </div>
                     <div class="columns">
                         <div class="column">
                             <div class="button is-large is-fullwidth is-uppercase continuar" data-next="section-calles">
-                                Continuar&nbsp;&nbsp;<span class="icon">
-                                <i class="fa fa-arrow-right"></i>
-                                </span>
+                                Continuar
                             </div>
                         </div>
                     </div>
@@ -109,8 +102,8 @@
         
     </div>
     
-    <div id="profile-card-item-template" class="card" data-accordion-item style="display: none;">
-        <header class="card-header">
+    <div id="profile-card-item-template" class="card profile" data-accordion-item style="display: none;">
+        <header class="card-header profile-header">
             <p class="image is-32x32">
                 <img class="img-circle" src="" onerror="this.src='/img/avatar.png'" alt="Placeholder avatar">
             </p>
@@ -124,7 +117,7 @@
     
             </a>
         </header>
-        <div class="card-content" data-accordion-item-body>
+        <div class="card-content profile-content" data-accordion-item-body>
             <div class="media">
                 <div class="media-left">
                     <p class="image">
@@ -163,8 +156,8 @@
         </div>
     </div>
     
-  </div>
-  <div id="section-calles" class="tab">
+  </section>
+  <section id="section-calles" class="tab">
       <div class="section">
         <div class="columns">
           <div class="column content">
@@ -264,9 +257,7 @@
               <div class="columns">
                 <div class="column">
                     <div class="button is-large is-fullwidth is-uppercase continuar" data-next="section-poblacion">
-                        Continuar&nbsp;&nbsp;<span class="icon">
-                        <i class="fa fa-arrow-right"></i>
-                        </span>
+                        Continuar
                     </div>
                 </div>
               </div>
@@ -280,8 +271,8 @@
         
       </div>
       
-  </div>
-  <div id="section-poblacion" class="tab">
+  </section>
+  <section id="section-poblacion" class="tab">
       <div class="section">
           <div class="columns">
               <div class="column content">
@@ -360,7 +351,7 @@
           
       </div>
       
-  </div>
+  </section>
   <footer class="footer">
     <div class="columns">
       <div class="column datos-abiertos">
