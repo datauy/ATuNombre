@@ -13,7 +13,7 @@
     "build:html": "src/scripts/buildHtml.js",
     "build:imgs": "cpr src/img dist/img -d",
     "build:js": "rollup -c",
-    "build:sass": "node-sass src/sass/ -o dist/css/",
+    "build:sass": "node-sass src/sass/main.scss -o dist/css/",
     "minify": "npm-run-all --parallel minify:*",
     "minify:json": "node node_modules/babel-minify/bin/minify.js dist/data/ --outDir dist/data",
     "minify:js": "node node_modules/babel-minify/bin/minify.js dist/js/main.js --mangle.keepClassName --deadcode.keepFnArgs --outFile dist/js/main.js",
@@ -36,7 +36,7 @@
   },
   "homepage": "https://github.com/n370/a-tu-nombre#readme",
   "dependencies": {
-    "bulma": "^0.6.0",
+    "bulma": "^0.7.0",
     "d3": "^4.11.0",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.4",
