@@ -1,5 +1,7 @@
 @import "../../node_modules/bulma/sass/utilities/initial-variables";
 @import "../../node_modules/bulma/sass/utilities/functions";
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat|PT+Serif');
 @import './common/variables';
 @import "../../node_modules/bulma/sass/utilities/derived-variables";
 @import "../../node_modules/bulma/sass/utilities/mixins";
@@ -76,53 +78,115 @@ body {
                 flex-grow: 1;
                 flex-shrink: 0;
                 flex-basis: 1;
-                min-width: 200px;
+                width: 100%;
                 margin-top: 5px;
                 margin-bottom: 5px;
             }
         }
         li {
-            background-color: $dark-brown;
+            background-color: transparent;
+            a {
+                color: $white;
+                padding: 0.7em 1em;
+            }
         }
     }
+}
+
+.section {
+    .subsection {
+        .horizontal-title
+        {
+            &::before {
+                margin-left: -1.5rem;
+                content: '— ';
+                color: $dark-gold;
+            }
+        }
+    }
+    .description {
+        line-height: 1.67;
+
+        h3 {
+            margin-bottom: 2rem;
+        }
+    }
+
+    .continuar {
+        background-color: transparent;
+        border-width: 2px;
+        border-color: $dark-gold;
+        border-radius: 0px;
+    }
+}
+
+#search-profiles {
+    .search {
+        margin-bottom: 2rem;
+        border: 2px solid $dark-gold;
+    }
+    // .box {
+    // }
+    // input {
+    // }
+}
+
+/* Clearable text inputs */
+.clearable {
+    background: #fff url('../img/x.svg') no-repeat right -50px center;
+    background-size: auto 45%;
+    padding: 3px 18px 3px 4px; /* Use the same right padding (18) in jQ! */
+    transition: background 0.4s;
+
+    &.x {
+        background-position: right 10px center;
+    } /* (jQ) Show icon */
+
+    &.onX {
+        cursor: pointer;
+    } /* (jQ) hover cursor style */
+
+    &::-ms-clear {
+        display: none;
+        width: 0;
+        height: 0;
+    } /* Remove IE default X */
 }
 
 .profiles {
     max-height: $section_max_height;
     padding-top: 1px;
+
+    .img-circle {
+        border-radius: 50%;
+    }
+
+    .descripcion {
+        font-size: 0.8rem;
+    }
+    .card-header .image {
+        margin: auto 7px;
+        img {
+            height: inherit;
+        }
+    }
+
+    .card-content img {
+        max-height: 64px;
+    }
 }
 
-.img-circle {
-    border-radius: 50%;
-}
 
 .is-gone {
     display: none !important;
 }
 
-.descripcion {
-    font-size: 0.8rem;
-}
 
-.card-header .image {
-    margin: auto 7px;
-    img {
-        height: inherit;
-    }
-}
-
-.card-content img {
-    max-height: 64px;
-}
 
 .map {
     height: $section_max_height;
 }
 
-.search {
-    padding: 20px;
-    background-color: $info;
-}
 
 .scrollable {
     overflow: auto;
@@ -148,33 +212,13 @@ body {
     }
 }
 
-.continuar {
-    background-color: $body-background-color;
-    border-width: 2px;
-    border-color: $black-ter;
-    border-radius: 0px;
-}
+.share {
+    margin-top: 10px;
+    padding-bottom:10px;
+    background-color: $dark-gold;
 
-/* Clearable text inputs */
-.clearable {
-    background: #fff url('../img/x.svg') no-repeat right -50px center;
-    background-size: auto 75%;
-    border: 1px solid #999;
-    padding: 3px 18px 3px 4px; /* Use the same right padding (18) in jQ! */
-    border-radius: 3px;
-    transition: background 0.4s;
-
-    &.x {
-        background-position: right 10px center;
-    } /* (jQ) Show icon */
-
-    &.onX {
-        cursor: pointer;
-    } /* (jQ) hover cursor style */
-
-    &::-ms-clear {
-        display: none;
-        width: 0;
-        height: 0;
-    } /* Remove IE default X */
+    .button {
+        background-color: $dark-gold;
+        border: $white-ter 2px solid;
+    }
 }

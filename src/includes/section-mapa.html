@@ -1,41 +1,40 @@
 <div class="section">
-    <div id="map-intro" class="columns">
-        <div class="column content">
-            <p class="is-size-3 has-text-weight-bold">Parece poco, ¿verdad? </p>
-            <p class="is-size-4">Este proyecto quiere dar visibilidad a una de las tantas formas que tiene la brecha de género en nuestro país y al mismo ayudar a conocer más sobre las mujeres detrás de esas calles.</p>
-            <p class="is-size-4">Empezá por conocer quiénes son y dónde están y en los próximos pasos vamos a poner esos datos en contexto para saber si son muchas, pocas y de dónde vienen.</p>
+    <div id="map-intro" class="columns subsection">
+        <div class="column content description">
+            <h3 class="is-size-5 has-text-weight-bold">Parece poco, ¿verdad?</h3>
+            <p class="is-size-6">Este proyecto quiere dar visibilidad a una de las tantas formas que tiene la brecha de género en nuestro país y al mismo ayudar a conocer más sobre las mujeres detrás de esas calles.</p>
+            <p class="is-size-6">Empezá por conocer quiénes son y dónde están y en los próximos pasos vamos a poner esos datos en contexto para saber si son muchas, pocas y de dónde vienen.</p>
         </div>
     </div>
-    <div id="map" class="columns">
+    <div id="map" class="columns subsection">
+        <div class="container">
+            <h4 class="title horizontal-title map-title is-5 has-text-centered has-text-weight-bold">Calles con nombre de mujer</h4>
+        </div>
         <div class="column is-marginless">
             <div id="map-container" class="map box">Map</div>
         </div>
     </div>
-    <div id="search" class="columns">
+    <div id="search-profiles" class="columns subsection search-box">
         <div class="column">
-            <div id="search-field" class="container-fluid">
-                <div class="field has-addons search box">
-                    <div class="control has-icons-left is-expanded">
-                        <input class="input is-large clearable" type="text" placeholder="Buscar por nombre">
-                        <span class="icon is-small is-left">
-                            <i class="fa fa-search"></i>
-                        </span>
-                    </div>
+            <div class="search control has-icons-left is-expanded">
+                <input class="input is-static clearable" type="text" placeholder="Buscar">
+                <span class="icon is-small is-left">
+                    <i class="fa fa-search"></i>
+                </span>
+            </div>
+            <div id="profile-cards" class="profile-cards">
+                <div class=" is-clipped box">
+                    <div id="profiles" class="accordion profiles scrollable" data-accordion></div>
                 </div>
             </div>
         </div>
     </div>
-    <div id="profile-cards" class="columns">
-        <div class="column is-clipped box">
-            <p class="title is-size-2 has-text-centered">Calles con nombre de mujer</p>
-            <div id="profiles" class="accordion profiles scrollable" data-accordion>
-            </div>
+    <div id="women-roles-intro" class="columns subsection">
+        <div class="container">
+            <h4 class="title horizontal-title map-title is-5 has-text-weight-bold">¿A qué se dedicaban esas mujeres?</h4>
         </div>
-    </div>
-    <div id="women-roles-intro" class="columns">
-        <div class="column content">
-            <h1 class="title is-size-3 has-text-weight-bold">¿A qué se dedicaban esas mujeres?</h1>
-            <p class="is-size-4">Además de saber quiénes son, importa entender a qué mujeres reconocemos. ¿Qué roles ocuparon en la vida del país? ¿Se reproducen los mismos estereotipo de género que en otros ámbitos?</p>
+        <div class="column content description">
+            <p class="is-size-6">Además de saber quiénes son, importa entender a qué mujeres reconocemos. ¿Qué roles ocuparon en la vida del país? ¿Se reproducen los mismos estereotipos de género que en otros ámbitos?</p>
         </div>
     </div>
     <div id="women-roles-graphs" class="columns">
@@ -50,16 +49,16 @@
             <div class="next">
                 <div class="columns">
                     <div class="column">
-                        <p class="question is-size-4">¿Y cómo se compara la cantidad de calles de mujeres y hombres?</p>
+                        <p class="question is-size-6">¿Y cómo se compara la cantidad de calles de mujeres y hombres?</p>
                         <br>
-                        <p class="question is-size-4">¿Y con otras cosas?</p>
+                        <p class="question is-size-6">¿Y con otras cosas?</p>
                         <br>
-                        <p class="question is-size-4">Averigualo.</p>
+                        <p class="question is-size-6">Averigualo.</p>
                     </div>
                 </div>
                 <div class="columns">
                     <div class="column">
-                        <div class="button is-large is-fullwidth is-uppercase continuar" data-next="section-calles">
+                        <div class="button is-large is-size-5 is-fullwidth is-uppercase continuar" data-next="section-calles">
                             Continuar
                         </div>
                     </div>
