@@ -21,16 +21,53 @@
 
 $section_max_height: 400px;
 
+body {
+    font-family: $family-serif;
+}
+
+.logo {
+    font-family: $pt-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.3px;
+    color: $white-bis;
+}
+
+.title {
+    font-family: $pt-serif;
+}
+
 .hero {
-    background: linear-gradient(to bottom, rgba($dark-brown,0.3) 0%,rgba($dark-brown,0.3) 100%),
-        url('../img/Maria_Sanchez_de_Thompson-bg-2.jpg') no-repeat center;
-        background-size: cover;
+    // background: linear-gradient(to bottom, rgba($dark-brown,0.3) 0%,rgba($dark-brown,0.3) 100%),
+        // url('../img/hero-bg.jpg') no-repeat center;
+        background-color: rgba(0, 0, 0, 0);
+        background-image: url("../img/hero-bg.jpg");
+        background-repeat: repeat, no-repeat;
+        background-attachment: scroll, scroll;
+        background-clip: border-box, border-box;
+        background-origin: padding-box, padding-box;
+        background-position: top;
+        background-size: 100% auto;
+
+        min-height: 580px;
+        .hero-body {
+            padding-top: 10rem ;
+            // font-family: $family-serif;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            // font-weight: normal;
+            // font-style: normal;
+            // font-stretch: normal;
+            line-height: 1.57;
+            // letter-spacing: normal;
+        }
 }
 
 .tabs {
-    a {
-        color: $white;
-    }
     ul {
         @media screen and (max-device-width: $tablet) {
             flex-direction: column;
