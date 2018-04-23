@@ -13,16 +13,11 @@
 @import '../../node_modules/bulma/sass/grid/_all';
 @import '../../node_modules/bulma/sass/layout/_all';
 
-@import '../../node_modules/font-awesome/scss/variables.scss';
-@import '../../node_modules/font-awesome/scss/mixins.scss';
-@import '../../node_modules/font-awesome/scss/path.scss';
-@import '../../node_modules/font-awesome/scss/core.scss';
-@import '../../node_modules/font-awesome/scss/icons.scss';
+@import '../../node_modules/font-awesome/scss/font-awesome';
 
 @import '../../node_modules/leaflet/dist/leaflet';
 
 $section_max_height: 400px;
-
 body {
     font-family: $family-serif;
 }
@@ -42,8 +37,6 @@ body {
 }
 
 .hero {
-    // background: linear-gradient(to bottom, rgba($dark-brown,0.3) 0%,rgba($dark-brown,0.3) 100%),
-        // url('../img/hero-bg.jpg') no-repeat center;
         background-color: rgba(0, 0, 0, 0);
         background-image: url("../img/hero-bg.jpg");
         background-repeat: repeat, no-repeat;
@@ -56,16 +49,11 @@ body {
         min-height: 580px;
         .hero-body {
             padding-top: 10rem ;
-            // font-family: $family-serif;
         }
 
         .subtitle {
             font-size: 0.9rem;
-            // font-weight: normal;
-            // font-style: normal;
-            // font-stretch: normal;
             line-height: 1.57;
-            // letter-spacing: normal;
         }
 }
 
@@ -95,8 +83,13 @@ body {
 
 .section {
     .subsection {
-        .horizontal-title
-        {
+        .horizontal-title {
+            font-size: 1.35rem;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.14;
+            letter-spacing: -0.3px;
             &::before {
                 margin-left: -1.5rem;
                 content: '— ';
@@ -106,7 +99,7 @@ body {
     }
     .description {
         line-height: 1.67;
-
+        margin-bottom: 3rem;
         h3 {
             margin-bottom: 2rem;
         }
@@ -114,8 +107,8 @@ body {
 
     .continuar {
         background-color: transparent;
-        border-width: 2px;
-        border-color: $dark-gold;
+        border-width: 1px;
+        border-color: $dark-brown;
         border-radius: 0px;
     }
 }
@@ -125,10 +118,6 @@ body {
         margin-bottom: 2rem;
         border: 2px solid $dark-gold;
     }
-    // .box {
-    // }
-    // input {
-    // }
 }
 
 /* Clearable text inputs */
@@ -212,13 +201,92 @@ body {
     }
 }
 
+.graph {
+    min-height: 250px;
+    padding: 0 -1.2rem;
+}
+
 .share {
-    margin-top: 10px;
-    padding-bottom:10px;
+    margin-top: 2rem 0;
+    padding: 1.5rem 0;
     background-color: $dark-gold;
 
-    .button {
-        background-color: $dark-gold;
-        border: $white-ter 2px solid;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    .share-button {
+        margin: auto 1%;
+
+        a {
+            color: $white-ter;
+            div {
+                font-size: 0.9rem;
+            }
+        }
+
+        .button {
+            background-color: transparent;
+        }
+    }
+
+}
+
+.footer {
+    padding: 2rem 0 0;
+    a {
+        text-decoration: underline;
+    }
+    .datosabiertos {
+        margin: auto 1.5rem;
+        .footer-logo {
+            width: 36%;
+            margin-bottom: 1rem;
+        }
+        a {
+            color: $grey-dark;
+        }
+    }
+
+    .datauy {
+        background-color: $dark-grey;
+
+        .wrapper {
+            padding: 0 1.5rem;
+
+            .subtitle, a {
+                color: whitesmoke;
+            }
+        }
+        .footer-logo {
+            width: 44%;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .social-footer {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+
+        padding: 1rem 0;
+        background-color: $dark-grey;
+
+        .social-link {
+            margin: auto 0.5rem;
+
+        }
+        .github:hover {
+            // background-color:
+        }
+
+        .social-logo {
+            color: $dark-grey;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
     }
 }
