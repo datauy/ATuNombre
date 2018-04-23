@@ -79,7 +79,7 @@ function drawHorizontalGroupBarChartChart(config) {
         .attr('height', $(mainDiv).width() * 0.6);
 
     var svg = d3.select(mainDiv + ' svg'),
-        margin = { top: 20, right: 60, bottom: 40, left: 140 },
+        margin = { top: 20, right: $(mainDiv).width() * 0.085, bottom: 40, left: $(mainDiv).width() * 0.2 },
         width = +svg.attr('width') - margin.left - margin.right,
         height = +svg.attr('height') - margin.top - margin.bottom;
 
