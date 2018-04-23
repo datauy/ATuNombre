@@ -257,7 +257,7 @@ $(document).ready(function() {
 
     // Search
     var timer;
-    var $searchInput = $('#search-field input');
+    var $searchInput = $('#search-field-input');
     $searchInput.on('keyup', function(e) {
         timer && clearTimeout(timer);
         var query = $(this).val();

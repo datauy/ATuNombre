@@ -9,7 +9,6 @@
 </head>
 <body>
   <section class="hero is-large">
-      <!-- <img src="img/hero-bg.jpg" srcset="img/hero-bg@2x.jpg 2x, img/hero-bg@3x.jpg 3x" class="juana_foto"> -->
       <div class="hero-body">
         <div class="container">
             <h1 class="title is-1 logo has-text-light">a<span class="has-text-warning">tu</span>nombre</h1>
@@ -31,23 +30,21 @@
     <div class="section">
         <div id="map-intro" class="columns subsection">
             <div class="column content description">
-                <h3 class="is-size-5 has-text-weight-bold">Parece poco, ¿verdad?</h3>
+                <h4 class="title vertical-title has-text-weight-bold">Parece poco, ¿verdad?</h4>
                 <p class="is-size-6">Este proyecto quiere dar visibilidad a una de las tantas formas que tiene la brecha de género en nuestro país y al mismo ayudar a conocer más sobre las mujeres detrás de esas calles.</p>
                 <p class="is-size-6">Empezá por conocer quiénes son y dónde están y en los próximos pasos vamos a poner esos datos en contexto para saber si son muchas, pocas y de dónde vienen.</p>
             </div>
         </div>
         <div id="map" class="columns subsection">
-            <div class="container">
-                <h4 class="title horizontal-title map-title is-5 has-text-centered has-text-weight-bold">Calles con nombre de mujer</h4>
-            </div>
             <div class="column is-marginless">
+                <h4 class="title horizontal-title map-title ">Calles con nombre de mujer</h4>
                 <div id="map-container" class="map box">Map</div>
             </div>
         </div>
         <div id="search-profiles" class="columns subsection search-box">
             <div class="column">
                 <div class="search control has-icons-left is-expanded">
-                    <input class="input is-static clearable" type="text" placeholder="Buscar">
+                    <input id="search-field-input" class="input is-static clearable" type="text" placeholder="Buscar">
                     <span class="icon is-small is-left">
                         <i class="fa fa-search"></i>
                     </span>
@@ -59,11 +56,11 @@
                 </div>
             </div>
         </div>
+    
+    
         <div id="women-roles-intro" class="columns subsection">
-            <div class="container">
-                <h4 class="title horizontal-title map-title is-5 has-text-weight-bold">¿A qué se dedicaban esas mujeres?</h4>
-            </div>
             <div class="column content description">
+                <h4 class="title horizontal-title map-title ">¿A qué se dedicaban esas mujeres?</h4>
                 <p class="is-size-6">Además de saber quiénes son, importa entender a qué mujeres reconocemos. ¿Qué roles ocuparon en la vida del país? ¿Se reproducen los mismos estereotipos de género que en otros ámbitos?</p>
             </div>
         </div>
@@ -96,23 +93,6 @@
                 </div>
             </div>
         </div>
-        <div class="columns is-mobile share">
-            <a href="#" target="_blank" rel="noreferrer noopener">
-            <div class="column button is-large is-size-5 is-fullwidth is-uppercase has-text-light">
-                <span class="icon">
-                    <i class="fa fa-facebook"></i>
-                </span>&nbsp;Me Gusta
-            </div>
-            </a>
-            <a href="#" target="_blank" rel="noreferrer noopener">
-            <div class="column button is-large is-size-5 is-fullwidth is-uppercase has-text-light">
-                <span class="icon">
-                    <i class="fa fa-twitter"></i>
-                </span>&nbsp;Twittear
-            </div>
-            </a>
-        </div>
-        
     </div>
     
     <div id="profile-card-item-template" class="card profile" data-accordion-item style="display: none;">
@@ -172,24 +152,24 @@
   </section>
   <section id="section-calles" class="tab">
       <div class="section">
-        <div class="columns">
-          <div class="column content">
-            <h1>Flora, accidentes geográficos y lugares de todo tipo tienen más calles a su nombre que las mujeres</h1>
+        <div class="columns subsection">
+          <div class="column content description">
+            <h3 class="title">Flora, accidentes geográficos y lugares de todo tipo tienen más calles a su nombre que las mujeres</h3>
             <p>Aunque en dos años la cantidad de calles con nombre de mujer subió un 42% (¡bien ahí!), el número todavía está por debajo de otras categorías y muy por debajo de los hombres, que tienen 2.091 de las 5.678 calles a su nombre.</p>
           </div>
         </div>
-        <div class="columns">
+        <div class="columns subsection">
           <div class="column">
             <div class="graph"></div>
           </div>
         </div>
-        <div class="columns">
+        <div class="columns subsection">
           <div class="column content">
-            <h1>En otras partes del mundo</h1>
+            <h3 class="title horizontal-title">En otras partes del mundo</h3>
             <p>La subrepresentación de las mujeres en los nombres de las calles no es algo para nada exclusivo de Uruguay. Tampoco proyectos como éste que buscan visibilizarlo, por lo que podemos obtener cifras para comparar la situación en los distintos lugares.</p>
           </div>
         </div>
-        <div class="columns">
+        <div class="columns subsection">
           <div class="column">
             <div class="graph">
                 <table class="table is-hoverable is-fullwidth is-striped is-bordered">
@@ -259,7 +239,7 @@
             </div>
           </div>
         </div>
-        <div class="columns">
+        <div class="columns subsection">
           <div class="column">
             <div class="next">
               <div class="columns">
@@ -268,150 +248,163 @@
                 </div>
               </div>
               <div class="columns">
-                <div class="column">
-                    <div class="button is-large is-fullwidth is-uppercase continuar" data-next="section-poblacion">
-                        Continuar
-                    </div>
-                </div>
+                  <div class="column">
+                      <div class="button is-large is-size-5 is-fullwidth is-uppercase continuar" data-next="section-calles">
+                          Continuar
+                      </div>
+                  </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="columns is-mobile share">
-            <a href="#" target="_blank" rel="noreferrer noopener">
-            <div class="column button is-large is-size-5 is-fullwidth is-uppercase has-text-light">
-                <span class="icon">
-                    <i class="fa fa-facebook"></i>
-                </span>&nbsp;Me Gusta
-            </div>
-            </a>
-            <a href="#" target="_blank" rel="noreferrer noopener">
-            <div class="column button is-large is-size-5 is-fullwidth is-uppercase has-text-light">
-                <span class="icon">
-                    <i class="fa fa-twitter"></i>
-                </span>&nbsp;Twittear
-            </div>
-            </a>
-        </div>
-        
       </div>
       
   </section>
   <section id="section-poblacion" class="tab">
       <div class="section">
-          <div class="columns">
+          <div class="columns subsection">
               <div class="column content">
-                  <h1>Las mujeres mayoría en la población, la subrepresentación responde a factores más bien culturales</h1>
-                  <p>Según el <a href="">censo 2011 del INE</a> las mujeres representan el 52% de la población, muy por encima de las cifras vistas anteriormente. Existen factores históricos, culturales y de otros tipos que pueden explicar -pero no justificar- esa enorme diferencia.</p>
+                  <h4 class="title vertical-title ">Las mujeres mayoría en la población, la subrepresentación responde a factores más bien culturales</h4>
+                  <p>Según el <a href="#">censo 2011 del INE</a> las mujeres representan el 52% de la población, muy por encima de las cifras vistas anteriormente. Existen factores históricos, culturales y de otros tipos que pueden explicar -pero no justificar- esa enorme diferencia.</p>
               </div>
           </div>
-          <div class="columns">
+          <div class="columns subsection">
               <div class="column">
-                  <div class="card graph ">
+                  <div class="card graph-card">
                       <header class="card-header has-text-centered">
-                          <p class="card-header-title">Porcentaje de la población</p>
+                          <p class="card-header-title">Población</p>
                       </header>
                       <div class="card-content">
-                          <h2 class="subtitle">Distribución de la población de Montevideo dividida por género</h2>
-                          <div id="women-population-graph" class="content has-text-centered">
-                          </div>
+                          <div id="women-population-graph" class="graph has-text-centered"></div>
+                          <h5 class="subtitle is-size-6-tablet is-size-7-mobile">Distribución de la población de Montevideo dividida por género</h5>
                       </div>
                   </div>
               </div>
               <div class="column">
-                  <div class="card graph ">
+                  <div class="card graph-card">
                       <header class="card-header has-text-centered">
                           <p class="card-header-title">Educación</p>
                       </header>
                       <div class="card-content">
-                          <h2 class="subtitle">Distribución del nivel de educación de las mujeres de Montevideo</h2>
-                          <div id="women-education-graph" class="content has-text-centered">
-                          </div>
+                          <div id="women-education-graph" class="graph has-text-centered"></div>
+                          <h5 class="subtitle is-size-6-tablet is-size-7-mobile">Distribución del nivel de educación de las mujeres de Montevideo</h5>
                       </div>
                   </div>
               </div>
           </div>
-          <div class="columns">
+          <div class="columns subsection">
               <div class="column">
-                  <div class="card graph ">
+                  <div class="card graph-card">
                       <header class="card-header has-text-centered">
                           <p class="card-header-title">Actividad</p>
                       </header>
                       <div class="card-content">
-                          <h2 class="subtitle">Distribución de la actividad laboral de la población femenina de Montevideo</h2>
-                          <div id="women-occupation-graph" class="content has-text-centered">
-                          </div>
+                          <div id="women-occupation-graph" class="graph has-text-centered"></div>
+                          <h5 class="subtitle is-size-6-tablet is-size-7-mobile">Distribución de la actividad laboral de la población femenina de Montevideo</h5>
                       </div>
                   </div>
               </div>
               <div class="column">
-                  <div class="card graph ">
+                  <div class="card graph-card">
                       <header class="card-header has-text-centered">
                           <p class="card-header-title">Quehaceres del hogar</p>
                       </header>
                       <div class="card-content">
-                          <h2 class="subtitle">Número de mujeres que se dedican a los quehaceres del hogar</h2>
-                          <div id="women-homemakers-graph" class="content has-text-centered">
-                          </div>
+                          <div id="women-homemakers-graph" class="graph has-text-centered"></div>
+                          <h5 class="subtitle is-size-6-tablet is-size-7-mobile">Número de mujeres que se dedican a los quehaceres del hogar</h5>
                       </div>
                   </div>
               </div>
           </div>
-          <div class="columns">
+          <div class="columns subsection">
               <div class="column content">
-                  <h1>Las buenas noticias</h1>
+                  <h4 class="title horizontal-title ">Las buenas noticias</h4>
                   <p>Poner algo de lo que se está haciendo a nivel de IM para tratar de compensar ésto y contar del proyecto de mujeres varelianas.</p>
               </div>
           </div>
-          <div class="columns">
+          <div class="columns subsection">
               <div class="column content">
-                  <h1>¿Yo puedo hacer algo?</h1>
+                  <h4 class="title horizontal-title ">¿Yo puedo hacer algo?</h4>
                   <p>Explicar que se reciben propuestas de nombres en la IM para considerar en futuras calles.</p>
               </div>
           </div>
-          <div class="columns is-mobile share">
-              <a href="#" target="_blank" rel="noreferrer noopener">
-              <div class="column button is-large is-size-5 is-fullwidth is-uppercase has-text-light">
-                  <span class="icon">
-                      <i class="fa fa-facebook"></i>
-                  </span>&nbsp;Me Gusta
-              </div>
-              </a>
-              <a href="#" target="_blank" rel="noreferrer noopener">
-              <div class="column button is-large is-size-5 is-fullwidth is-uppercase has-text-light">
-                  <span class="icon">
-                      <i class="fa fa-twitter"></i>
-                  </span>&nbsp;Twittear
-              </div>
-              </a>
-          </div>
-          
       </div>
       
   </section>
+
+  <div class="container-fluid share">
+      <div class="share-button">
+          <a href="#" class="button is-medium" target="_blank" rel="noreferrer noopener">
+              <div class="is-uppercase has-text-light has-text-weight-bold">
+              <span class="icon is-large">
+                  <i class="fa fa-facebook"></i>
+              </span>&nbsp;Me Gusta
+              </div>
+          </a>
+      </div>
+      <div class="share-button">
+          <a href="#" class="button is-medium" target="_blank" rel="noreferrer noopener">
+              <div class="is-uppercase has-text-light has-text-weight-bold">
+                  <span class="icon is-large">
+                      <i class="fa fa-twitter"></i>
+                  </span>&nbsp;Twittear
+              </div>
+          </a>
+      </div>
+  </div>
+  
+
   <footer class="footer">
-    <div class="columns">
-      <div class="column datos-abiertos">
-        <div class="logo"></div>
-        <h1>Acerca de Datos Abiertos</h1>
-        <p>El estado recoge y produce datos paracumplir con su función. Su publicación en formatos abiertos permite que sean reutilizados por el gobierno, sociedad civil, organizaciones, empresas o ciudadanos en general.</p>
-        <a href="https://www.catalogodatos.gub.uy/">https://www.catalogodatos.gub.uy/</a>
+      <div class="columns">
+      <div class="column datosabiertos">
+        <div class="footer-logo">
+            <figure class="image">
+              <img src="img/logo-datos-abiertos.svg">
+            </figure>
+        </div>
+        <p class="content is-size-6">El estado recoge y produce datos para cumplir con su función. Su publicación en formatos abiertos permite que sean reutilizados por el gobierno, sociedad civil, organizaciones, empresas o ciudadanos en general.</p>
+        <a target="_blank" rel="noopener" href="https://www.catalogodatos.gub.uy">https://www.catalogodatos.gub.uy</a>
       </div>
-      <div class="column datauy">
-        <div class="logo"></div>
-        <h1>Acerca de DATA</h1>
-        <p>Somos una organización de la sociedad civil que trabaja creando herramientas sociales para promover la participación y el debate público a través de la transparencia, datos abiertos y acceso a la información.</p>
-        <a href="http://www.datauy.org/">http://www.datauy.org/</a>
-      </div>
-    </div>
-    <div class="columns">
-      <div class="column social">
-        <div class="twitter">TW</div>
-        <div class="facebook">FB</div>
-        <div class="github">Fork Me on Github</div>
+      <div class="column datauy has-text-light">
+          <div class="wrapper">
+            <div class="footer-logo">
+              <figure class="image">
+                <img src="img/logo_data_white.svg">
+              </figure>
+            </div>
+            <h4 class="subtitle">Acerca de DATA</h1>
+            <p class="content is-size-6">Somos una organización de la sociedad civil que trabaja creando herramientas sociales para promover la participación y el debate público a través de la transparencia, datos abiertos y acceso a la información.</p>
+            <a target="_blank" rel="noopener" href="https://www.datauy.org">https://www.datauy.org</a>
+          </div>
+          <div class="social-footer columns">
+            <a target="_blank" rel="noopener noreferrer" href="#" class="social-link facebook has-text-light">
+                <span class="icon is-large">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-facebook fa-stack-1x social-logo"></i>
+                    </span>
+                </span>
+            </a>
+            <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/DataUY" class="social-link twitter has-text-light">
+                <span class="icon is-large">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-twitter fa-stack-1x social-logo"></i>
+                    </span>
+                </span>
+            </a>
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/datauy/a-tu-nombre/fork" class="social-link github button">
+                <span class="is-size-6">Fork Me!&nbsp;&nbsp;</span>
+                <span class="icon is-large">
+                    <i class="fa fa-github fa-2x" aria-hidden="true"></i>
+                </span>
+            </a>
+          </div>
       </div>
     </div>
   </footer>
+  
+
   <script src="/js/main.js"></script>
 </body>
 </html>
