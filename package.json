@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "npm-run-all build:*",
-    "dev": "npm-run-all build minify serve:dev watch:*",
+    "dev": "npm-run-all build watch-serve",
+    "prod": "npm-run-all build minify",
     "serve:dev": "http-server dist",
     "build": "npm-run-all --parallel build:*",
     "build:data": "cpr src/data dist/data -d",
@@ -13,16 +14,17 @@
     "build:html": "src/scripts/buildHtml.js",
     "build:imgs": "cpr src/img dist/img -d",
     "build:js": "rollup -c",
-    "build:sass": "node-sass src/sass/main.scss -o dist/css/",
+    "build:sass": "node-sass src/sass/main.scss dist/css/main.css",
     "minify": "npm-run-all --parallel minify:*",
     "minify:json": "node node_modules/babel-minify/bin/minify.js dist/data/ --outDir dist/data",
     "minify:js": "node node_modules/babel-minify/bin/minify.js dist/js/main.js --mangle.keepClassName --deadcode.keepFnArgs --outFile dist/js/main.js",
     "minify:css": "src/scripts/minifyCSS.js",
     "watch": "npm-run-all --parallel watch:*",
+    "watch-serve": "npm-run-all --parallel watch serve:dev",
     "watch:html": "onchange '**/*.html' -e 'dist/**' -- npm run build:html",
     "watch:imgs": "onchange \"src/img\" -w -- npm run build:imgs",
     "watch:js": "npm run build:js -- -w",
-    "watch:sass": "npm run build:sass -- -w "
+    "watch:sass": "node-sass src/sass/main.scss -wo dist/css/"
   },
   "repository": {
     "type": "git",
