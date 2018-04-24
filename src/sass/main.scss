@@ -16,10 +16,19 @@
 @import '../../node_modules/font-awesome/scss/font-awesome';
 
 @import '../../node_modules/leaflet/dist/leaflet';
+@import './charts';
 
 $section_max_height: 400px;
 body {
     font-family: $family-serif;
+}
+
+.has-text-golden {
+    color: $dark-gold !important;
+}
+
+.has-text-brown {
+    color: $dark-brown !important;
 }
 
 .logo {
@@ -170,40 +179,12 @@ body {
     display: none !important;
 }
 
-
-
 .map {
     height: $section_max_height;
 }
 
-
 .scrollable {
     overflow: auto;
-}
-
-.graph-text {
-    text-shadow: -1px -1px 2px hsla(0, 0%, 100%, 0.25), -1px -1px 2px hsla(0, 0%, 100%, 0.25),
-        -1px 1px 2px hsla(0, 0%, 100%, 0.25), 1px -1px 2px hsla(0, 0%, 100%, 0.25),
-        -1px 0px 2px hsla(0, 0%, 100%, 0.25), 1px 0px 2px hsla(0, 0%, 100%, 0.25);
-}
-
-.arc {
-    text {
-        font-size: 0.8rem;
-        text-anchor: middle;
-    }
-
-    path {
-        stroke: #fff;
-        &:hover {
-            fill: #add8e6;
-        }
-    }
-}
-
-.graph {
-    min-height: 200px;
-    padding: 0 -1.2rem;
 }
 
 .share {
