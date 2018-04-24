@@ -45,7 +45,7 @@ export default function(selector, data_source) {
 }
 
 function horizontalGroupBarChart(config) {
-    function setReSizeEvent(data) {
+    function setReSizeEvent(config) {
         var resizeTimer;
         var interval = 500;
         window.removeEventListener('resize', function() {});
@@ -54,8 +54,8 @@ function horizontalGroupBarChart(config) {
                 clearTimeout(resizeTimer);
             }
             resizeTimer = setTimeout(function() {
-                $(data.mainDiv).empty();
-                drawHorizontalGroupBarChartChart(data);
+                $(config.mainDiv).empty();
+                drawHorizontalGroupBarChartChart(config);
                 clearTimeout(resizeTimer);
             }, interval);
         });
@@ -69,11 +69,11 @@ function drawHorizontalGroupBarChartChart(config) {
     var data = config.data;
     var xAxis = config.xAxis;
     var mainDiv = config.mainDiv;
-    var mainDivName = mainDiv.substr(1, mainDiv.length);
+    // var mainDivName = mainDiv.substr(1, mainDiv.length);
     var label = config.label;
     var requireLegend = config.requireLegend;
-    d3
-        .select(mainDiv)
+
+    d3.select(mainDiv)
         .append('svg')
         .attr('width', $(mainDiv).width())
         .attr('height', $(mainDiv).width() * 0.6);
@@ -90,8 +90,7 @@ function drawHorizontalGroupBarChartChart(config) {
 
     var g = svg.append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-    var y0 = d3
-        .scaleBand()
+    var y0 = d3.scaleBand()
         .rangeRound([height, 0])
         .paddingInner(0.1);
 
@@ -158,22 +157,22 @@ function drawHorizontalGroupBarChartChart(config) {
     self.label = label;
     // self.yAxis = yAxis;
     self.xAxis = xAxis;
-    horBarTooltip.add(self);
+    tooltip.add(self);
 
     rect.on('mouseover', function() {
         var currentEl = d3.select(this);
         var index = currentEl.attr('data-index');
-        horBarTooltip.showTooltip(self, index);
+        tooltip.showTooltip(self, index);
     });
 
     rect.on('mouseout', function() {
         var currentEl = d3.select(this);
         var index = currentEl.attr('data-index');
-        horBarTooltip.hideTooltip(self, index);
+        tooltip.hideTooltip(self, index);
     });
 
     rect.on('mousemove', function() {
-        horBarTooltip.moveTooltip(self);
+        tooltip.moveTooltip(self);
     });
 
     // X Axis Global Legend
@@ -265,7 +264,7 @@ var helpers = {
         });
     },
 };
-var horBarTooltip = {
+var tooltip = {
     add: function(pie) {
         // group the label groups (label, percentage, value) into a single element for simpler positioning
         var element = pie.svg
@@ -310,14 +309,9 @@ var horBarTooltip = {
             .attr('fill', function(d) {
                 return '#efefef';
             })
-            .style('font-size', function(d) {
-                return 10;
-            })
-            .style('font-family', function(d) {
-                return 'arial';
-            })
+            .attr('class', 'tooltip')
             .text(function(d, i) {
-                return '' + d.value + pie.label.xAxis;
+                return d.key + ' (' + d.value + pie.label.xAxis + ')';
             });
 
         element
@@ -338,11 +332,11 @@ var horBarTooltip = {
 
     showTooltip: function(pie, index) {
         var fadeInSpeed = 250;
-        if (horBarTooltip.currentTooltip === index) {
+        if (tooltip.currentTooltip === index) {
             fadeInSpeed = 1;
         }
 
-        horBarTooltip.currentTooltip = index;
+        tooltip.currentTooltip = index;
         d3
             .select('#' + pie.cssPrefix + 'tooltip' + index)
             .transition()
@@ -351,12 +345,12 @@ var horBarTooltip = {
                 return 1;
             });
 
-        horBarTooltip.moveTooltip(pie);
+        tooltip.moveTooltip(pie);
     },
 
     moveTooltip: function(pie) {
         d3
-            .selectAll('#' + pie.cssPrefix + 'tooltip' + horBarTooltip.currentTooltip)
+            .selectAll('#' + pie.cssPrefix + 'tooltip' + tooltip.currentTooltip)
             .attr('transform', function(d) {
                 var mouseCoords = d3.mouse(this.parentNode);
                 var x = mouseCoords[0] + 4 + 2;
@@ -373,7 +367,7 @@ var horBarTooltip = {
         // move the tooltip offscreen. This ensures that when the user next mouseovers the segment the hidden
         // element won't interfere
         d3
-            .select('#' + pie.cssPrefix + 'tooltip' + horBarTooltip.currentTooltip)
+            .select('#' + pie.cssPrefix + 'tooltip' + tooltip.currentTooltip)
             .attr('transform', function(d, i) {
                 // klutzy, but it accounts for tooltip padding which could push it onscreen
                 var x = pie.width + 1000;
