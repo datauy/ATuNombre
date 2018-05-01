@@ -92,18 +92,27 @@ body {
 
 .section {
     .subsection {
-        .horizontal-title {
+        .title {
             font-size: 1.35rem;
             font-weight: normal;
             font-style: normal;
             font-stretch: normal;
             line-height: 1.14;
             letter-spacing: -0.3px;
+        }
+
+        .horizontal-title {
             &::before {
                 margin-left: -1.5rem;
                 content: '— ';
                 color: $dark-gold;
             }
+        }
+        .vertical-line {
+            width: 2px;
+            height: 3rem;
+            margin: -4rem auto 2rem auto;
+            background-color: $dark-gold;
         }
     }
     .description {
