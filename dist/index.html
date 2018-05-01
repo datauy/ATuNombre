@@ -7,8 +7,25 @@
   <title>A Tu Nombre</title>
   <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
-  <section class="hero is-large">
+<body class="">
+  <!-- has-navbar-fixed-top -->
+  <nav id="top-navbar" class="navbar is-fixed-top">
+      <ul class="nav-elements">
+        <li class="navbar-item is-active is-uppercase is-size-6 has-text-weight-bold" data-section="mapa">
+            <a href="#mapa">Mapa</a>
+        </li>
+        <li class="navbar-item is-uppercase is-size-6 has-text-weight-bold" data-section="calles">
+            <a href="#calles">Calles</a>
+        </li>
+        <li class="navbar-item is-uppercase is-size-6 has-text-weight-bold" data-section="poblacion">
+            <a href="#poblacion">Población</a>
+        </li>
+      </ul>
+      
+  </nav>
+  
+
+  <header class="hero is-large">
       <div class="hero-body">
         <div class="container">
             <h1 class="title is-1 logo has-text-light">a<span class="has-text-warning">tu</span>nombre</h1>
@@ -16,20 +33,28 @@
             <h2 class="subtitle has-text-light has">Apenas <span class="has-text-weight-bold">142</span> de las <span class="has-text-weight-bold">5.678</span> calles de Montevideo, llevan nombres de mujer</h2>
 
             <nav class="tabs is-toggle is-fullwidth">
-              <ul>
-                <li id="mapa" class="is-active is-uppercase is-size-6 has-text-weight-bold"><a>Mapa</a></li>
-                <li id="calles" class="is-uppercase is-size-6 has-text-weight-bold"><a>Calles</a></li>
-                <li id="poblacion" class="is-uppercase is-size-6 has-text-weight-bold"><a>Población</a></li>
-              </ul>
+                <ul class="nav-elements">
+                  <li class="navbar-item is-active is-uppercase is-size-6 has-text-weight-bold" data-section="mapa">
+                      <a href="#mapa">Mapa</a>
+                  </li>
+                  <li class="navbar-item is-uppercase is-size-6 has-text-weight-bold" data-section="calles">
+                      <a href="#calles">Calles</a>
+                  </li>
+                  <li class="navbar-item is-uppercase is-size-6 has-text-weight-bold" data-section="poblacion">
+                      <a href="#poblacion">Población</a>
+                  </li>
+                </ul>
+                
             </nav>
             
         </div>
       </div>
-  </section>
+  </header>
   <section id="section-mapa" class="tab">
     <div class="section">
         <div id="map-intro" class="columns subsection">
             <div class="column content description">
+                <hr class="vertical-line">
                 <h4 class="title vertical-title has-text-weight-bold">Parece poco, ¿verdad?</h4>
                 <p class="is-size-6">Este proyecto quiere dar visibilidad a una de las tantas formas que tiene la brecha de género en nuestro país y al mismo ayudar a conocer más sobre las mujeres detrás de esas calles.</p>
                 <p class="is-size-6">Empezá por conocer quiénes son y dónde están y en los próximos pasos vamos a poner esos datos en contexto para saber si son muchas, pocas y de dónde vienen.</p>
@@ -154,8 +179,9 @@
       <div class="section">
         <div class="columns subsection">
           <div class="column content description">
-            <h3 class="title">Flora, accidentes geográficos y lugares de todo tipo tienen más calles a su nombre que las mujeres</h3>
-            <p>Aunque en dos años la cantidad de calles con nombre de mujer subió un 42% (¡bien ahí!), el número todavía está por debajo de otras categorías y muy por debajo de los hombres, que tienen 2.091 de las 5.678 calles a su nombre.</p>
+              <hr class="vertical-line">
+              <h3 class="title vertical-title">Flora, accidentes geográficos y lugares de todo tipo tienen más calles a su nombre que las mujeres</h3>
+              <p>Aunque en dos años la cantidad de calles con nombre de mujer subió un 42% (¡bien ahí!), el número todavía está por debajo de otras categorías y muy por debajo de los hombres, que tienen 2.091 de las 5.678 calles a su nombre.</p>
           </div>
         </div>
         <div class="columns subsection">
@@ -264,6 +290,7 @@
       <div class="section">
           <div class="columns subsection">
               <div class="column content">
+                  <hr class="vertical-line">
                   <h4 class="title vertical-title ">Las mujeres mayoría en la población, la subrepresentación responde a factores más bien culturales</h4>
                   <p>Según el <a href="#">censo 2011 del INE</a> las mujeres representan el 52% de la población, muy por encima de las cifras vistas anteriormente. Existen factores históricos, culturales y de otros tipos que pueden explicar -pero no justificar- esa enorme diferencia.</p>
               </div>
