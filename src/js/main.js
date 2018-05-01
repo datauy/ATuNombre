@@ -336,21 +336,51 @@ $(document).ready(function() {
         renderTreeMap(dataStats);
     };
 
+    var loadPopulationGraphs = function() {
+        if ($('#women-population-graph').children().length == 0) {
+            renderPieChart('#women-population-graph', 'data/population.json');
+        }
+        if ($('#women-occupation-graph').children().length == 0) {
+            renderHorizontalBar('#women-occupation-graph', 'data/occupation.json');
+        }
+        if ($('#women-education-graph').children().length == 0) {
+            renderHorizontalBar('#women-education-graph', 'data/education.json');
+        }
+        if ($('#women-homemakers-graph').children().length == 0) {
+            renderPieChart('#women-homemakers-graph', 'data/homemakers.json');
+        }
+    };
+
     /****************************/
     /**      NAVIGATION       **/
     var toggleNavbarVisibility = function(scrollLimit) {
         if($(window).scrollTop() > scrollLimit) {
-            $("body").addClass("has-navbar-fixed-top");
-            $("#top-navbar").removeClass('is-invisible');
+            $("#top-navbar").show();
         } else {
-            $("body").removeClass("has-navbar-fixed-top");
-            $("#top-navbar").addClass('is-invisible');
+            $("#top-navbar").hide();
         }
     };
 
-    $("#top-navbar").addClass('is-invisible');
-    let headerEl = $(".hero-body > .container");
-    var headerBottom = headerEl.offset().top + headerEl.height();
+    var showSection = function(nextSection) {
+        $('ul.nav-elements > li.is-active').removeClass('is-active');
+        $('ul.nav-elements > li').filter('[data-section="' + nextSection +'"]').addClass('is-active');
+        // Hide all tabs
+        $('.tab').hide();
+        // Show the proper one
+        $('#section-' + nextSection).show();
+
+        if (nextSection == 'poblacion') {
+            loadPopulationGraphs();
+        }
+        let headerEl = $('header.hero');
+        let scrollPoint = headerEl.offset().top + headerEl.height() - $('#top-navbar').height() *0.9;
+
+        $(window).scrollTop(scrollPoint);
+    };
+
+    $("#top-navbar").hide();
+    let headerBodyEl = $(".hero-body > .container");
+    var headerBottom = headerBodyEl.offset().top + headerBodyEl.height();
     $(window).scroll(function() {
         toggleNavbarVisibility(headerBottom);
     });
@@ -358,44 +388,17 @@ $(document).ready(function() {
 
     $('.button.continuar').click(function(e) {
         // Navigation tabs
-        $('nav.tabs > ul > li.is-active').removeClass('is-active');
-        $(
-            '#' +
-                $(this)
-                    .data('next')
-                    .replace(/section-/, '')
-        ).addClass('is-active');
-        // Info tabs
-        $('.tab').hide();
-        $('#' + $(this).data('next')).show();
-
-        if ($(this).data('next') == 'section-poblacion') {
-            renderPieChart('#women-population-graph', 'data/population.json');
-            renderHorizontalBar('#women-occupation-graph', 'data/occupation.json');
-            renderHorizontalBar('#women-education-graph', 'data/education.json');
-            renderPieChart('#women-homemakers-graph', 'data/homemakers.json');
-        }
-
-        $(window).scrollTop(0);
+        let nextSection = $(this)
+            .data('next')
+            .replace(/section-/, '');
+        showSection(nextSection);
     });
 
-    $('nav.tabs > ul > li').removeClass('active');
-    $('nav.tabs > ul > li').click(function(e) {
+    $('ul.nav-elements > li').click(function(e) {
         if ($(this).hasClass('is-active')) {
             return;
         }
-        $('nav.tabs > ul > li.is-active').removeClass('is-active');
-        $(this).addClass('is-active');
-
-        $('.tab').hide();
-        $('#section-' + $(this).data('section')).show();
-        if ($(this).data('section') == 'poblacion') {
-            renderPieChart('#women-population-graph', 'data/population.json');
-            renderHorizontalBar('#women-occupation-graph', 'data/occupation.json');
-            renderHorizontalBar('#women-education-graph', 'data/education.json');
-            renderPieChart('#women-homemakers-graph', 'data/homemakers.json');
-        }
-        $(window).scrollTop(0);
+        showSection($(this).data('section'));
     });
 
     // It's necessary to show the tabs in order to dynamically calculate the width
