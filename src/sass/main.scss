@@ -41,6 +41,40 @@ body {
     color: $white-bis;
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.navbar.is-fixed-top {
+    // transition: visibility 2000ms ease-in-out;
+    background-color: $dark-brown;
+    ul {
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+        li {
+            font-size: 0.7rem;
+            padding: 1.5rem 0.8rem;
+            a {
+                color: transparentize($white-ter, 0.6);
+
+            }
+            &:hover, &.is-active {
+                color: $dark-gold;
+                border-bottom: solid 2px $dark-gold;
+                a {
+                    color: $dark-gold;
+                }
+            }
+        }
+    }
+}
+
 .title {
     font-family: $pt-serif;
 }
@@ -190,6 +224,12 @@ body {
 
 .map {
     height: $section_max_height;
+    .leaflet-pane {
+        z-index: 20;
+    }
+    .leaflet-top, .leaflet-bottom {
+        z-index: 25;
+    }
 }
 
 .scrollable {

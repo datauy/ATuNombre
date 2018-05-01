@@ -338,6 +338,24 @@ $(document).ready(function() {
 
     /****************************/
     /**      NAVIGATION       **/
+    var toggleNavbarVisibility = function(scrollLimit) {
+        if($(window).scrollTop() > scrollLimit) {
+            $("body").addClass("has-navbar-fixed-top");
+            $("#top-navbar").removeClass('is-invisible');
+        } else {
+            $("body").removeClass("has-navbar-fixed-top");
+            $("#top-navbar").addClass('is-invisible');
+        }
+    };
+
+    $("#top-navbar").addClass('is-invisible');
+    let headerEl = $(".hero-body > .container");
+    var headerBottom = headerEl.offset().top + headerEl.height();
+    $(window).scroll(function() {
+        toggleNavbarVisibility(headerBottom);
+    });
+
+
     $('.button.continuar').click(function(e) {
         // Navigation tabs
         $('nav.tabs > ul > li.is-active').removeClass('is-active');
@@ -370,8 +388,8 @@ $(document).ready(function() {
         $(this).addClass('is-active');
 
         $('.tab').hide();
-        $('#section-' + $(this).attr('id')).show();
-        if ($(this).attr('id') == 'poblacion') {
+        $('#section-' + $(this).data('section')).show();
+        if ($(this).data('section') == 'poblacion') {
             renderPieChart('#women-population-graph', 'data/population.json');
             renderHorizontalBar('#women-occupation-graph', 'data/occupation.json');
             renderHorizontalBar('#women-education-graph', 'data/education.json');
