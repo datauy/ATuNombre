@@ -56,7 +56,7 @@ $(document).ready(function() {
         template.find('.title').text(mujer.extra_nombre);
         template.find('.subtitle').text(mujer.extra_nombre_subtipo);
         if (mujer.extra_bio_externa) {
-            template.find('.content').text(mujer.extra_bio_externa)
+            template.find('.content').text(mujer.extra_bio_externa);
         } else {
             template.find('.content').text(mujer.extra_significado_via);
         }
@@ -143,9 +143,7 @@ $(document).ready(function() {
     var onEachFeature = function onEachFeature(feature, layer) {
         // Add click event and popup
         if (feature.properties && feature.properties.extra_nombre) {
-            layer.bindPopup(
-                getPopupForWoman(feature.properties), {'maxWidth': 500}
-            );
+            layer.bindPopup(getPopupForWoman(feature.properties), { maxWidth: 500 });
             layer.on('click', function(e) {
                 $searchInput.val(feature.properties.extra_nombre);
                 $searchInput.addClass('x');
@@ -258,27 +256,28 @@ $(document).ready(function() {
     // Search
     var timer;
     var $searchInput = $('#search-field-input');
-    $searchInput.on('keyup', function(e) {
-        timer && clearTimeout(timer);
-        var query = $(this).val();
-        timer = setTimeout(function() {
-            resetLayerStyles();
-            resetList();
-            if (query.length > 0) {
-                search(query);
-            } else {
+    $searchInput
+        .on('keyup', function(e) {
+            timer && clearTimeout(timer);
+            var query = $(this).val();
+            timer = setTimeout(function() {
+                resetLayerStyles();
+                resetList();
+                if (query.length > 0) {
+                    search(query);
+                } else {
+                    resetLayerStyles();
+                    mymap.fitBounds(all_bounds);
+                }
+            }, 400);
+        })
+        .on('change', function(e) {
+            if ($(this).val().length == 0) {
+                resetList();
                 resetLayerStyles();
                 mymap.fitBounds(all_bounds);
             }
-        }, 400);
-    })
-    .on('change', function(e) {
-        if ($(this).val().length == 0) {
-            resetList();
-            resetLayerStyles();
-            mymap.fitBounds(all_bounds);
-        }
-    });
+        });
     addClearables('.clearable');
 
     var search = function(query) {
@@ -354,16 +353,18 @@ $(document).ready(function() {
     /****************************/
     /**      NAVIGATION       **/
     var toggleNavbarVisibility = function(scrollLimit) {
-        if($(window).scrollTop() > scrollLimit) {
-            $("#top-navbar").show();
+        if ($(window).scrollTop() > scrollLimit) {
+            $('#top-navbar').show();
         } else {
-            $("#top-navbar").hide();
+            $('#top-navbar').hide();
         }
     };
 
     var showSection = function(nextSection) {
         $('ul.nav-elements > li.is-active').removeClass('is-active');
-        $('ul.nav-elements > li').filter('[data-section="' + nextSection +'"]').addClass('is-active');
+        $('ul.nav-elements > li')
+            .filter('[data-section="' + nextSection + '"]')
+            .addClass('is-active');
         // Hide all tabs
         $('.tab').hide();
         // Show the proper one
@@ -373,18 +374,18 @@ $(document).ready(function() {
             loadPopulationGraphs();
         }
         let headerEl = $('header.hero');
-        let scrollPoint = headerEl.offset().top + headerEl.height() - $('#top-navbar').height() *0.9;
+        let scrollPoint =
+            headerEl.offset().top + headerEl.height() - $('#top-navbar').height() * 0.9;
 
         $(window).scrollTop(scrollPoint);
     };
 
-    $("#top-navbar").hide();
-    let headerBodyEl = $(".hero-body > .container");
+    $('#top-navbar').hide();
+    let headerBodyEl = $('.hero-body > .container');
     var headerBottom = headerBodyEl.offset().top + headerBodyEl.height();
     $(window).scroll(function() {
         toggleNavbarVisibility(headerBottom);
     });
-
 
     $('.button.continuar').click(function(e) {
         // Navigation tabs

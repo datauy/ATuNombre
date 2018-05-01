@@ -73,13 +73,19 @@ function drawHorizontalGroupBarChartChart(config) {
     var label = config.label;
     var requireLegend = config.requireLegend;
 
-    d3.select(mainDiv)
+    d3
+        .select(mainDiv)
         .append('svg')
         .attr('width', $(mainDiv).width())
         .attr('height', $(mainDiv).width() * 0.6);
 
     var svg = d3.select(mainDiv + ' svg'),
-        margin = { top: 20, right: $(mainDiv).width() * 0.11, bottom: 40, left: $(mainDiv).width() * 0.2 },
+        margin = {
+            top: 20,
+            right: $(mainDiv).width() * 0.11,
+            bottom: 40,
+            left: $(mainDiv).width() * 0.2,
+        },
         width = +svg.attr('width') - margin.left - margin.right,
         height = +svg.attr('height') - margin.top - margin.bottom;
 
@@ -90,7 +96,8 @@ function drawHorizontalGroupBarChartChart(config) {
 
     var g = svg.append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-    var y0 = d3.scaleBand()
+    var y0 = d3
+        .scaleBand()
         .rangeRound([height, 0])
         .paddingInner(0.1);
 

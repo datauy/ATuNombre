@@ -64,8 +64,7 @@ function drawPieChart(config) {
         height;
 
     var radius = Math.min(width, height) / 2,
-        g = svg.append('g').
-            attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
+        g = svg.append('g').attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
 
     var fader = function(color) {
             return d3.interpolateRgb(color, '#fff')(0.2);
@@ -87,7 +86,7 @@ function drawPieChart(config) {
     var label_chart = d3
         .arc()
         .outerRadius(radius)
-        .innerRadius(radius/4);
+        .innerRadius(radius / 4);
 
     var arc = g
         .selectAll('.arc')
@@ -116,7 +115,6 @@ function drawPieChart(config) {
         .text(function(d) {
             return d.data.name;
         });
-
 
     var self = {};
     self.svg = svg;

@@ -1,12 +1,12 @@
-@import "../../node_modules/bulma/sass/utilities/initial-variables";
-@import "../../node_modules/bulma/sass/utilities/functions";
+@import '../../node_modules/bulma/sass/utilities/initial-variables';
+@import '../../node_modules/bulma/sass/utilities/functions';
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat|PT+Serif');
 @import './common/variables';
-@import "../../node_modules/bulma/sass/utilities/derived-variables";
-@import "../../node_modules/bulma/sass/utilities/mixins";
-@import "../../node_modules/bulma/sass/utilities/animations";
-@import "../../node_modules/bulma/sass/utilities/controls";
+@import '../../node_modules/bulma/sass/utilities/derived-variables';
+@import '../../node_modules/bulma/sass/utilities/mixins';
+@import '../../node_modules/bulma/sass/utilities/animations';
+@import '../../node_modules/bulma/sass/utilities/controls';
 @import '../../node_modules/bulma/sass/base/_all';
 @import '../../node_modules/bulma/sass/elements/_all';
 @import '../../node_modules/bulma/sass/components/_all';
@@ -54,7 +54,7 @@ body {
     // transition: visibility 2000ms ease-in-out;
     background-color: $dark-brown;
     ul {
-        display:flex;
+        display: flex;
         flex-direction: row;
         justify-content: center;
         li {
@@ -62,9 +62,9 @@ body {
             padding: 1.5rem 0.8rem;
             a {
                 color: transparentize($white-ter, 0.6);
-
             }
-            &:hover, &.is-active {
+            &:hover,
+            &.is-active {
                 color: $dark-gold;
                 border-bottom: solid 2px $dark-gold;
                 a {
@@ -80,24 +80,24 @@ body {
 }
 
 .hero {
-        background-color: rgba(0, 0, 0, 0);
-        background-image: url("../img/hero-bg.jpg");
-        background-repeat: repeat, no-repeat;
-        background-attachment: scroll, scroll;
-        background-clip: border-box, border-box;
-        background-origin: padding-box, padding-box;
-        background-position: top;
-        background-size: 100% auto;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url('../img/hero-bg.jpg');
+    background-repeat: repeat, no-repeat;
+    background-attachment: scroll, scroll;
+    background-clip: border-box, border-box;
+    background-origin: padding-box, padding-box;
+    background-position: top;
+    background-size: 100% auto;
 
-        min-height: 580px;
-        .hero-body {
-            padding-top: 10rem ;
-        }
+    min-height: 580px;
+    .hero-body {
+        padding-top: 10rem;
+    }
 
-        .subtitle {
-            font-size: 0.9rem;
-            line-height: 1.57;
-        }
+    .subtitle {
+        font-size: 0.9rem;
+        line-height: 1.57;
+    }
 }
 
 .tabs {
@@ -217,7 +217,6 @@ body {
     }
 }
 
-
 .is-gone {
     display: none !important;
 }
@@ -227,7 +226,8 @@ body {
     .leaflet-pane {
         z-index: 20;
     }
-    .leaflet-top, .leaflet-bottom {
+    .leaflet-top,
+    .leaflet-bottom {
         z-index: 25;
     }
 }
@@ -259,7 +259,6 @@ body {
             background-color: transparent;
         }
     }
-
 }
 
 .footer {
@@ -284,7 +283,8 @@ body {
         .wrapper {
             padding: 0 1.5rem;
 
-            .subtitle, a {
+            .subtitle,
+            a {
                 color: whitesmoke;
             }
         }
@@ -304,7 +304,6 @@ body {
 
         .social-link {
             margin: auto 0.5rem;
-
         }
         .github:hover {
             // background-color:
@@ -317,6 +316,5 @@ body {
         a {
             text-decoration: none;
         }
-
     }
 }
