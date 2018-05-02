@@ -375,7 +375,7 @@ $(document).ready(function() {
         }
         let headerEl = $('header.hero');
         let scrollPoint =
-            headerEl.offset().top + headerEl.height() - $('#top-navbar').height() * 0.9;
+            headerEl.offset().top + headerEl.height() - $('#top-navbar').height() * 0.7;
 
         $(window).scrollTop(scrollPoint);
     };

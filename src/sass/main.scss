@@ -56,7 +56,12 @@ body {
     ul {
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-evenly;
+        margin: 0 auto;
+
+        @media screen and (min-device-width: $tablet) {
+            width: 80%;
+        }
         li {
             font-size: 0.7rem;
             padding: 1.5rem 0.8rem;
