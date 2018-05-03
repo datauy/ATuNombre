@@ -404,7 +404,10 @@ $(document).ready(function() {
 
     // It's necessary to show the tabs in order to dynamically calculate the width
     $('.tab').hide();
-    $('.tab')
-        .first()
-        .show();
+    let section = window.location.hash.match(/#(mapa|calles|poblacion)/);
+    if (section) {
+        showSection(section[1]);
+    } else {
+        $('.tab').first().show();
+    }
 });
