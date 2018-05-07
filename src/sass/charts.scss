@@ -11,12 +11,15 @@
     // color: $white-bis;
 }
 
+.pie-chart-label {
+    font-family: $family-serif;
+    text-anchor: middle;
+    font-size: 1rem;
+    text-shadow: -1px -1px 2px hsla(0, 0%, 100%, 0.25), -1px -1px 2px hsla(0, 0%, 100%, 0.25),
+    -1px 1px 2px hsla(0, 0%, 100%, 0.25), 1px -1px 2px hsla(0, 0%, 100%, 0.25),
+    -1px 0px 2px hsla(0, 0%, 100%, 0.25), 1px 0px 2px hsla(0, 0%, 100%, 0.25);
+}
 .arc {
-    .pie-chart-label {
-        font-family: $family-serif;
-        text-anchor: middle;
-        font-size: 1rem;
-    }
 
     path {
         stroke: $white-bis;

@@ -69,21 +69,27 @@ function drawHorizontalGroupBarChartChart(config) {
     var data = config.data;
     var xAxis = config.xAxis;
     var mainDiv = config.mainDiv;
+    // var maxHeight = 500;
     // var mainDivName = mainDiv.substr(1, mainDiv.length);
     var label = config.label;
     var requireLegend = config.requireLegend;
 
+    let svgWidth = $(mainDiv).width() * 0.95;
+    let svgHeight = Math.round(svgWidth * 0.9);
+
+    // Add some extra margin for tooltips
+
     d3
         .select(mainDiv)
         .append('svg')
-        .attr('width', $(mainDiv).width())
-        .attr('height', $(mainDiv).width() * 0.6);
+        .attr('width', svgWidth)
+        .attr('height', svgHeight);
 
     var svg = d3.select(mainDiv + ' svg'),
         margin = {
             top: 20,
             right: $(mainDiv).width() * 0.11,
-            bottom: 40,
+            bottom: 20,
             left: $(mainDiv).width() * 0.2,
         },
         width = +svg.attr('width') - margin.left - margin.right,
@@ -92,7 +98,7 @@ function drawHorizontalGroupBarChartChart(config) {
     var fader = function(color) {
             return d3.interpolateRgb(color, '#fff')(0.2);
         },
-        color = d3.scaleOrdinal(d3.schemeCategory10.map(fader));
+        color = d3.scaleOrdinal(d3.schemeCategory20.map(fader));
 
     var g = svg.append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
@@ -103,7 +109,10 @@ function drawHorizontalGroupBarChartChart(config) {
 
     var y1 = d3.scaleBand().padding(0.05);
 
-    var x = d3.scaleLinear().rangeRound([0, width]);
+    var x = d3.scaleLinear().range([0, width]);
+    var maxTicks = d3.max(data, function(d) {
+        return d.value;
+    });
 
     y0.domain(
         data.map(function(d) {
@@ -111,17 +120,8 @@ function drawHorizontalGroupBarChartChart(config) {
         })
     );
     y1.domain(['name']).rangeRound([0, y0.bandwidth()]);
-    x
-        .domain([
-            0,
-            d3.max(data, function(d) {
-                return d.value;
-            }),
-        ])
-        .nice();
-    var maxTicks = d3.max(data, function(d) {
-        return d.value;
-    });
+    x.domain([0, maxTicks]).nice();
+
     var element = g
         .append('g')
         .selectAll('g')
@@ -150,8 +150,8 @@ function drawHorizontalGroupBarChartChart(config) {
             return d.index;
         })
         .attr('height', y1.bandwidth())
-        .attr('fill', function(d) {
-            return color(d.value);
+        .attr('fill', function(d, i) {
+            return color(d.index);
         });
     //CBT:add
     var self = {};
@@ -187,15 +187,7 @@ function drawHorizontalGroupBarChartChart(config) {
         .append('g')
         .attr('class', 'axis')
         .attr('transform', 'translate(0,' + height + ')')
-        .call(d3.axisBottom(x).ticks(maxTicks))
-        .append('text')
-        .attr('x', width / 2)
-        .attr('y', margin.bottom * 0.7)
-        .attr('dx', '0.32em')
-        .attr('fill', '#000')
-        .attr('font-weight', 'bold')
-        .attr('text-anchor', 'start')
-        .text(label.xAxis);
+        .call(d3.axisBottom(x).ticks(maxTicks/5));
 
     // Y Axis Global Legend
     g
@@ -204,13 +196,15 @@ function drawHorizontalGroupBarChartChart(config) {
         .call(d3.axisLeft(y0).ticks(null, 's'))
         .append('text')
         .attr('x', height * 0.4 * -1)
-        .attr('y', margin.left * 0.8 * -1) //y(y.ticks().pop()) + 0.5)
+        // .attr('y', y0(y1.ticks().pop()) + 0.5) //
+        .attr('y', margin.left * 0.8 * -1) //
         .attr('dy', '0.71em')
         .attr('fill', '#000')
         .attr('transform', 'rotate(-90)')
         .attr('font-weight', 'bold');
 
-    d3.selectAll('.tick text').call(helpers.wrap, margin.left * 0.7);
+    d3.selectAll(mainDiv + ' .tick text').call(helpers.wrap, margin.left * 0.7);
+
 }
 
 var helpers = {
@@ -230,7 +224,6 @@ var helpers = {
     wrap: function(text, width) {
         text.each(function() {
             var text = d3.select(this);
-            // console.log(text.text());
             var words = text
                     .text()
                     .split(/[\s\/-]+/)
@@ -239,7 +232,7 @@ var helpers = {
                 line = [],
                 lineNumber = 0,
                 paddingRight = -10,
-                lineHeight = 1.1, // ems
+                lineHeight = 1.2, // ems
                 y = text.attr('y'),
                 dy = parseFloat(text.attr('dy'));
             var tspan = text

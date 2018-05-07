@@ -10,7 +10,7 @@ export default function(selector, data_source) {
             label: {
                 xAxis: '%',
             },
-            maxWidth: 400,
+            maxWidth: 500,
             requireLegend: true,
         };
         var groupChart = new pieChart(pieChartConfig);
@@ -38,59 +38,55 @@ function pieChart(config) {
 }
 
 function drawPieChart(config) {
-    let data = config.data;
     let xAxis = config.xAxis;
     let mainDiv = config.mainDiv;
     let mainDivName = mainDiv.substr(1, mainDiv.length);
     let label = config.label;
+    let legendItemHeight = 10;
     let requireLegend = config.requireLegend;
 
-    var width = $(mainDiv).width();
+    let svgWidth = Math.round($(mainDiv).width() * 0.95);
+
+    let width = Math.round(svgWidth * 0.9);
+    let svgHeight = width;
     if (width > config.maxWidth) {
         width = config.maxWidth;
     }
-    // Add some extra margin for tooltips
-    width + $(mainDiv).width() * 0.1;
-    var height = width * 0.9;
+    let height = width*0.9;
 
-    d3
+    let svg = d3
         .select(mainDiv)
         .append('svg')
-        .attr('width', width)
-        .attr('height', height);
+        .attr('class', 'pie')
+        .attr('width', svgWidth)
+        .attr('height', svgHeight)
+        .append('g').
+            attr('transform', 'translate(' + svgWidth / 2 + ',' + svgHeight / 2 + ')');
 
-    var svg = d3.select(mainDiv + ' svg'),
-        width,
-        height;
+    let radius = Math.min(width, height) / 2;
 
-    var radius = Math.min(width, height) / 2,
-        g = svg.append('g').attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
-
-    var fader = function(color) {
+    let fader = function(color) {
             return d3.interpolateRgb(color, '#fff')(0.2);
         },
-        color = d3.scaleOrdinal(d3.schemeCategory10.map(fader));
+        color = d3.scaleOrdinal(d3.schemeCategory20.map(fader));
 
-    var pie = d3
+    let pie = d3
         .pie()
         .sort(null)
         .value(function(d) {
             return d.value;
         });
 
+    let data = pie(config.data);
+
     var path = d3
         .arc()
-        .outerRadius(radius - 10)
-        .innerRadius(0);
+        .outerRadius(radius*0.95)
+        .innerRadius(radius*0.45);
 
-    var label_chart = d3
-        .arc()
-        .outerRadius(radius)
-        .innerRadius(radius / 4);
-
-    var arc = g
+    var arc = svg
         .selectAll('.arc')
-        .data(pie(data))
+        .data(data)
         .enter()
         .append('g')
         .attr('class', 'arc')
@@ -101,49 +97,98 @@ function drawPieChart(config) {
     let paths = arc
         .append('path')
         .attr('d', path)
-        .attr('fill', function(d) {
-            return color(d.data.name);
+        .attr('fill', function(d, i) {
+            return color(i);
         });
 
-    arc
-        .append('text')
-        .attr('transform', function(d) {
-            return 'translate(' + label_chart.centroid(d) + ')';
-        })
-        .attr('dy', '0.35em')
-        .attr('class', 'pie-chart-label')
-        .text(function(d) {
-            return d.data.name;
-        });
+    svg.selectAll("text")
+    .data(data)
+    .enter()
+    .append('text')
+    .attr("text-anchor", "middle")
+    .attr("x", function(d) {
+        var a = d.startAngle + (d.endAngle - d.startAngle)/2 - Math.PI/2;
+        d.cx = Math.cos(a) * (radius/2 + radius/5); //  + radius*0.1
+        return d.x = Math.cos(a) * (radius + radius*0.02); //+ radius*0.01
+    })
+    .attr("y", function(d) {
+        var a = d.startAngle + (d.endAngle - d.startAngle)/2 - Math.PI/2;
+        d.cy = Math.sin(a) * (radius/2 + radius/5); //  + radius*0.1
+        return d.y = Math.sin(a) * (radius + radius*0.02); //+ radius*0.01
+    })
+    .attr('class', 'pie-chart-label')
+    .text(function(d) {
+        return d.data.name;
+    })
+    .each(function(d) {
+        var bbox = this.getBBox();
+        // add max width
+        if (bbox.width > 60) {
+            bbox.width = 60;
+        }
+        d.sx = d.x - bbox.width/2 - 2;
+        d.ox = d.x + bbox.width/2 + 2;
+            d.sy = d.oy = d.y + 5;
+    });
 
-    var self = {};
-    self.svg = svg;
-    self.cssPrefix = 'pieGroup0_';
-    self.data = data;
-    // self.keys = keys;
-    self.height = height;
-    self.width = width;
-    self.label = label;
-    // self.yAxis = yAxis;
-    self.xAxis = xAxis;
-    tooltip.add(self);
+    svg.append("defs").append("marker")
+    .attr("id", "circ")
+    .attr("markerWidth", 6)
+    .attr("markerHeight", 6)
+    .attr("refX", 3)
+    .attr("refY", 3)
+    .append("circle")
+        .attr("cx", 3)
+        .attr("cy", 3)
+        .attr("r", 3);
 
-    // let paths = arc.selectAll('path');
+
+    svg.selectAll("path.pointer")
+        .data(data)
+      .enter()
+      .append("path")
+      .attr("class", "pointer")
+      .style("fill", "none")
+      .style("stroke", "black")
+      .attr("marker-end", "url(#circ)")
+      .attr("d", function(d) {
+        if(d.cx > d.ox) {
+            return "M" + d.sx + "," + d.sy + "L" + d.ox + "," + d.oy + " " + d.cx + "," + d.cy;
+        } else {
+            return "M" + d.ox + "," + d.oy + "L" + d.sx + "," + d.sy + " " + d.cx + "," + d.cy;
+        }
+      });
+
+    let pieObject = {};
+    pie.svg = d3.select(mainDiv + " svg");
+    pie.cssPrefix = 'pieGroup0_';
+    // pie.arc = arc;
+    // pie.path = path;
+    pie.radius = radius;
+    pie.data = data;
+    // pie.keys = keys;
+    pie.height = svgHeight;
+    pie.width = svgWidth;
+    pie.label = label;
+    pie.color = color;
+    // pie.yAxis = yAxis;
+    pie.xAxis = xAxis;
+    tooltip.add(pie);
 
     arc.on('mouseover', function() {
         var currentEl = d3.select(this);
         var index = currentEl.attr('data-index');
-        tooltip.showTooltip(self, index);
+        tooltip.showTooltip(pie, index);
     });
 
     arc.on('mouseout', function() {
         var currentEl = d3.select(this);
         var index = currentEl.attr('data-index');
-        tooltip.hideTooltip(self, index);
+        tooltip.hideTooltip(pie, index);
     });
 
     arc.on('mousemove', function() {
-        tooltip.moveTooltip(self);
+        tooltip.moveTooltip(pie);
     });
 }
 
@@ -164,7 +209,7 @@ var tooltip = {
             .selectAll('g')
             .data(function(d, i) {
                 return [
-                    { key: d.name, value: d.value, index: d.name.replace(/[^\w]/g, '-') + '_' + i },
+                    { key: d.data.name, value: d.value, index: d.data.name.replace(/[^\w]/g, '-') + '_' + i },
                 ];
             })
             .enter()
@@ -185,7 +230,7 @@ var tooltip = {
             .selectAll('g')
             .data(function(d, i) {
                 return [
-                    { key: d.name, value: d.value, index: d.name.replace(/[^\w]/g, '-') + '_' + i },
+                    { key: d.data.name, value: d.value, index: d.data.name.replace(/[^\w]/g, '-') + '_' + i },
                 ];
             })
             .append('text')
