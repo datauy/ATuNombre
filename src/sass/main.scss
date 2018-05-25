@@ -140,19 +140,6 @@ body {
             letter-spacing: -0.3px;
         }
 
-        .horizontal-title {
-            &::before {
-                margin-left: -1.5rem;
-                content: '— ';
-                color: $dark-gold;
-            }
-        }
-        .vertical-line {
-            width: 2px;
-            height: 3rem;
-            margin: -4rem auto 2rem auto;
-            background-color: $dark-gold;
-        }
     }
     .description {
         line-height: 1.67;
@@ -267,7 +254,8 @@ body {
 }
 
 .footer {
-    padding: 2rem 0 0;
+    padding: 0 10%;
+    font-size: 0.7rem;
     a {
         text-decoration: underline;
     }
@@ -322,4 +310,119 @@ body {
             text-decoration: none;
         }
     }
+}
+/*Header*/
+header.hero {
+  height: 100vh;
+}
+.top-links {
+  text-align: right;
+  margin: 10vh;
+  font-family: Montserrat;
+  letter-spacing: 1.1px;
+  font-size: 0.7rem;
+}
+.top-links a {
+  margin-left: 35px;
+  color: #FFF;
+}
+.hero.is-large .hero-body {
+  padding-bottom: 0;
+  padding-top: 10vh;
+  text-align: center;
+}
+.title.is-1 {
+  float: left;
+  width: 100%;
+}
+.hero .subtitle {
+  font-size: 1.6rem;
+  font-family: PTSerif;
+  letter-spacing: 0.5px;
+  width: 56%;
+  margin: 20px 22%;
+  float: left;
+
+}
+nav.tabs {
+  width: 80%;
+  margin: 12vh 10%;
+  float: left;
+}
+.tabs.is-fullwidth li {
+  width: 25%;
+}
+.tabs.is-toggle a {
+  margin: 0;
+}
+/*Content*/
+.section {
+  padding: 8% 18%;
+}
+header.hero::after {
+  content: '';
+  width: 3px;
+  margin-left: calc(50% - 1px);
+  border-right: 2px solid #c78702;
+  height: 49px;
+  display: inline-block;
+  margin-bottom: -24px;
+  margin-top: -24px;
+}
+h4::before {
+  content: '';
+  width: 49px;
+  margin-right: 30px;
+  border-bottom: 2px solid $dark-gold;
+  height: 3px;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+.vertical-line {
+    width: 2px;
+    height: 3rem;
+    margin: -4rem auto 2rem auto;
+    background-color: $dark-gold;
+}
+.media-left {
+  width: 15%;
+  height: auto;
+}
+.profiles .card-content img {
+  max-height: 100%;
+}
+
+/*RESPONSIVE*/
+@media screen and (max-device-width: $tablet) {
+  html {
+    font-size: 12px;
+  }
+  .hero.is-large .hero-body {
+    padding: 0 2rem;
+  }
+  .title.is-1 {
+    text-align: left;
+  }
+  .hero .subtitle {
+    width: 100%;
+    margin: 0;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1.1rem;
+    font-family: Montserrat;
+    letter-spacing: 0.2px;
+  }
+  nav.tabs {
+    width: 100%;
+    margin: 10vh 0 0 0;
+  }
+  .tabs.is-fullwidth li {
+    width: 100%;
+    line-height: 1.8;
+    padding: 0;
+  }
+  .tabs.is-toggle li:last-child a,
+  .tabs.is-toggle li:first-child a {
+    border-radius: 0;
+  }
 }
