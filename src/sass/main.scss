@@ -337,12 +337,21 @@ header.hero {
 }
 .hero .subtitle {
   font-size: 1.6rem;
-  font-family: PTSerif;
+  font-family: PT Serif, serif;
   letter-spacing: 0.5px;
   width: 56%;
   margin: 20px 22%;
   float: left;
 
+}
+/*SECTIONS*/
+h4,
+h3 {
+  margin-top: 1.5rem;
+}
+.section .title {
+  font-size: 1.35rem;
+  letter-spacing: -0.3px;
 }
 nav.tabs {
   width: 80%;
@@ -411,6 +420,16 @@ h4::before {
     font-size: 1.1rem;
     font-family: Montserrat;
     letter-spacing: 0.2px;
+  }
+  .section {
+    padding-top: 4.5rem;
+  }
+  .navbar.is-fixed-top ul li {
+    font-size: 0.8rem !important;
+    max-width: 20%;
+  }
+  .navbar.is-fixed-top ul li.secondary-link {
+    font-size: 0.6rem !important;
   }
   nav.tabs {
     width: 100%;
