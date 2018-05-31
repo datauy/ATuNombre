@@ -8,6 +8,14 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body class="">
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.0';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
   <!-- has-navbar-fixed-top -->
   <nav id="top-navbar" class="navbar is-fixed-top">
       <ul class="nav-elements">
@@ -20,41 +28,47 @@
         <li class="navbar-item is-uppercase is-size-6 has-text-weight-bold" data-section="poblacion">
             <a href="#poblacion">Población</a>
         </li>
+        <li class="navbar-item is-uppercase has-text-weight-bold secondary-link" data-section="calles">
+          <a href="/proyecto.html">EL PROYECTO</a>
+        </li>
+        <li class="navbar-item is-uppercase has-text-weight-bold secondary-link">
+          <a href="/equipo.html">EQUIPO</a>
+        </li>
       </ul>
       
   </nav>
   
-
   <header class="hero is-large">
+      <div class="top-links">
+        <a href="/proyecto.html">EL PROYECTO</a>
+        <a href="/equipo.html">COLABORADORES</a>
+      </div>
       <div class="hero-body">
         <div class="container">
-            <h1 class="title is-1 logo has-text-light">a<span class="has-text-warning">tu</span>nombre</h1>
-            <!-- <br> -->
+            <h1 class="title is-1 logo has-text-light is-spaced">a<span class="has-text-warning">tu</span>nombre</h1>
             <h2 class="subtitle has-text-light has">Apenas <span class="has-text-weight-bold">142</span> de las <span class="has-text-weight-bold">5.678</span> calles de Montevideo, llevan nombres de mujer</h2>
-
             <nav class="tabs is-toggle is-fullwidth">
-                <ul class="nav-elements">
-                  <li class="navbar-item is-active is-uppercase is-size-6 has-text-weight-bold" data-section="mapa">
-                      <a href="#mapa">Mapa</a>
-                  </li>
-                  <li class="navbar-item is-uppercase is-size-6 has-text-weight-bold" data-section="calles">
-                      <a href="#calles">Calles</a>
-                  </li>
-                  <li class="navbar-item is-uppercase is-size-6 has-text-weight-bold" data-section="poblacion">
-                      <a href="#poblacion">Población</a>
-                  </li>
-                </ul>
-                
+              <ul class="nav-elements">
+                <li class="navbar-item is-active is-uppercase is-size-6 has-text-weight-bold" data-section="mapa">
+                    <a href="#mapa">Mapa</a>
+                </li>
+                <li class="navbar-item is-uppercase is-size-6 has-text-weight-bold" data-section="calles">
+                    <a href="#calles">Calles</a>
+                </li>
+                <li class="navbar-item is-uppercase is-size-6 has-text-weight-bold" data-section="poblacion">
+                    <a href="#poblacion">Población</a>
+                </li>
+              </ul>
             </nav>
             
         </div>
       </div>
   </header>
+  
   <section id="section-mapa" class="tab">
     <div class="section">
         <div id="map-intro" class="columns subsection">
             <div class="column content description">
-                <hr class="vertical-line">
                 <h4 class="title vertical-title has-text-weight-bold">Parece poco, ¿verdad?</h4>
                 <p class="is-size-6">Este proyecto quiere dar visibilidad a una de las tantas formas que tiene la brecha de género en nuestro país y al mismo ayudar a conocer más sobre las mujeres detrás de esas calles.</p>
                 <p class="is-size-6">Empezá por conocer quiénes son y dónde están y en los próximos pasos vamos a poner esos datos en contexto para saber si son muchas, pocas y de dónde vienen.</p>
@@ -93,7 +107,7 @@
         <div id="women-roles-graphs" class="columns">
             <div class="column">
                 <div class="graph has-text-centered">
-                    <svg id="women-roles-treemap"></svg>
+                    <div class="flourish-embed" data-src="visualisation/54371"></div>
                 </div>
             </div>
         </div>
@@ -176,8 +190,7 @@
       <div class="section">
         <div class="columns subsection">
           <div class="column content description">
-              <hr class="vertical-line">
-              <h3 class="title vertical-title">Flora, accidentes geográficos y lugares de todo tipo tienen más calles a su nombre que las mujeres</h3>
+              <h4 class="title vertical-title has-text-weight-bold">Flora, accidentes geográficos y lugares de todo tipo tienen más calles a su nombre que las mujeres</h4>
               <p>Aunque en tres años la cantidad de calles con nombre de mujer subió un 42% (¡bien ahí!), las 142 que hay todavía están muy por debajo de los hombres, que tienen 2.091 de las 5.678 calles a su nombre.</p>
           </div>
         </div>
@@ -190,7 +203,7 @@
         </div>
         <div class="columns subsection">
           <div class="column content">
-            <h3 class="title horizontal-title">En otras partes del mundo</h3>
+            <h4 class="title vertical-title has-text-weight-bold">En otras partes del mundo</h4>
             <p>La subrepresentación de las mujeres en los nombres de las calles no es algo para nada exclusivo de Uruguay. Tampoco proyectos como éste que buscan visibilizarlo, por lo que podemos obtener cifras para comparar la situación de Montevideo con las de otras ciudades.</p>
           </div>
         </div>
@@ -317,7 +330,6 @@
       <div class="section">
           <div class="columns subsection">
               <div class="column content">
-                  <hr class="vertical-line">
                   <h4 class="title vertical-title ">Las mujeres mayoría en la población, la subrepresentación responde a factores más bien culturales</h4>
                   <p>Según el <a href="#">censo 2011 del INE</a> las mujeres representan el 52% de la población, muy por encima de las cifras vistas anteriormente. Existen factores históricos, culturales y de otros tipos que pueden explicar -pero no justificar- esa enorme diferencia.</p>
               </div>
@@ -388,22 +400,24 @@
 
   <div class="container-fluid share">
       <div class="share-button">
-          <a href="#" class="button is-medium" target="_blank" rel="noreferrer noopener">
-              <div class="is-uppercase has-text-light has-text-weight-bold">
+        <div class="fb-share-button" data-href="http://atunombre.uy/" data-layout="button" data-size="large" data-mobile-iframe="true">
+          <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fatunombre.uy%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore button is-medium">
+            <div class="is-uppercase has-text-light has-text-weight-bold">
               <span class="icon is-large">
                   <i class="fa fa-facebook"></i>
-              </span>&nbsp;Me Gusta
-              </div>
+              </span>&nbsp;Compartir
+            </div>
           </a>
+        </div>
       </div>
       <div class="share-button">
-          <a href="#" class="button is-medium" target="_blank" rel="noreferrer noopener">
-              <div class="is-uppercase has-text-light has-text-weight-bold">
-                  <span class="icon is-large">
-                      <i class="fa fa-twitter"></i>
-                  </span>&nbsp;Twittear
-              </div>
-          </a>
+        <a href="https://twitter.com/intent/tweet?hashtags=atunombre&text=Partimos%20de%20la%20base%20de%20que%20una%20ciudad%20la%20hacen%20sus%20habitantes.%20Todos%20y%20todas%20construimos%20la%20ciudad%2C%20su%20cultura%2C%20su%20paisaje%20y%20sus%20costumbres.%20Es%20importante%20sentirse%20parte%20del%20lugar%20donde%20uno%2Fa%20vive%20y%20para%20esto%20es%20fundamental%20sentir%20que%20la%20ciudad%20te%20representa%20e%20incluye.&tw_p=tweetbutton&url=http%3A%2F%2Fatunombre.uy&via=datauy" class="twitter-share-button button is-medium" target="_blank">
+          <div class="is-uppercase has-text-light has-text-weight-bold">
+            <span class="icon is-large">
+                <i class="fa fa-twitter"></i>
+            </span>&nbsp;Twittear
+          </div>
+        </a>
       </div>
   </div>
   

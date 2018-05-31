@@ -1,77 +1,144 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>A tu nombre</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" href="favicon.ico">
-<link href="css/AtuNombre.css" rel="stylesheet" type="text/css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>A Tu Nombre</title>
+  <link rel="stylesheet" href="css/main.css">
 </head>
-
-<body>
-<header><a href="index.html"><img src="img/logo_a_tu_nombre.png" alt="A tu nombre"></a>
-  <nav>
-  <ul>
-    <li><a href="#">El proyecto</a></li>
-    <li><a href="http://atunombre.development.datauy.org/equipo.html">Colaboradores</a></li>
-  </ul>
-</nav></header>
-
-<div class="section">
+<body class="">
+  <!-- has-navbar-fixed-top -->
+  <nav id="top-navbar" class="navbar is-fixed-top">
+      <ul class="nav-elements">
+        <li class="navbar-item is-active is-uppercase is-size-6 has-text-weight-bold" data-section="mapa">
+            <a href="#mapa">Mapa</a>
+        </li>
+        <li class="navbar-item is-uppercase is-size-6 has-text-weight-bold" data-section="calles">
+            <a href="#calles">Calles</a>
+        </li>
+        <li class="navbar-item is-uppercase is-size-6 has-text-weight-bold" data-section="poblacion">
+            <a href="#poblacion">Población</a>
+        </li>
+        <li class="navbar-item is-uppercase has-text-weight-bold secondary-link" data-section="calles">
+          <a href="/proyecto.html">EL PROYECTO</a>
+        </li>
+        <li class="navbar-item is-uppercase has-text-weight-bold secondary-link">
+          <a href="/equipo.html">EQUIPO</a>
+        </li>
+      </ul>
+      
+  </nav>
   
+  <div class="section">
+
   <h3 class="title horizontal-title">¿Qué es y qué busca este proyecto?</h3>
-  
+
   <p class="is-size-6">El objetivo de este mapa es dar visibilidad a los aportes que hacen las mujeres a nuestra sociedad, promover su visibilidad y reconocimiento público a través de los nombres de calles de Montevideo. Queremos ver en qué medida estos aportes son valorados, reconocidos y qué hacían esas mujeres para que “pasen a la historia” otorgándoles el nombre de una calle, pasaje o avenida.</p>
-
   <h3 class="title horizontal-title">¿A quién va dirigido?</h3>
-  
+
   <p class="is-size-6">A toda la ciudadanía de Montevideo, a la clase política, a las organizaciones, en última instancia, a todos y todas las que hacemos la ciudad y en nuestras manos (sea por decisión directa o por demanda) está la posibilidad de cambiar la forma en la que hoy reconocemos a personajes históricos.</p>
-
   <h3 class="title horizontal-title">¿Por qué ésto es diferente al nomenclátor de Montevideo u otros mapas de calles?</h3>
-  
-  <p class="is-size-6">En este mapa encontraremos las calles con nombre de mujer destacadas y al seleccionar cada una nos ofrece acceso a información sobre la mujer homenajeada como nombre, lugar y fecha de nacimiento, biografía, logros. Además ofrecemos algunos datos que intentan poner en contexto la información y contrastar la falta de reconocimiento con el lugar real que ocupan las mujeres en la sociedad uruguaya.</p>
 
+  <p class="is-size-6">En este mapa encontraremos las calles con nombre de mujer destacadas y al seleccionar cada una nos ofrece acceso a información sobre la mujer homenajeada como nombre, lugar y fecha de nacimiento, biografía, logros. Además ofrecemos algunos datos que intentan poner en contexto la información y contrastar la falta de reconocimiento con el lugar real que ocupan las mujeres en la sociedad uruguaya.</p>
   <h3 class="title horizontal-title">¿Cómo lo hicimos?</h3>
-  
+
    <p class="is-size-6">Este proyecto nace de una propuesta de <a href="https://datauy.org">DATA Uruguay</a>, que invitó a la comunidad a desarrollar esta idea a través de nuestros encuentros regulares llamados <a href="https://www.meetup.com/Cafes-de-DATA">Café de DATA</a> (reuniones para trabajar en Datos Abiertos y herramientas sociales.</p>
   <p class="is-size-6">La primera versión de este sitio se comenzó a trabajar junto a un equipo voluntario (¡gracias!) el 21 de febrero de 2015 (Día Mundial de los Datos Abiertos) y en 2017, empezamos a trabajar nuevamente en renovar la propuesta a lo largo de varios encuentros y con trabajo remoto. Conocé al <a href="equipo.html">equipo<a> que hizo esto posible y tené en cuenta que este proyecto va a seguir desarrollándose y mejorando. <b>Si querés sumarte a este equipo, <a href="mailto:contacto@datauy.org">escribinos</a></b>, ¡todo aporte es bienvenido!</p>
-
   <h3 class="title horizontal-title">Datos abiertos que usa la aplicación</h3>
-    
+
   <p class="is-size-6">Los datos utilizados en esta aplicación corresponden al <a href="https://catalogodatos.gub.uy/dataset/vias-montevideo-con-cabezales-numeracion-significado-tipo-titulo">nomenclátor de la Intendencia de Montevideo</a> se encuentran disponibles para su reutilización a través del <a href="https://catalogodatos.gub.uy">Catálogo Nacional de Datos Abiertos</a> de AGESIC, como datos abiertos, en formatos abiertos.</p>
-
   <h3 class="title horizontal-title">¿Cómo se regula la “nomenclatura de calles”?</h3>
-    
+
   <p class="is-size-6">En Montevideo esta tarea corresponde a la <a href="http://www.juntamvd.gub.uy/es.php/comisiones/12-nomenclatura.html">Comisión de Nomenclatura de la Junta Departamental</a> que tiene a Miguel di Ruocco como presidente y además está la  Comisión de Nomenclatura de Montevideo, y su presidenta honoraria es María Emilia Pérez Santarcieri. La Intendencia de Montevideo tiene en su sitio web información sobre el trámite para <a href="http://www.montevideo.gub.uy/tramites-y-tributos/solicitud/denominacion-de-calle">solicitar el cambio de nombre de una calle</a>.</p>
-    
-  </div>
-</div>
 
-<footer>
-  <div class="izq">
-    <img src="img/logo_data.png" alt="DATA">
- 
-    <h3>Acerca de DATA</h3>
-    <p>Somos una organización de la sociedad civil que trabaja creando herramientas sociales para promover la participación y el debate público a través de la transparencia, datos abiertos y acceso a la información.</p>
-    <a href="https://datauy.org">https://datauy.org</a></p><a href="https://www.facebook.com/DATAUruguay"><img src="img/logo_fb.png" width="30" height="30" alt="Facebook DATA"></a><a href="https://www.twitter.com/DATAUY"><img src="img/logo_tw.png" width="30" height="30" alt="Twitter DATA"></a>
   </div>
-  <div class="der">
-    <img src="img/logo_datos_abiertos.png" alt="Datos Abiertos">
-    <h3>Datos abiertos</h3>
-    <p>El estado recoge y produce datos para cumplir con su función. Su publicación en formatos abiertos permite que sean reutilizados por el gobierno, sociedad civil, organizaciones, empresas o ciudadanos en general.</p>
-    <a href="https://www.catalogodatos.gub.uy">https://www.catalogodatos.gub.uy</a>
+  <div class="container-fluid share">
+      <div class="share-button">
+        <div class="fb-share-button" data-href="http://atunombre.uy/" data-layout="button" data-size="large" data-mobile-iframe="true">
+          <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fatunombre.uy%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore button is-medium">
+            <div class="is-uppercase has-text-light has-text-weight-bold">
+              <span class="icon is-large">
+                  <i class="fa fa-facebook"></i>
+              </span>&nbsp;Compartir
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="share-button">
+        <a href="https://twitter.com/intent/tweet?hashtags=atunombre&text=Partimos%20de%20la%20base%20de%20que%20una%20ciudad%20la%20hacen%20sus%20habitantes.%20Todos%20y%20todas%20construimos%20la%20ciudad%2C%20su%20cultura%2C%20su%20paisaje%20y%20sus%20costumbres.%20Es%20importante%20sentirse%20parte%20del%20lugar%20donde%20uno%2Fa%20vive%20y%20para%20esto%20es%20fundamental%20sentir%20que%20la%20ciudad%20te%20representa%20e%20incluye.&tw_p=tweetbutton&url=http%3A%2F%2Fatunombre.uy&via=datauy" class="twitter-share-button button is-medium" target="_blank">
+          <div class="is-uppercase has-text-light has-text-weight-bold">
+            <span class="icon is-large">
+                <i class="fa fa-twitter"></i>
+            </span>&nbsp;Twittear
+          </div>
+        </a>
+      </div>
   </div>
-</footer>
+  
 
+  <footer class="footer">
+      <div class="columns">
+      <div class="column datosabiertos">
+        <div class="footer-logo">
+            <figure class="image">
+              <img src="img/logo-datos-abiertos.svg">
+            </figure>
+        </div>
+        <p class="content is-size-6">El estado recoge y produce datos para cumplir con su función. Su publicación en formatos abiertos permite que sean reutilizados por el gobierno, sociedad civil, organizaciones, empresas o ciudadanos en general.</p>
+        <a target="_blank" rel="noopener" href="https://www.catalogodatos.gub.uy">https://www.catalogodatos.gub.uy</a>
+      </div>
+      <div class="column datauy has-text-light">
+          <div class="wrapper">
+            <div class="footer-logo">
+              <figure class="image">
+                <img src="img/logo_data_white.svg">
+              </figure>
+            </div>
+            <h4 class="subtitle">Acerca de DATA</h1>
+            <p class="content is-size-6">Somos una organización de la sociedad civil que trabaja creando herramientas sociales para promover la participación y el debate público a través de la transparencia, datos abiertos y acceso a la información.</p>
+            <a target="_blank" rel="noopener" href="https://www.datauy.org">https://www.datauy.org</a>
+          </div>
+          <div class="social-footer columns">
+            <a target="_blank" rel="noopener noreferrer" href="#" class="social-link facebook has-text-light">
+                <span class="icon is-large">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-facebook fa-stack-1x social-logo"></i>
+                    </span>
+                </span>
+            </a>
+            <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/DataUY" class="social-link twitter has-text-light">
+                <span class="icon is-large">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-twitter fa-stack-1x social-logo"></i>
+                    </span>
+                </span>
+            </a>
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/datauy/a-tu-nombre/fork" class="social-link github button">
+                <span class="is-size-6">Fork Me!&nbsp;&nbsp;</span>
+                <span class="icon is-large">
+                    <i class="fa fa-github fa-2x" aria-hidden="true"></i>
+                </span>
+            </a>
+          </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script src="/js/main.js"></script>
+  <script src="https://public.flourish.studio/resources/embed.js"></script>
   <script>
-
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-34702401-10', 'auto');
-    ga('send', 'pageview');
-
+    var path = window.location.pathname;
+    jQuery(".nav-elements li").removeClass('is-active');
+    jQuery("a[href$='"+path+"']").parent().addClass('is-active');
+    jQuery('#top-navbar a').click(function(e){
+      if ( !jQuery(this).parent().hasClass('secondary-link') ) {
+        window.location.replace( '/' + jQuery(this).attr('href') )
+      }
+    });
   </script>
-
 </body>
+</html>
