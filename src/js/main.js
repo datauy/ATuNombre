@@ -5,7 +5,6 @@ import L from 'leaflet';
 import lodash from 'lodash';
 import * as d3 from 'd3';
 import * as d3_scale from 'd3-scale';
-import renderTreeMap from './treemap.js';
 import renderPieChart from './piechart.js';
 import renderHorizontalBar from './horizontalBar.js';
 import addClearables from './clearables.js';
@@ -331,8 +330,6 @@ $(document).ready(function() {
         for (let tipo in stats) {
             dataStats.children.push({ name: tipo.toUpperCase(), size: stats[tipo] });
         }
-
-        renderTreeMap(dataStats);
     };
 
     var loadPopulationGraphs = function() {
