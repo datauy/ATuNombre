@@ -41,21 +41,21 @@
     "bulma": "^0.7.0",
     "d3": "^4.11.0",
     "font-awesome": "^4.7.0",
-    "lodash": "^4.17.4",
-    "rollerskate": "^1.1.0",
-    "leaflet": "^1.3.1"
+    "leaflet": "^1.3.1",
+    "lodash": "^4.17.11",
+    "rollerskate": "^1.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
     "babel-minify": "^0.3.0",
-    "babel-preset-env": "^1.2.2",
+    "babel-preset-env": "^1.7.0",
     "cpr": "^2.0.2",
-    "http-server": "^0.9.0",
+    "http-server": "^0.11.1",
     "jquery": "^3.1.1",
     "jsdom": "^9.12.0",
-    "node-minify": "^2.4.2",
     "json-minify": "^1.0.0",
-    "node-sass": "^4.5.0",
+    "node-minify": "^2.4.2",
+    "node-sass": "^4.9.4",
     "npm-run-all": "^4.0.2",
     "onchange": "^3.2.1",
     "preprocess": "^3.1.0",
@@ -63,7 +63,7 @@
     "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-watch": "^3.2.2",
-    "tap": "^10.3.0"
+    "tap": "^12.0.1"
   },
   "prettier": {
     "useTabs": false,
