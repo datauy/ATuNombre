@@ -1,17 +1,1 @@
-[{
-		"value": 13.7,
-		"name": "No definido"
-	},
-	{
-		"value": 68.1,
-		"name": "Si"
-	},
-	{
-		"value": 12.6,
-		"name": "No"
-	},
-	{
-		"value": 5.7,
-		"name": "No relevado"
-	}
-]
+[{"value":13.7,"name":"No definido"},{"value":68.1,"name":"Si"},{"value":12.6,"name":"No"},{"value":5.7,"name":"No relevado"}]
