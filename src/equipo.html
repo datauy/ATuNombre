@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- @include includes/social.html -->
+
+  <title>A Tu Nombre</title>
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- @include includes/analytics.html  -->
+</head>
+<body class="">
+  <!-- @include includes/navbar-top.html -->
+  <div class="section">
+
+  <h3 class="title horizontal-title">Equipo versión 2.0</h3>
+      <h4 class="title vertical-title has-text-weight-bold">Desarrollo</h4>
+      <ul>
+        <li><a href="https://www.twitter.com/julioelpoeta">Julio Foulquie</a></li>
+        <li><a href="https://www.twitter.com/nandouval">Fernando Uval</a></li>
+        <li><a href="https://www.twitter.com/despinoUY">Danilo Espino</a></li>
+      </ul>
+      <h4 class="title vertical-title has-text-weight-bold">Diseño</h4>
+      <ul>
+        <li><a href="https://www.twitter.com/flastereo">Flavia Calandria</a></li>
+        <li><a href="https://www.twitter.com/n370n370">Dylson Valente Neto</a></li>
+      </ul>
+      <h4 class="title vertical-title has-text-weight-bold">Vizualización y datos</h4>
+      <ul>
+        <li><a href="https://www.twitter.com/caro_curbelo">Carolina Curbelo</a></li>
+        <li>Douglas Lovell</li>
+        <li><a href="https://www.twitter.com/RomanSu">Román Sugo</a></li>
+        <li><a href="https://www.twitter.com/Eli_Alvarez210">Eliana Álvarez</a></li>
+        <li><a href="https://www.twitter.com/ernestosperanza">Ernesto Speranza</a></li>
+        <li><a href="https://www.twitter.com/okactivist">Silvia Da Rosa</a></li>
+        <li><a href="https://www.twitter.com/danielcarranza">Daniel Carranza</a></li>
+        <li><a href="https://www.twitter.com/vitoartois">Victoria Esteves</a></li>
+        <li><a href="https://www.twitter.com/fscrollini">Fabrizio Scrollini</a></li>
+      </ul>
+      <h4 class="title vertical-title has-text-weight-bold">Apoyo moral</h4>
+      <ul>
+        <li>Ana Tuduri</a></li>
+        <li>Mateo Scrollini</li>
+      </ul>
+
+    </br>
+
+  <h3 class="title horizontal-title">Equipo versión 1.0</h3>
+
+      <h4 class="title vertical-title has-text-weight-bold">Desarrollo</h4>
+      <ul>
+        <li><a href="https://www.twitter.com/despinoUY">Danilo Espino</a></li>
+        <li>Gustavo Villa</li>
+        <li><a href="https://www.twitter.com/yonsonsal">Ignacio Talavera</a></li>
+        <li><a href="https://www.twitter.com/mfloresuy">Martín Flores</a></li>
+        <li><a href="https://www.twitter.com/vectorns">Matías Fernández</a></li>
+      </ul>
+      <h4 class="title vertical-title has-text-weight-bold">Diseño</h4>
+      <ul>
+        <li>Ana Ferrari</li>
+        <li><a href="https://www.twitter.com/topiiiisima">Valeria Gaibisso</a></li>
+      </ul>
+      <h4 class="title vertical-title has-text-weight-bold">Comunicación</h4>
+      <ul>
+        <li><a href="https://www.twitter.com/caro_curbelo">Carolina Curbelo</a></li>
+        <li><a href="https://www.twitter.com/fernandamurias">Fernanda Murias</a></li>
+        <li>Verónica Lourenco</li>
+      </ul>
+      <h4 class="title vertical-title has-text-weight-bold">Por DATA</h4>
+      <ul>
+        <li><a href="https://www.twitter.com/danielcarranza">Daniel Carranza</a></li>
+        <li><a href="https://www.twitter.com/vitoartois">Victoria Esteves</a></li>
+        <li><a href="https://www.twitter.com/fscrollini">Fabrizio Scrollini</a></li>
+      </ul>
+
+      </br>
+    <p>Éste proyecto va a seguir desarrollándose y mejorando. <b>Si querés sumarte a este equipo, <a href="mailto:contacto@datauy.org">ponete en contacto</a></b>, ¡todo aporte es bienvenido!</p>
+  </div>
+  <!-- @include includes/share-bar.html -->
+
+  <!-- @include includes/footer.html -->
+
+  <script src="/js/main.js"></script>
+  <script src="https://public.flourish.studio/resources/embed.js"></script>
+  <script>
+    var path = window.location.pathname;
+    jQuery(".nav-elements li").removeClass('is-active');
+    jQuery("a[href$='"+path+"']").parent().addClass('is-active');
+    jQuery('#top-navbar a').click(function(e){
+      if ( !jQuery(this).parent().hasClass('secondary-link') ) {
+        window.location.replace( '/' + jQuery(this).attr('href') )
+      }
+    });
+  </script>
+</body>
+</html>

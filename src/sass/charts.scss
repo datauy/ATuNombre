@@ -1,0 +1,39 @@
+.graph-text {
+    text-shadow: -1px -1px 2px hsla(0, 0%, 100%, 0.25), -1px -1px 2px hsla(0, 0%, 100%, 0.25),
+        -1px 1px 2px hsla(0, 0%, 100%, 0.25), 1px -1px 2px hsla(0, 0%, 100%, 0.25),
+        -1px 0px 2px hsla(0, 0%, 100%, 0.25), 1px 0px 2px hsla(0, 0%, 100%, 0.25);
+}
+
+.tooltip {
+    font-size: 0.8rem;
+    font-family: $family-serif;
+    // background-color: $grey-light;
+    // color: $white-bis;
+}
+
+.pie-chart-label {
+    font-family: $family-serif;
+    text-anchor: middle;
+    font-size: 1rem;
+    text-shadow: -1px -1px 2px hsla(0, 0%, 100%, 0.25), -1px -1px 2px hsla(0, 0%, 100%, 0.25),
+    -1px 1px 2px hsla(0, 0%, 100%, 0.25), 1px -1px 2px hsla(0, 0%, 100%, 0.25),
+    -1px 0px 2px hsla(0, 0%, 100%, 0.25), 1px 0px 2px hsla(0, 0%, 100%, 0.25);
+}
+.arc {
+
+    path {
+        stroke: $white-bis;
+        &:hover {
+            // fill: #add8e6;
+        }
+    }
+}
+
+.graph {
+    min-height: 200px;
+    padding: 0 -1.2rem;
+
+    .flourish-embed {
+        margin: 10px auto;
+    }
+}

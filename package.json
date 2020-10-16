@@ -1,0 +1,75 @@
+{
+  "name": "a-tu-nombre",
+  "version": "2.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "npm-run-all build:*",
+    "dev": "npm-run-all build watch-serve",
+    "prod": "npm-run-all build minify",
+    "serve:dev": "http-server dist",
+    "build": "npm-run-all --parallel build:*",
+    "build:data": "cpr src/data dist/data -d",
+    "build:fonts": "cpr node_modules/font-awesome/fonts/ dist/fonts/ -d",
+    "build:html": "src/scripts/buildHtml.js",
+    "build:imgs": "cpr src/img dist/img -d",
+    "build:js": "rollup -c",
+    "build:sass": "node-sass src/sass/main.scss dist/css/main.css",
+    "minify": "npm-run-all --parallel minify:*",
+    "minify:json": "src/scripts/minifyJSON.js",
+    "minify:js": "node node_modules/babel-minify/bin/minify.js dist/js/main.js --mangle.keepClassName --deadcode.keepFnArgs --outFile dist/js/main.js",
+    "minify:css": "src/scripts/minifyCSS.js",
+    "watch": "npm-run-all --parallel watch:*",
+    "watch-serve": "npm-run-all --parallel watch serve:dev",
+    "watch:html": "onchange '**/*.html' -e 'dist/**' -- npm run build:html",
+    "watch:imgs": "onchange \"src/img\" -w -- npm run build:imgs",
+    "watch:js": "npm run build:js -- -w",
+    "watch:sass": "node-sass src/sass/main.scss -wo dist/css/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/datauy/a-tu-nombre.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/datauy/a-tu-nombre/issues"
+  },
+  "homepage": "https://github.com/n370/a-tu-nombre#readme",
+  "dependencies": {
+    "bulma": "^0.7.0",
+    "d3": "^4.11.0",
+    "font-awesome": "^4.7.0",
+    "leaflet": "^1.3.1",
+    "lodash": "^4.17.11",
+    "rollerskate": "^1.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-minify": "^0.3.0",
+    "babel-preset-env": "^1.7.0",
+    "cpr": "^2.0.2",
+    "http-server": "^0.11.1",
+    "jquery": "^3.1.1",
+    "jsdom": "^9.12.0",
+    "json-minify": "^1.0.0",
+    "node-minify": "^2.4.2",
+    "node-sass": "^4.9.4",
+    "npm-run-all": "^4.0.2",
+    "onchange": "^3.2.1",
+    "preprocess": "^3.1.0",
+    "rollup": "^0.41.6",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-watch": "^3.2.2",
+    "tap": "^12.0.1"
+  },
+  "prettier": {
+    "useTabs": false,
+    "printWidth": 100,
+    "tabWidth": 4,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  }
+}

@@ -1,0 +1,118 @@
+<div class="section">
+    <div id="map-intro" class="columns subsection">
+        <div class="column content description">
+            <h4 class="title vertical-title has-text-weight-bold">Parece poco, ¿verdad?</h4>
+            <p class="is-size-6">Este proyecto quiere dar visibilidad a una de las tantas formas que tiene la brecha de género en nuestro país y al mismo tiempo, ayudar a conocer más sobre la historia de las mujeres que dan nombre a estas calles.</p>
+            <p class="is-size-6">Empezá por conocer quiénes son y dónde están y en los próximos pasos vamos a poner esos datos en contexto para saber si son muchas, pocas y de dónde vienen.</p>
+        </div>
+    </div>
+    <div id="map" class="columns subsection">
+        <div class="column is-marginless">
+            <h4 class="title horizontal-title map-title ">Calles con nombre de mujer</h4>
+            <div id="map-container" class="map box">Map</div>
+        </div>
+    </div>
+    <div id="search-profiles" class="columns subsection search-box">
+        <div class="column">
+            <div class="search control has-icons-left is-expanded">
+                <input id="search-field-input" class="input is-static clearable" type="text" placeholder="Buscar">
+                <span class="icon is-small is-left">
+                    <i class="fa fa-search"></i>
+                </span>
+            </div>
+            <div id="profile-cards" class="profile-cards">
+                <div class=" is-clipped box">
+                    <div id="profiles" class="accordion profiles scrollable" data-accordion></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="women-roles-intro" class="columns subsection">
+        <div class="column content description">
+            <h4 class="title horizontal-title map-title ">¿A qué se dedicaban esas mujeres?</h4>
+            <p class="is-size-6">Además de saber quiénes son, importa entender a qué mujeres reconocemos. ¿Qué roles ocuparon en la vida del país? ¿Las reconocemos por sus méritos o por sus relaciones? ¿Se reproducen los mismos estereotipos de género que en otros ámbitos?</p>
+            <p class="is-size-6">En la siguiente gráfica podés comparar a qué se dedicaban o porqué son reconocidas. Por ejemplo, ¿notaste que hay más calles de personajes femeninos de ficción que de políticas?</p>
+        </div>
+    </div>
+    <div id="women-roles-graphs" class="columns">
+        <div class="column">
+            <div class="graph has-text-centered">
+                <div class="flourish-embed" data-src="visualisation/54371"></div>
+            </div>
+        </div>
+    </div>
+    <div id="street-distribution-intro" class="columns">
+        <div class="column">
+            <div class="next">
+                <div class="columns">
+                    <div class="column">
+                        <p class="question is-size-6">¿Y cómo se compara la cantidad de calles de mujeres y hombres? ¿Y contra otras cosas como fauna o lugares? Averigualo dando click abajo.</p>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column">
+                        <div class="button is-large is-size-5 is-fullwidth is-uppercase continuar" data-next="section-calles">
+                            Continuar
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="profile-card-item-template" class="card profile" data-accordion-item style="display: none;">
+    <header class="card-header profile-header">
+        <p class="image is-32x32">
+            <img class="img-circle" src="" onerror="this.src='/img/avatar.png'" alt="Placeholder avatar">
+        </p>
+        <p class="card-header-title">
+            Component
+        </p>
+        <a href="#" class="card-header-icon" aria-label="expandir">
+            <span class="icon arrow arrow-closed">
+                <i class="fa fa-angle-right"></i>
+            </span>
+
+        </a>
+    </header>
+    <div class="card-content profile-content" data-accordion-item-body>
+        <div class="media">
+            <div class="media-left">
+                <p class="image">
+                    <img src="" onerror="this.src='/img/avatar.png'" alt="avatar">
+                </p>
+            </div>
+            <div class="media-content">
+                <p class="title is-3 nombre"></p>
+                <p class="subtitle is-5 subtipo"></p>
+                <div class="content"></div>
+            </div>
+            <div class="media-right">
+                <span class="icon arrow arrow-open" style="display:none;">
+                    <i class="fa fa-angle-down"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="popup-card-item-template" class="card popup" style="display: none;">
+    <div class="card-content">
+        <div class="media">
+            <div class="media-left">
+                <figure class="image">
+                    <img src="" onerror="this.src='/img/avatar.png'" alt="avatar">
+                </figure>
+            </div>
+            <div class="media-content">
+                <p class="title is-4 nombre"></p>
+                <p class="subtitle is-6 subtipo"></p>
+                <div class="content descripcion"></div>
+            </div>
+            <div class="content"></div>
+        </div>
+    </div>
+</div>

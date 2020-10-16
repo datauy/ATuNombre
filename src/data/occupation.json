@@ -1,0 +1,29 @@
+[{
+		"value": 13.7,
+		"name": "Menor de 12 años"
+	},
+	{
+		"value": 41.1,
+		"name": "Ocupadas"
+	},
+	{
+		"value": 0.7,
+		"name": "Desocupadas que buscan trabajos por primera vez"
+	},
+	{
+		"value": 2.9,
+		"name": "Desocupadas propiamente dichas"
+	},
+	{
+		"value": 17.2,
+		"name": "Inactivas, jubiladas o pensionistas"
+	},
+	{
+		"value": 18.7,
+		"name": "Inactivas, otras causas"
+	},
+	{
+		"value": 5.7,
+		"name": "No relevado"
+	}
+]
