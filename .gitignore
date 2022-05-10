@@ -1,6 +1,6 @@
 # A Tu Nombre
 test
-
+dist/
 # Logs
 logs
 *.log
